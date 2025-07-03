@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - Add Account (Step 2)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container single-column-no-alert">
+        <!-- Header -->
+        <header class="header">
+            <a href="dashboard-horizontal.html" class="logo">
+                <h1>Legacy Safe</h1>
+            </a>
+            <div class="header-right">
+                <div class="notifications-icon-header" id="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header" id="user-profile-icon">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item active" data-page="accounts.html">
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Legacy Messages</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html">
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Wizard Container -->
+            <div class="form-wizard">
+                <!-- Progress Bar -->
+                <div class="wizard-progress">
+                    <div class="progress-bar" style="width: 40%;"></div>
+                    <div class="step completed">
+                        <div class="step-icon"><i class="fas fa-check"></i></div>
+                        <div class="step-label">Institution Type</div>
+                    </div>
+                    <div class="step active">
+                        <div class="step-icon"><i class="fas fa-university"></i></div>
+                        <div class="step-label">Bank Details</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="step-label">Account Details</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-upload"></i></div>
+                        <div class="step-label">Documents</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="step-label">Review</div>
+                    </div>
+                </div>
+
+                <!-- Wizard Content -->
+                <div class="wizard-content">
+                    <div class="step-content active">
+                        <h2 class="step-title">Find Your Bank or Financial Institution</h2>
+                        <p class="step-description">Search for your specific bank or credit union, then provide your account details and upload relevant documents.</p>
+
+                        <!-- Bank Search -->
+                        <div class="bank-search">
+                            <input type="text" id="bank-search-input" placeholder="Search for your bank or credit union (e.g., NC State Employee Credit Union)">
+                            <i class="fas fa-search"></i>
+                        </div>
+
+                        <!-- Popular Banks -->
+                        <div class="popular-banks">
+                            <h3 class="section-title">Popular Banks & Financial Institutions</h3>
+                            <div class="bank-grid">
+                                <div class="bank-option" data-bank="wells-fargo">
+                                    <div class="bank-logo wells-fargo-bg">WF</div>
+                                    <div class="bank-name">Wells Fargo</div>
+                                </div>
+                                <div class="bank-option" data-bank="bank-of-america">
+                                    <div class="bank-logo bank-of-america-bg">BOA</div>
+                                    <div class="bank-name">Bank of America</div>
+                                </div>
+                                <div class="bank-option" data-bank="chase">
+                                    <div class="bank-logo chase-bg">Chase</div>
+                                    <div class="bank-name">Chase Bank</div>
+                                </div>
+                                <div class="bank-option" data-bank="citibank">
+                                    <div class="bank-logo citibank-bg">Citi</div>
+                                    <div class="bank-name">Citibank</div>
+                                </div>
+                                <div class="bank-option" data-bank="edward-jones">
+                                    <div class="bank-logo edward-jones-bg">EJ</div>
+                                    <div class="bank-name">Edward Jones</div>
+                                </div>
+                                <div class="bank-option" data-bank="charles-schwab">
+                                    <div class="bank-logo charles-schwab-bg">CS</div>
+                                    <div class="bank-name">Charles Schwab</div>
+                                </div>
+                                <div class="bank-option" data-bank="fidelity">
+                                    <div class="bank-logo fidelity-bg">FID</div>
+                                    <div class="bank-name">Fidelity</div>
+                                </div>
+                                <div class="bank-option" data-bank="navy-federal">
+                                    <div class="bank-logo navy-federal-bg">NFCU</div>
+                                    <div class="bank-name">Navy Federal</div>
+                                </div>
+                                <div class="bank-option" data-bank="usaa">
+                                    <div class="bank-logo usaa-bg">USAA</div>
+                                    <div class="bank-name">USAA</div>
+                                </div>
+                                <div class="bank-option" data-bank="pnc">
+                                    <div class="bank-logo pnc-bg">PNC</div>
+                                    <div class="bank-name">PNC Bank</div>
+                                </div>
+                                <div class="bank-option" data-bank="us-bank">
+                                    <div class="bank-logo us-bank-bg">USB</div>
+                                    <div class="bank-name">US Bank</div>
+                                </div>
+                                <div class="bank-option" data-bank="nc-state-ecu">
+                                    <div class="bank-logo other-bank-bg">NCSECU</div>
+                                    <div class="bank-name">NC State Employees Credit Union</div>
+                                </div>
+                                <div class="bank-option add-new-bank" data-bank="add-new-bank">
+                                    <div class="bank-logo" style="background-color: var(--accent); border: 2px dashed var(--card-bg);">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="bank-name">Add a Bank Not on Our List</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account Details Form -->
+                        <div id="account-details-section" style="display: none;">
+                            <h3 class="section-title">Account Details</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="friendly-name" class="form-label">Friendly Account Name*</label>
+                                    <input type="text" class="form-control" id="friendly-name" placeholder="e.g., Primary Checking, Emergency Savings" required>
+                                    <div class="form-text">Give this account a name that's easy for you to remember</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="account-number" class="form-label">Account Number (Last 4 digits)*</label>
+                                    <input type="text" class="form-control" id="account-number" placeholder="****1234" maxlength="8" required>
+                                    <div class="form-text">For identification purposes only</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="account-type" class="form-label">Account Type*</label>
+                                    <select class="form-control" id="account-type" required>
+                                        <option value="">Select account type</option>
+                                        <option value="checking">Checking Account</option>
+                                        <option value="savings">Savings Account</option>
+                                        <option value="cd">Certificate of Deposit</option>
+                                        <option value="money-market">Money Market Account</option>
+                                        <option value="ira">Traditional IRA</option>
+                                        <option value="roth-ira">Roth IRA</option>
+                                        <option value="401k">401(k)</option>
+                                        <option value="403b">403(b)</option>
+                                        <option value="brokerage">Brokerage Account</option>
+                                        <option value="investment">Investment Account</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="account-status" class="form-label">Account Status</label>
+                                    <select class="form-control" id="account-status">
+                                        <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File Upload Section -->
+                        <div id="file-upload-section" style="display: none;">
+                            <h3 class="section-title">Upload Account Documents</h3>
+                            <p class="form-text" style="margin-bottom: 15px;">Upload statements, agreements, or other documents related to this specific account.</p>
+                            <div class="file-upload" id="account-file-upload">
+                                <div class="file-upload-icon">
+                                    <i class="fas fa-file-upload"></i>
+                                </div>
+                                <div class="file-upload-text">Drag & drop account documents here</div>
+                                <button type="button" class="file-upload-btn">Browse Files</button>
+                                <input type="file" id="account-file-input" multiple style="display: none;" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="file-list" id="account-file-list">
+                                <!-- Uploaded files will be listed here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-secondary" id="back-btn">
+                        <i class="fas fa-arrow-left"></i> Back to Step 1
+                    </button>
+                    <button type="button" class="btn btn-primary" id="continue-btn" disabled>
+                        Continue to Step 3 <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation and UI elements
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            const contrastToggle = document.querySelector('.high-contrast-toggle');
+            const navItemElements = document.querySelectorAll('.nav-item');
+            const notificationsBell = document.getElementById('notifications-bell');
+            const userProfileIcon = document.getElementById('user-profile-icon');
+
+            // Wizard elements
+            const bankOptions = document.querySelectorAll('.bank-option');
+            const bankSearchInput = document.getElementById('bank-search-input');
+            const accountDetailsSection = document.getElementById('account-details-section');
+            const fileUploadSection = document.getElementById('file-upload-section');
+            const continueBtn = document.getElementById('continue-btn');
+            const backBtn = document.getElementById('back-btn');
+
+            // File upload elements
+            const fileUpload = document.getElementById('account-file-upload');
+            const fileInput = document.getElementById('account-file-input');
+            const fileList = document.getElementById('account-file-list');
+
+            let selectedBank = null;
+
+            // Standard navigation
+            if(menuToggle && navItems) {
+                menuToggle.addEventListener('click', function() {
+                    navItems.classList.toggle('show');
+                });
+            }
+
+            if(contrastToggle) {
+                contrastToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('high-contrast');
+                });
+            }
+
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
+                        const pageName = this.getAttribute('data-page');
+                        if (pageName) {
+                            window.location.href = pageName;
+                        }
+                    }
+                });
+            });
+            
+            if (notificationsBell) {
+                notificationsBell.addEventListener('click', function() {
+                    window.location.href = 'notifications.html';
+                });
+            }
+
+            if (userProfileIcon) {
+                userProfileIcon.addEventListener('click', function() {
+                    window.location.href = 'user-profile.html';
+                });
+            }
+
+            // Bank selection logic
+            bankOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Special handling for "add new bank" option
+                    if (this.dataset.bank === 'add-new-bank') {
+                        window.location.href = 'add-new-bank.html';
+                        return;
+                    }
+
+                    // Remove selected class from all options
+                    bankOptions.forEach(opt => opt.classList.remove('selected'));
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    selectedBank = this.dataset.bank;
+                    
+                    // Show account details section
+                    accountDetailsSection.style.display = 'block';
+                    fileUploadSection.style.display = 'block';
+                    
+                    validateForm();
+                });
+            });
+
+            // Bank search functionality
+            bankSearchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                bankOptions.forEach(option => {
+                    const bankName = option.querySelector('.bank-name').textContent.toLowerCase();
+                    if (bankName.includes(searchTerm)) {
+                        option.style.display = 'block';
+                    } else {
+                        option.style.display = 'none';
+                    }
+                });
+            });
+
+            // File upload functionality
+            if (fileUpload && fileInput) {
+                fileUpload.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('file-upload-btn')) {
+                        fileInput.click();
+                    }
+                });
+
+                fileUpload.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    this.style.borderColor = 'var(--accent)';
+                });
+
+                fileUpload.addEventListener('dragleave', function() {
+                    this.style.borderColor = 'var(--border-color)';
+                });
+
+                fileUpload.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.style.borderColor = 'var(--border-color)';
+                    handleFiles(e.dataTransfer.files);
+                });
+
+                fileInput.addEventListener('change', function() {
+                    handleFiles(this.files);
+                });
+            }
+
+            function handleFiles(files) {
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const fileSize = (file.size / (1024 * 1024)).toFixed(2);
+                    
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    
+                    let iconClass = 'fa-file-alt';
+                    if (file.type === 'application/pdf') iconClass = 'fa-file-pdf';
+                    else if (file.type.includes('image')) iconClass = 'fa-file-image';
+                    else if (file.type.includes('word')) iconClass = 'fa-file-word';
+                    
+                    fileItem.innerHTML = `
+                        <div class="file-item-icon">
+                            <i class="fas ${iconClass}"></i>
+                        </div>
+                        <div class="file-item-name">${file.name}</div>
+                        <div class="file-item-size">${fileSize} MB</div>
+                        <button type="button" class="file-item-remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    
+                    fileList.appendChild(fileItem);
+                    
+                    fileItem.querySelector('.file-item-remove').addEventListener('click', function() {
+                        fileItem.remove();
+                    });
+                }
+            }
+
+            // Form validation
+            function validateForm() {
+                const friendlyName = document.getElementById('friendly-name').value;
+                const accountNumber = document.getElementById('account-number').value;
+                const accountType = document.getElementById('account-type').value;
+                
+                if (selectedBank && friendlyName && accountNumber && accountType) {
+                    continueBtn.disabled = false;
+                } else {
+                    continueBtn.disabled = true;
+                }
+            }
+
+            // Add event listeners to form fields
+            document.getElementById('friendly-name').addEventListener('input', validateForm);
+            document.getElementById('account-number').addEventListener('input', validateForm);
+            document.getElementById('account-type').addEventListener('change', validateForm);
+
+            // Navigation buttons
+            backBtn.addEventListener('click', function() {
+                window.location.href = 'add-account.html';
+            });
+
+            continueBtn.addEventListener('click', function() {
+                if (!continueBtn.disabled) {
+                    // In a real app, you would save the data and proceed to step 3
+                    alert('Proceeding to Step 3 - Account Details');
+                    // window.location.href = 'add-account-step3.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

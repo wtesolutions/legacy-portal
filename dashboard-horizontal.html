@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - Your Secure Digital Vault</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="assets/images/FF-Horizontal-white.svg" alt="Safekeeping Spotlight Graphic" style="width: auto; height: 2.75em; border-radius: var(--border-radius);">
+            </div>
+            <div class="header-right">
+                <div class="notifications-icon-header" id="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header" id="user-profile-icon">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+            <ul class="nav-items">
+                <li class="nav-item active" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item" data-page="accounts.html">
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                    <span class="new-badge">NEW</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html"> 
+                    <i class="fas fa-heart"></i>
+                    <span>Legacy Messages</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html"> 
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+        
+        <!-- Alert Card Container -->
+        <div class="alert-card-container">
+            <div class="alert-card">
+                <div class="alert-body">
+                    <div class="alert-icon">
+                        <span class="icon-warning">⚠️</span>
+                    </div>
+                    <div class="alert-content">
+                        <h3 class="alert-title">System Maintenance Scheduled</h3>
+                        <p class="alert-text">
+                            Legacy Safe will undergo scheduled maintenance on June 15, 2025, from 2:00 AM to 4:00 AM EST. The platform may be temporarily unavailable.
+                        </p>
+                    </div>
+                </div>
+                <div class="alert-footer">
+                    <span class="footer-label">System Alert</span>
+                    <span class="footer-timestamp">Today, 9:30 AM</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header-row">
+                <h1>Your Legacy Hub</h1>
+                <!-- <img src="assets/images/Alert.png" alt="Legacy Hub Graphic"> Removed as per instruction -->
+            </div>
+            
+            <!-- Quick Access Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Quick Access</h2>
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                </div>
+                <div class="quick-access-grid">
+                    <div class="quick-access-item" data-link="vault.html">
+                        <i class="fas fa-file-alt"></i>
+                        <div>My Documents</div>
+                    </div>
+                    <div class="quick-access-item" data-link="access-sharing.html#family-circle-tab">
+                        <i class="fas fa-users"></i>
+                        <div>My Family Circle</div>
+                    </div>
+                    <div class="quick-access-item" data-link="accounts.html">
+                        <i class="fas fa-sitemap"></i>
+                        <div>Other Family Accounts</div>
+                    </div>
+                    <div class="quick-access-item" data-link="vault.html#upload-zone">
+                        <i class="fas fa-upload"></i>
+                        <div>Upload Documents</div>
+                    </div>
+                    <div class="quick-access-item" data-link="password-vault.html"> 
+                        <i class="fas fa-lock"></i>
+                        <div>Password Vault</div>
+                    </div>
+                    <div class="quick-access-item" data-link="communication.html"> 
+                        <i class="fas fa-bell"></i>
+                        <div>Communication</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Crisis Management -->
+            <div class="crisis-management">
+                <h3 class="crisis-title">CRISIS MANAGEMENT: My Loved One Has Passed</h3>
+                <p class="crisis-text">We are so very sorry to hear of your loved one's passing, and are here to help you through this difficult time.</p>
+                
+                <!-- Required and Recommended lists removed as per instruction -->
+            
+                <div class="crisis-button" style="margin-top: 15px;">Learn what to do next</div>
+            </div>
+            
+            <!-- Weekly Tip Card
+            <div class="card" style="background-color: var(--primary);">
+                <div class="card-tip">
+                    <h2 class="card-title">Weekly Tip</h2>
+                    <div>
+                        Don't forget to add who will take care of your pets.
+                    </div>
+                </div> 
+            </div -->
+
+            <div class="dashboard-grid">
+                
+                <!-- To Do List Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">To Do List</h2>
+                        <div class="card-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                    </div>
+                    
+                    <h4 class="card-subtitle">Required</h4>
+                    <ul class="todo-list">
+                        <li class="todo-item">
+                            <div class="todo-checkbox"></div>
+                            <div class="todo-content">
+                                <div class="todo-text">Upload Documents</div> 
+                                <div class="todo-meta">High Priority</div>
+                            </div>
+                        </li>
+                        <li class="todo-item">
+                            <div class="todo-checkbox"></div>
+                            <div class="todo-content">
+                                <div class="todo-text">Assign Executor</div>
+                                <div class="todo-meta">Medium Priority</div>
+                            </div>
+                        </li>
+                        <li class="todo-item">
+                            <div class="todo-checkbox"></div>
+                            <div class="todo-content">
+                                <div class="todo-text">Add Death Notification List</div>
+                                <div class="todo-meta">Medium Priority</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <h4 class="card-subtitle">Recommended</h4>
+                    <ul class="todo-list">
+                        <li class="todo-item">
+                            <div class="todo-checkbox"></div>
+                            <div class="todo-content">
+                                <div class="todo-text">Write Letters</div>
+                                <div class="todo-meta">Low Priority</div>
+                            </div>
+                        </li>
+                        <li class="todo-item">
+                            <div class="todo-checkbox"></div>
+                            <div class="todo-content">
+                                <div class="todo-text">Invite Family Members</div>
+                                <div class="todo-meta">Low Priority</div>
+                            </div>
+                        </li>
+                        <li class="todo-item">
+                            <div class="todo-checkbox"></div>
+                            <div class="todo-content">
+                                <div class="todo-text">Refer Family/Friend</div>
+                                <div class="todo-meta">Low Priority</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Vault Completion Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Vault Completion</h2>
+                        <div class="card-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill incomplete" style="width: 57%;"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>4 of 7 Categories Complete</span>
+                            <span>28 Total Documents</span>
+                        </div>
+                    </div>
+                    <div class="document-categories">
+                        <div class="category-item" data-link="vault.html#legal-content">
+                            <div class="category-header">
+                                <div class="category-title">Immediate Priority Legal Documents</div>
+                                <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="category-item" data-link="vault.html#financial-content">
+                            <div class="category-header">
+                                <div class="category-title">Financial, Property & Asset Documentation</div>
+                                <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="category-item" data-link="vault.html#business-content">
+                            <div class="category-header">
+                                <div class="category-title">Business & Employment Records</div>
+                                <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="category-item" data-link="vault.html#personal-content">
+                            <div class="category-header">
+                                <div class="category-title">Personal & Administrative Documents</div>
+                                <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="category-item" data-link="vault.html#digital-content">
+                            <div class="category-header">
+                                <div class="category-title">Digital & Modern Assets</div>
+                                <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill incomplete" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                        <div class="category-item" data-link="vault.html#custom1-content">
+                            <div class="category-header">
+                                <div class="category-title">Custom Folder 1</div>
+                                <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill incomplete" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="category-item" data-link="vault.html#custom2-content">
+                            <div class="category-header">
+                                <div class="category-title">Custom Folder 2</div>
+                                <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill incomplete" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid-two-column">
+                <!-- Recent Activity -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Activity</h2>
+                        <div class="card-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                    </div>
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-file-upload"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-text">Uploaded Will</div>
+                                <div class="activity-time">Today, 10:30 AM</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-secret"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-text">Access attempt by Sarah Johnson</div>
+                                <div class="activity-time">Yesterday, 3:45 PM</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-text">Family Member Account Sent to Robert Smith</div>
+                                <div class="activity-time">Jun 2, 2025</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-text">Access Granted: Emily Brown</div>
+                                <div class="activity-time">Jun 1, 2025</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-text">There was a change on POA 1's account</div>
+                                <div class="activity-time">May 30, 2025</div>
+                            </div>
+                        </div>
+                         <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-text">There was a change on POA 2's account</div>
+                                <div class="activity-time">May 29, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Safekeeping Spotlight Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Safekeeping Spotlight</h2>
+                        <a href="https://example.com/asl-blog" target="_blank" class="card-header-link">
+                            <i class="fa-solid fa-message-lines"></i>
+                        </a>
+                    </div>
+                    <div class="card-body" style="padding:0;"> 
+                         <img src="assets/images/SafeKeep.png" alt="Safekeeping Spotlight Graphic" style="width: 100%; height: auto; border-radius: var(--border-radius);"> 
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Status -->
+            <div class="system-status">
+                <div class="status-item">
+                    <div class="status-indicator green"></div>
+                    <div class="status-text">Last Backup: June 3, 2025</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-indicator yellow"></div>
+                    <div class="status-text">System Alert: June 4, 2025</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            
+            <!-- Weekly Tip -->
+            <div class="card" style="background-color: var(--primary);">
+                <div class="sidebar-card">
+                    <h2 class="sidebar-card-title">Weekly Tip</h2>
+                    <div>
+                        Don't forget to add who will take care of your pets.
+                    </div>
+                </div> 
+            </div>
+            
+            <!-- Countdown Tracker -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i class="fas fa-hourglass-half"></i>
+                    Countdown Tracker
+                </h3>
+                <div class="countdown-item">
+                    <div class="countdown-title">Term life insurance</div>
+                    <div class="countdown-date">Expires: December 15, 2025</div>
+                    <div class="countdown-bar">
+                        <div class="countdown-progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-title">CD account</div>
+                    <div class="countdown-date">Matures: August 22, 2025</div>
+                    <div class="countdown-bar">
+                        <div class="countdown-progress" style="width: 40%;"></div>
+                    </div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-title">Mortgage</div>
+                    <div class="countdown-date">Renewal: September 30, 2025</div>
+                    <div class="countdown-bar">
+                        <div class="countdown-progress" style="width: 55%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connected Accounts -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i class="fas fa-link"></i>
+                    Connected Accounts
+                </h3>
+                <ul class="connected-accounts">
+                    <li class="account-item">
+                        <div class="account-info">
+                            <div class="account-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="account-name">Facebook</div>
+                        </div>
+                        <div class="account-status connected"><i class="fas fa-solid fa-check"></i></div>
+                    </li>
+                    <li class="account-item">
+                        <div class="account-info">
+                            <div class="account-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="account-name">Wells Fargo</div>
+                        </div>
+                        <div class="account-status connected"><i class="fas fa-solid fa-check"></i></div>
+                    </li>
+                </ul>
+                <div class="add-button">
+                    <i class="fas fa-plus"></i>
+                    <span>Connect New Account</span>
+                </div>
+            </div>
+
+            <!-- Member Management -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i class="fas fa-users"></i>
+                    Member Management
+                </h3>
+                <ul class="member-list">
+                    <li class="member-item">
+                        <div class="member-avatar">SJ</div>
+                        <div class="member-info">
+                            <div class="member-name">Sarah Johnson</div>
+                            <div class="member-role">Spouse</div>
+                        </div>
+                    </li>
+                    <li class="member-item">
+                        <div class="member-avatar">RS</div>
+                        <div class="member-info">
+                            <div class="member-name">Robert Smith</div>
+                            <div class="member-role">Son</div>
+                        </div>
+                    </li>
+                    <li class="member-item">
+                        <div class="member-avatar">EB</div>
+                        <div class="member-info">
+                            <div class="member-name">Emily Brown</div>
+                            <div class="member-role">Daughter</div>
+                        </div>
+                    </li>
+                    <li class="member-item">
+                        <div class="member-avatar">JD</div>
+                        <div class="member-info">
+                            <div class="member-name">James Davis</div>
+                            <div class="member-role">Attorney</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="add-button">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Add Family Member</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set progress bar widths
+            const progressFills = document.querySelectorAll('.progress-fill');
+            progressFills.forEach(fill => {
+                const width = fill.style.width;
+                fill.style.width = '0';
+                setTimeout(() => {
+                    fill.style.width = width;
+                }, 300);
+            });
+
+            // Toggle todo items
+            const todoCheckboxes = document.querySelectorAll('.todo-checkbox');
+            todoCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    this.classList.toggle('checked');
+                    const todoText = this.nextElementSibling.querySelector('.todo-text');
+                    if (this.classList.contains('checked')) {
+                        todoText.style.textDecoration = 'line-through';
+                        todoText.style.color = 'var(--text-light)';
+                    } else {
+                        todoText.style.textDecoration = 'none';
+                        todoText.style.color = 'var(--text-dark)';
+                    }
+                });
+                
+                // Initialize checked items
+                if (checkbox.classList.contains('checked')) {
+                    const todoText = checkbox.nextElementSibling.querySelector('.todo-text');
+                    todoText.style.textDecoration = 'line-through';
+                    todoText.style.color = 'var(--text-light)';
+                }
+            });
+
+            // High contrast toggle
+            const contrastToggle = document.querySelector('.high-contrast-toggle');
+            contrastToggle.addEventListener('click', function() {
+                document.body.classList.toggle('high-contrast');
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            
+            if(menuToggle && navItems){
+                menuToggle.addEventListener('click', function() {
+                    navItems.classList.toggle('show');
+                });
+            }
+
+            // Category items click
+            const categoryItems = document.querySelectorAll('.category-item');
+            categoryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const link = this.getAttribute('data-link');
+                    if (link) window.location.href = link;
+                    else console.log('Navigating to category: ' + this.querySelector('.category-title').textContent);
+                });
+            });
+
+            // Quick access items click
+            const quickAccessItems = document.querySelectorAll('.quick-access-item');
+            quickAccessItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const link = this.getAttribute('data-link');
+                    if (link) window.location.href = link;
+                    else console.log('Quick access: ' + this.querySelector('div').textContent);
+                });
+            });
+
+            // Crisis button click
+            const crisisButton = document.querySelector('.crisis-button');
+            if(crisisButton) {
+                crisisButton.addEventListener('click', function() {
+                    console.log('Navigating to crisis management');
+                    window.location.href = 'crisis-management.html'; // Link to crisis page
+                });
+            }
+
+            // Navigation items click
+            const navItemElements = document.querySelectorAll('.nav-item');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) { 
+                        const pageName = this.getAttribute('data-page');
+                        if (pageName) {
+                            console.log('Navigating to:', pageName);
+                            window.location.href = pageName;
+                        }
+                    }
+                });
+            });
+            
+            // Notification bell click
+            const notificationsBell = document.getElementById('notifications-bell');
+            if (notificationsBell) {
+                notificationsBell.addEventListener('click', function() {
+                    window.location.href = 'notifications.html';
+                });
+            }
+
+            // User profile icon click
+            const userProfileIcon = document.getElementById('user-profile-icon');
+            if (userProfileIcon) {
+                userProfileIcon.addEventListener('click', function() {
+                    window.location.href = 'user-profile.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

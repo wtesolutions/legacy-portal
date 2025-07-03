@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics - SADMIN - Legacy Safe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --admin-primary: #1a365d;
+            --admin-secondary: #2d3748;
+            --admin-accent: #3182ce;
+            --admin-success: #38a169;
+            --admin-warning: #d69e2e;
+            --admin-danger: #e53e3e;
+        }
+        .admin-header { background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary)); }
+        .admin-nav { background-color: var(--admin-secondary); }
+        .metric-card { background: white; padding: 20px; border-radius: var(--border-radius); border: 1px solid var(--border-color); margin-bottom: 20px; }
+        .metric-value { font-size: 2.5rem; font-weight: 700; margin-bottom: 5px; }
+        .metric-label { color: var(--text-light); font-size: 14px; margin-bottom: 10px; }
+        .metric-change { font-size: 14px; display: flex; align-items: center; gap: 5px; }
+        .change-up { color: var(--admin-success); }
+        .change-down { color: var(--admin-danger); }
+        .chart-container { background: white; padding: 20px; border-radius: var(--border-radius); border: 1px solid var(--border-color); margin-bottom: 20px; }
+        .date-selector { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; }
+        .export-buttons { display: flex; gap: 10px; }
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        @media (max-width: 768px) {
+            .chart-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container single-column-no-alert">
+        <!-- Admin Header -->
+        <header class="header admin-header">
+            <div class="logo">
+                <h1 style="color: var(--card-bg);">Legacy Safe</h1>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px; margin-left: 10px;">SUPER ADMIN</span>
+            </div>
+            <div class="header-right">
+                <div class="user-profile-icon-header">
+                    <div class="user-avatar" style="background-color: var(--admin-accent);">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" style="color: var(--card-bg);">Admin User</div>
+                        <div class="user-role" style="color: rgba(255,255,255,0.8);">Super Administrator</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="horizontal-nav admin-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="edit-faqs.html">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Edit FAQs</span>
+                </li>
+                <li class="nav-item" data-page="manage-banks.html">
+                    <i class="fas fa-university"></i>
+                    <span>Manage Banks</span>
+                </li>
+                <li class="nav-item" data-page="account-management.html">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Account Management</span>
+                </li>
+                <li class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Reports & Analytics</span>
+                </li>
+                <li class="nav-item" data-page="../dashboard-horizontal.html">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to App</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header-row">
+                <h1>Reports & Analytics</h1>
+                <div class="export-buttons">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-file-excel"></i> Export Excel
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-file-pdf"></i> Generate Report
+                    </button>
+                </div>
+            </div>
+            <p class="page-description">Comprehensive business intelligence and analytics for investors, board members, and executive team.</p>
+
+            <!-- Date Selector -->
+            <div class="date-selector">
+                <label style="font-weight: 600;">Time Period:</label>
+                <select id="date-range" class="form-control" style="width: auto;">
+                    <option value="30">Last 30 Days</option>
+                    <option value="90" selected>Last 90 Days</option>
+                    <option value="180">Last 6 Months</option>
+                    <option value="365">Last 12 Months</option>
+                    <option value="all">All Time</option>
+                </select>
+                <button class="btn btn-secondary btn-sm">
+                    <i class="fas fa-calendar"></i> Custom Range
+                </button>
+            </div>
+
+            <!-- Key Performance Indicators -->
+            <div class="kpi-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Monthly Recurring Revenue (MRR)</div>
+                    <div class="metric-value" style="color: var(--admin-success);">$47,832</div>
+                    <div class="metric-change change-up">
+                        <i class="fas fa-arrow-up"></i> +12.3% vs last month
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Annual Recurring Revenue (ARR)</div>
+                    <div class="metric-value" style="color: var(--admin-accent);">$573,984</div>
+                    <div class="metric-change change-up">
+                        <i class="fas fa-arrow-up"></i> +18.7% vs last year
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Customer Acquisition Cost (CAC)</div>
+                    <div class="metric-value" style="color: var(--admin-warning);">$42.18</div>
+                    <div class="metric-change change-down">
+                        <i class="fas fa-arrow-down"></i> -8.2% (improvement)
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Customer Lifetime Value (LTV)</div>
+                    <div class="metric-value" style="color: var(--admin-success);">$892.34</div>
+                    <div class="metric-change change-up">
+                        <i class="fas fa-arrow-up"></i> +5.8% vs last quarter
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">LTV:CAC Ratio</div>
+                    <div class="metric-value" style="color: var(--admin-success);">21.2:1</div>
+                    <div class="metric-change change-up">
+                        <i class="fas fa-arrow-up"></i> Excellent (>3:1)
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Monthly Churn Rate</div>
+                    <div class="metric-value" style="color: var(--admin-danger);">2.1%</div>
+                    <div class="metric-change change-down">
+                        <i class="fas fa-arrow-down"></i> -0.3% (improvement)
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Net Revenue Retention</div>
+                    <div class="metric-value" style="color: var(--admin-success);">108%</div>
+                    <div class="metric-change change-up">
+                        <i class="fas fa-arrow-up"></i> +2% vs last quarter
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Active Subscriptions</div>
+                    <div class="metric-value" style="color: var(--admin-accent);">1,247</div>
+                    <div class="metric-change change-up">
+                        <i class="fas fa-arrow-up"></i> +28 this month
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row 1 -->
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 20px;">Revenue Growth Trend</h3>
+                    <canvas id="revenueChart" style="max-height: 300px;"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 20px;">Customer Acquisition vs Churn</h3>
+                    <canvas id="customerChart" style="max-height: 300px;"></canvas>
+                </div>
+            </div>
+
+            <!-- Charts Row 2 -->
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 20px;">Subscription Plan Distribution</h3>
+                    <canvas id="planChart" style="max-height: 300px;"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 20px;">Cohort Retention Analysis</h3>
+                    <canvas id="cohortChart" style="max-height: 300px;"></canvas>
+                </div>
+            </div>
+
+            <!-- Additional Metrics -->
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Geographic Distribution</h3>
+                        <i class="fas fa-globe card-icon"></i>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>United States</span>
+                            <strong>67.3% (839 customers)</strong>
+                        </div>
+                        <div style="height: 8px; background-color: var(--border-color); border-radius: 4px;">
+                            <div style="width: 67%; height: 100%; background-color: var(--admin-accent); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Canada</span>
+                            <strong>18.2% (227 customers)</strong>
+                        </div>
+                        <div style="height: 8px; background-color: var(--border-color); border-radius: 4px;">
+                            <div style="width: 18%; height: 100%; background-color: var(--admin-success); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>United Kingdom</span>
+                            <strong>8.7% (108 customers)</strong>
+                        </div>
+                        <div style="height: 8px; background-color: var(--border-color); border-radius: 4px;">
+                            <div style="width: 9%; height: 100%; background-color: var(--admin-warning); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Other</span>
+                            <strong>5.8% (73 customers)</strong>
+                        </div>
+                        <div style="height: 8px; background-color: var(--border-color); border-radius: 4px;">
+                            <div style="width: 6%; height: 100%; background-color: var(--admin-primary); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Payment Method Breakdown</h3>
+                        <i class="fas fa-credit-card card-icon"></i>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span><i class="fab fa-cc-visa"></i> Visa</span>
+                            <strong>42.1%</strong>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span><i class="fab fa-cc-mastercard"></i> Mastercard</span>
+                            <strong>31.7%</strong>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span><i class="fab fa-cc-amex"></i> American Express</span>
+                            <strong>15.3%</strong>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span><i class="fab fa-cc-discover"></i> Discover</span>
+                            <strong>6.8%</strong>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span><i class="fas fa-university"></i> Bank Transfer</span>
+                            <strong>4.1%</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Customer Support Metrics</h3>
+                        <i class="fas fa-headset card-icon"></i>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Avg Response Time:</strong> 2.3 hours
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>First Contact Resolution:</strong> 87%
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Customer Satisfaction:</strong> 4.8/5.0
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Open Tickets:</strong> 23
+                    </div>
+                    <div>
+                        <strong>Escalated Issues:</strong> 3
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Feature Usage Analytics</h3>
+                        <i class="fas fa-chart-pie card-icon"></i>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Document Upload:</strong> 94% active users
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Family Sharing:</strong> 76% active users
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Account Linking:</strong> 68% active users
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Mobile App:</strong> 51% active users
+                    </div>
+                    <div>
+                        <strong>API Integrations:</strong> 23% active users
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Health -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Financial Health Indicators</h3>
+                    <i class="fas fa-chart-line card-icon"></i>
+                </div>
+                <div class="dashboard-grid">
+                    <div>
+                        <h4 style="color: var(--admin-success); margin-bottom: 10px;">✅ Strong Indicators</h4>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>LTV:CAC ratio of 21.2:1 (target: >3:1)</li>
+                            <li>Net Revenue Retention at 108% (target: >100%)</li>
+                            <li>Gross Revenue Retention at 97.9% (target: >90%)</li>
+                            <li>Monthly growth rate of 12.3% MoM</li>
+                            <li>Payback period of 3.2 months (target: <12 months)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--admin-warning); margin-bottom: 10px;">⚠️ Areas to Monitor</h4>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Churn rate trending up in Q4 (seasonal?)</li>
+                            <li>CAC increased 8% vs Q3 (ad costs rising)</li>
+                            <li>Support ticket volume up 15% MoM</li>
+                            <li>Mobile adoption slower than projected</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--admin-accent); margin-bottom: 10px;">🎯 Growth Opportunities</h4>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Joint plans converting 23% higher LTV</li>
+                            <li>Annual plans reduce churn by 45%</li>
+                            <li>Family sharing drives 32% more engagement</li>
+                            <li>Enterprise segment showing strong interest</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation
+            const navItemElements = document.querySelectorAll('.nav-item[data-page]');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    const pageName = this.getAttribute('data-page');
+                    if (pageName) window.location.href = pageName;
+                });
+            });
+
+            // Revenue Growth Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'MRR ($)',
+                        data: [28500, 31200, 33800, 36400, 39100, 41800, 44200, 46100, 47800, 47832, 48200, 49500],
+                        borderColor: '#3182ce',
+                        backgroundColor: 'rgba(49, 130, 206, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + (value/1000).toFixed(0) + 'k';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Customer Acquisition Chart
+            const customerCtx = document.getElementById('customerChart').getContext('2d');
+            new Chart(customerCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'New Customers',
+                        data: [47, 52, 61, 58, 73, 69, 82, 76, 91, 89, 94, 102],
+                        backgroundColor: '#38a169'
+                    }, {
+                        label: 'Churn',
+                        data: [18, 21, 19, 23, 27, 24, 29, 31, 26, 25, 28, 24],
+                        backgroundColor: '#e53e3e'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+
+            // Subscription Plan Chart
+            const planCtx = document.getElementById('planChart').getContext('2d');
+            new Chart(planCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Single Monthly', 'Single Yearly', 'Joint Monthly', 'Joint Yearly'],
+                    datasets: [{
+                        data: [487, 312, 298, 150],
+                        backgroundColor: ['#3182ce', '#38a169', '#d69e2e', '#e53e3e']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }
+            });
+
+            // Cohort Retention Chart
+            const cohortCtx = document.getElementById('cohortChart').getContext('2d');
+            new Chart(cohortCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Month 1', 'Month 2', 'Month 3', 'Month 6', 'Month 12'],
+                    datasets: [{
+                        label: 'Q1 2024 Cohort',
+                        data: [100, 94, 89, 82, 75],
+                        borderColor: '#3182ce',
+                        backgroundColor: 'rgba(49, 130, 206, 0.1)'
+                    }, {
+                        label: 'Q2 2024 Cohort',
+                        data: [100, 96, 91, 85, 78],
+                        borderColor: '#38a169',
+                        backgroundColor: 'rgba(56, 161, 105, 0.1)'
+                    }, {
+                        label: 'Q3 2024 Cohort',
+                        data: [100, 97, 93, 87, null],
+                        borderColor: '#d69e2e',
+                        backgroundColor: 'rgba(214, 158, 46, 0.1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

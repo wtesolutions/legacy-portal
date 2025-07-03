@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safekeeping Spotlight - Blog Entry</title>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Variables for consistent styling, inspired by the project's theme */
+        :root {
+            --primary: #212552;
+            --primary-light: #93D6E9;
+            --secondary: #F4FBFD;
+            --accent: #4BA3BC;
+            --text-dark: #212529;
+            --text-medium: #495057;
+            --text-light: #6C757D;
+            --card-bg: #FFFFFF;
+            --border-color: #DEE2E6;
+            --border-radius: 8px;
+            --border-radius-btn: 20px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base & Universal Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #E8E8E8; /* Light gray background to make card stand out */
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Blog Card Styles */
+        .blog-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            max-width: 700px;
+            width: 100%;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 350px;
+        }
+
+        .card-content {
+            padding: 25px 30px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-icon-link {
+            color: var(--accent);
+            font-size: 20px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .card-icon-link:hover {
+            color: var(--primary);
+        }
+
+        .post-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .card-meta .author {
+            font-weight: 600;
+        }
+
+        .card-excerpt {
+            font-size: 16px;
+            color: var(--text-medium);
+            margin-bottom: 25px;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-btn);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .read-more-btn:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 24px;
+            }
+            .card-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <article class="blog-card">
+        <img class="card-image" src="/api/placeholder/700/350" alt="A person organizing documents on a desk">
+        <div class="card-content">
+            <div class="card-header">
+                <h2 class="card-title">Safekeeping Spotlight</h2>
+                <a href="#" class="card-icon-link" aria-label="View related blog posts">
+                    <i class="fa-solid fa-message-lines"></i>
+                </a>
+            </div>
+            <h3 class="post-title">5 Essential Tips for Organizing Your Digital Legacy</h3>
+            <div class="card-meta">
+                <span class="author">By The Legacy Safe Team</span> | <span class="date">July 3, 2025</span>
+            </div>
+            <p class="card-excerpt">
+                In today's digital world, our lives are increasingly stored online. From social media profiles and cloud photos to financial accounts and cryptocurrency, it's crucial to have a plan for your digital assets. This guide provides five essential tips to help you organize your digital legacy, ensuring your loved ones can manage your online presence according to your wishes.
+            </p>
+            <a href="#" class="read-more-btn">Read Full Article</a>
+        </div>
+    </article>
+
+</body>
+</html>

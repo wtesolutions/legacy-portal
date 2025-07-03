@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SADMIN - Super Admin Dashboard - Legacy Safe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        :root {
+            --admin-primary: #1a365d;
+            --admin-secondary: #2d3748;
+            --admin-accent: #3182ce;
+            --admin-success: #38a169;
+            --admin-warning: #d69e2e;
+            --admin-danger: #e53e3e;
+        }
+        .admin-header { background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary)); }
+        .admin-nav { background-color: var(--admin-secondary); }
+        .admin-card { border-left: 4px solid var(--admin-accent); }
+        .admin-metric { font-size: 2.5rem; font-weight: 700; color: var(--admin-accent); }
+        .admin-trend.up { color: var(--admin-success); }
+        .admin-trend.down { color: var(--admin-danger); }
+        /* Ensure cards always sit above flowing text/content */
+        .card { position: relative; z-index: 1; }
+    </style>
+</head>
+<body>
+    <div class="container single-column-no-alert">
+        <!-- Admin Header -->
+        <header class="header admin-header">
+            <div class="logo">
+                <h1 style="color: var(--card-bg);">Legacy Safe</h1>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px; margin-left: 10px;">SUPER ADMIN</span>
+            </div>
+            <div class="header-right">
+                <div class="user-profile-icon-header">
+                    <div class="user-avatar" style="background-color: var(--admin-accent);">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" style="color: var(--card-bg);">Admin User</div>
+                        <div class="user-role" style="color: rgba(255,255,255,0.8);">Super Administrator</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="horizontal-nav admin-nav">
+            <ul class="nav-items">
+                <li class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="account-management.html">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Account Management</span>
+                </li>
+                <li class="nav-item" data-page="edit-faqs.html">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Edit FAQs</span>
+                </li>
+                <li class="nav-item" data-page="manage-banks.html">
+                    <i class="fas fa-university"></i>
+                    <span>Manage Banks</span>
+                </li>
+                <li class="nav-item" data-page="reports.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Reports & Analytics</span>
+                </li>
+                <li class="nav-item" data-page="../dashboard-horizontal.html">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to App</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Super Admin Dashboard</h1>
+            <p class="page-description">Comprehensive account management and system administration for Legacy Safe.</p>
+
+            <!-- Key Metrics -->
+            <div class="dashboard-grid">
+                <div class="card admin-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Monthly Recurring Revenue</h3>
+                        <i class="fas fa-dollar-sign card-icon" style="background-color: var(--admin-success);"></i>
+                    </div>
+                    <div class="admin-metric">$47,832</div>
+                    <div class="admin-trend up">
+                        <i class="fas fa-arrow-up"></i> +12.3% from last month
+                    </div>
+                </div>
+
+                <div class="card admin-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Active Subscriptions</h3>
+                        <i class="fas fa-users card-icon" style="background-color: var(--admin-accent);"></i>
+                    </div>
+                    <div class="admin-metric">1,247</div>
+                    <div class="admin-trend up">
+                        <i class="fas fa-arrow-up"></i> +28 this week
+                    </div>
+                </div>
+
+                <div class="card admin-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Customer Churn Rate</h3>
+                        <i class="fas fa-chart-line card-icon" style="background-color: var(--admin-warning);"></i>
+                    </div>
+                    <div class="admin-metric">2.1%</div>
+                    <div class="admin-trend down">
+                        <i class="fas fa-arrow-down"></i> -0.3% from last month
+                    </div>
+                </div>
+
+                <div class="card admin-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Customer LTV</h3>
+                        <i class="fas fa-money-bill-wave card-icon" style="background-color: var(--admin-success);"></i>
+                    </div>
+                    <div class="admin-metric">$892</div>
+                    <div class="admin-trend up">
+                        <i class="fas fa-arrow-up"></i> +$47 avg increase
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="dashboard-grid-two-column">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Quick Actions</h3>
+                        <i class="fas fa-bolt card-icon"></i>
+                    </div>
+                    <div class="quick-access-grid">
+                        <div class="quick-access-item" onclick="window.location.href='edit-faqs.html'">
+                            <i class="fas fa-edit"></i>
+                            <span>Edit FAQs</span>
+                        </div>
+                        <div class="quick-access-item" onclick="window.location.href='manage-banks.html'">
+                            <i class="fas fa-university"></i>
+                            <span>Manage Banks</span>
+                        </div>
+                        <div class="quick-access-item" onclick="window.location.href='account-management.html'">
+                            <i class="fas fa-user-cog"></i>
+                            <span>User Accounts</span>
+                        </div>
+                        <div class="quick-access-item" onclick="window.location.href='reports.html'">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>View Reports</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Subscription Breakdown</h3>
+                        <i class="fas fa-pie-chart card-icon"></i>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Single Monthly</span>
+                            <strong>487 users (39%)</strong>
+                        </div>
+                        <div style="height: 8px; background-color: var(--border-color); border-radius: 4px;">
+                            <div style="width: 39%; height: 100%; background-color: var(--admin-accent); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Single Yearly</span>
+                            <strong>312 users (25%)</strong>
+                        </div>
+                        <div style="height: 8px; background-color: var(--border-color); border-radius: 4px;">
+                            <div style="width: 25%; height: 100%; background-color: var(--admin-success); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Joint Monthly</span>
+                            <strong>298 users (24%)</strong>
+                        </div>
+                        <div style="height: 8px; background-color: var(--border-color); border-radius: 4px;">
+                            <div style="width: 24%; height: 100%; background-color: var(--admin-warning); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Joint Yearly</span>
+                            <strong>150 users (12%)</strong>
+                        </div>
+                        <div style="height: 8px; background-color: var(--border-color); border-radius: 4px;">
+                            <div style="width: 12%; height: 100%; background-color: var(--admin-primary); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Administrative Activity</h3>
+                    <i class="fas fa-history card-icon"></i>
+                </div>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background-color: var(--admin-success);">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">New subscription: Johnson Family (Joint Yearly)</div>
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background-color: var(--admin-accent);">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Bank added: Regional Credit Union (User Generated)</div>
+                            <div class="activity-time">4 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background-color: var(--admin-warning);">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">FAQ updated: "How to add family members"</div>
+                            <div class="activity-time">6 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background-color: var(--admin-danger);">
+                            <i class="fas fa-user-times"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Subscription cancelled: Smith, Sarah (Single Monthly)</div>
+                            <div class="activity-time">8 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItemElements = document.querySelectorAll('.nav-item[data-page]');
+            
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    const pageName = this.getAttribute('data-page');
+                    if (pageName) {
+                        window.location.href = pageName;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

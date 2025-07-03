@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - FAQ & Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container single-column-no-alert"> <!-- No right sidebar, no top alert -->
+        <!-- Header -->
+        <header class="header">
+            <a href="dashboard-horizontal.html" class="logo">
+                <h1>Legacy Safe</h1>
+            </a>
+            <div class="header-right">
+                <div class="notifications-icon-header" id="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header" id="user-profile-icon">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item" data-page="accounts.html">
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Legacy Messages</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html">
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown active"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html" class="active-dropdown-item">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">FAQ & Support</h1>
+            <p class="page-subtitle">Find answers to common questions about using Legacy Safe</p>
+
+            <!-- FAQ Search -->
+            <div class="faq-search-container">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <input type="text" class="faq-search" id="faq-search" placeholder="Search for questions...">
+            </div>
+
+            <!-- FAQ Categories -->
+            <div class="faq-categories">
+                <div class="faq-category active" data-category="all">All Questions</div>
+                <div class="faq-category" data-category="account">Account Setup</div>
+                <div class="faq-category" data-category="documents">Documents & Files</div>
+                <div class="faq-category" data-category="family">Family Members</div>
+                <div class="faq-category" data-category="security">Security & Privacy</div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-container">
+                <!-- Question 1 -->
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">How do I create an account?</div>
+                    <div class="faq-answer">
+                        <p>Creating a Legacy Safe account is easy:</p>
+                        <ol>
+                            <li>Visit the Legacy Safe website at www.legacysafe.com</li>
+                            <li>Click on the "Sign Up" or "Get Started" button</li>
+                            <li>Enter your email address and create a strong password</li>
+                            <li>Verify your email address by clicking the link sent to your inbox</li>
+                            <li>Complete your profile information</li>
+                            <li>Set up your security questions and recovery options</li>
+                        </ol>
+                        <p>Once your account is created, you'll be guided through a setup wizard to help you organize your vault and add important documents.</p>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="faq-item" data-category="documents">
+                    <div class="faq-question">How do I add files?</div>
+                    <div class="faq-answer">
+                        <p>You can add files to your Legacy Safe vault in several ways:</p>
+                        <ol>
+                            <li>From your Dashboard, click on "Upload Documents" in the Quick Access section</li>
+                            <li>Navigate to "My Vault" and click the "Upload" button</li>
+                            <li>Select the folder where you want to store the file</li>
+                            <li>Click "Browse" to select files from your computer or drag and drop files directly into the upload area</li>
+                            <li>Add any additional information or tags to help organize your files</li>
+                            <li>Click "Upload" to securely store your files</li>
+                        </ol>
+                        <p>Legacy Safe supports most common file formats including PDF, Word documents, images (JPG, PNG), spreadsheets, and more. The maximum file size is 40MB per file.</p>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="faq-item" data-category="family">
+                    <div class="faq-question">How do I add a secondary member?</div>
+                    <div class="faq-answer">
+                        <p>To add a secondary member to your Legacy Safe account:</p>
+                        <ol>
+                            <li>Log in to your account as the Primary Member</li>
+                            <li>Navigate to "Family Circle" in the main navigation</li>
+                            <li>Click on "Add Family Member" or "Add Member"</li>
+                            <li>Enter the email address of the person you want to add</li>
+                            <li>Select their relationship to you (spouse, child, parent, etc.)</li>
+                            <li>Choose their role (Secondary Member, Executor, Beneficiary, etc.)</li>
+                            <li>Set their permission level</li>
+                            <li>Click "Send Invitation"</li>
+                        </ol>
+                        <p>The person will receive an email invitation to join your Legacy Safe account. They'll need to create their own account or log in if they already have one, and then they'll be connected to your account with the permissions you've specified.</p>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="faq-item" data-category="family">
+                    <div class="faq-question">How do I permission a secondary member to files or folders?</div>
+                    <div class="faq-answer">
+                        <p>To set permissions for secondary members to access specific files or folders:</p>
+                        <ol>
+                            <li>Log in as the Primary Member</li>
+                            <li>Go to "Access & Sharing" in the main navigation</li>
+                            <li>Select the "Permissions" tab</li>
+                            <li>You'll see a table with your family members and document categories</li>
+                            <li>For each document category or specific document, select the appropriate permission level for each family member:
+                                <ul>
+                                    <li><strong>No Access:</strong> Cannot view or access the file/folder</li>
+                                    <li><strong>View Only:</strong> Can view but not download or edit</li>
+                                    <li><strong>Download:</strong> Can view and download but not edit</li>
+                                    <li><strong>Edit:</strong> Can view, download, and make changes</li>
+                                    <li><strong>Full Access:</strong> Complete access including sharing permissions</li>
+                                </ul>
+                            </li>
+                            <li>Click "Save Changes" to apply the new permissions</li>
+                        </ol>
+                        <p>You can also set permissions when uploading new documents by selecting who should have access to the file and what level of access they should have.</p>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="faq-item" data-category="family">
+                    <div class="faq-question">Do Secondary Members automatically see what a Primary Member has uploaded to the account?</div>
+                    <div class="faq-answer">
+                        <p>No, Secondary Members do not automatically see everything that a Primary Member uploads to the account. By default, Secondary Members only have access to files and folders that the Primary Member has specifically shared with them.</p>
+                        <p>The Primary Member must explicitly grant permissions for Secondary Members to view specific documents or folders. This ensures that sensitive information remains private unless intentionally shared.</p>
+                        <p>To change default permissions for new uploads:</p>
+                        <ol>
+                            <li>Go to "Access & Sharing"</li>
+                            <li>Select "Default Permissions"</li>
+                            <li>Choose which family members should automatically get access to new uploads</li>
+                            <li>Select the default permission level for each person</li>
+                        </ol>
+                        <p>This privacy-first approach ensures that you maintain control over who can see your sensitive documents.</p>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="faq-item" data-category="documents">
+                    <div class="faq-question">Who can add folders?</div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>Only a Primary Member can add folders. Within "My Folders", select the 3 dots in the upper right corner. Select "Create New Folder". From there, add a folder title.</li>
+                            <li>Secondary Members have view only access and are unable to create folders or files.</li>
+                        </ul>
+                        <p>This restriction ensures that the organizational structure of your vault remains consistent and is managed by the Primary Member. If a Secondary Member needs a new folder, they should contact the Primary Member to request it.</p>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="faq-item" data-category="documents">
+                    <div class="faq-question">Who can edit or delete folders?</div>
+                    <div class="faq-answer">
+                        <p>Only the Primary Member has the ability to edit or delete folders in the Legacy Safe vault. This includes:</p>
+                        <ul>
+                            <li>Renaming folders</li>
+                            <li>Moving folders to different locations</li>
+                            <li>Deleting folders and their contents</li>
+                            <li>Changing folder settings or permissions</li>
+                        </ul>
+                        <p>Secondary Members, even those with edit permissions to files within a folder, cannot modify the folder structure itself. This ensures that the organizational system remains consistent and prevents accidental deletion of important categories.</p>
+                        <p>If a Secondary Member needs changes to the folder structure, they should contact the Primary Member to request these changes.</p>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">What is the difference between a Primary and Secondary Member?</div>
+                    <div class="faq-answer">
+                        <p>Legacy Safe has different types of account members with varying levels of access and control:</p>
+                        <p><strong>Primary Member:</strong></p>
+                        <ul>
+                            <li>The account owner who creates and pays for the Legacy Safe subscription</li>
+                            <li>Has full control over all documents, folders, and settings</li>
+                            <li>Can add and remove Secondary Members</li>
+                            <li>Can create, edit, and delete folders</li>
+                            <li>Sets permissions for all other users</li>
+                            <li>Designates executors and beneficiaries</li>
+                        </ul>
+                        <p><strong>Secondary Member:</strong></p>
+                        <ul>
+                            <li>Invited by the Primary Member</li>
+                            <li>Has limited access based on permissions set by the Primary Member</li>
+                            <li>Cannot create folders or modify the folder structure</li>
+                            <li>Can only view, download, or edit files if given permission</li>
+                            <li>Cannot add other members to the account</li>
+                        </ul>
+                        <p>Each Legacy Safe account has only one Primary Member but can have multiple Secondary Members depending on your subscription plan.</p>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="faq-item" data-category="security">
+                    <div class="faq-question">How secure is Legacy Safe?</div>
+                    <div class="faq-answer">
+                        <p>Legacy Safe employs multiple layers of security to protect your sensitive information:</p>
+                        <ul>
+                            <li><strong>Encryption:</strong> All data is encrypted both in transit (using SSL/TLS) and at rest (using AES-256 encryption)</li>
+                            <li><strong>Access Controls:</strong> Granular permissions system ensures only authorized users can access specific documents</li>
+                            <li><strong>Authentication:</strong> Multi-factor authentication options to prevent unauthorized access</li>
+                            <li><strong>Regular Backups:</strong> Your data is backed up regularly to prevent loss</li>
+                            <li><strong>Monitoring:</strong> Systems are continuously monitored for suspicious activity</li>
+                            <li><strong>Privacy Focus:</strong> We do not sell or share your personal information with third parties</li>
+                        </ul>
+                        <p>Our security practices are regularly reviewed and updated to maintain the highest standards of protection for your important documents and information.</p>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="faq-item" data-category="documents">
+                    <div class="faq-question">What types of documents should I store in Legacy Safe?</div>
+                    <div class="faq-answer">
+                        <p>Legacy Safe is designed to store and organize all your important documents and information. Here are some recommended categories:</p>
+                        <ul>
+                            <li><strong>Legal Documents:</strong> Wills, trusts, power of attorney, healthcare directives, burial instructions</li>
+                            <li><strong>Financial Records:</strong> Bank accounts, investment accounts, retirement accounts, insurance policies</li>
+                            <li><strong>Property Documents:</strong> Real estate deeds, vehicle titles, valuable asset information</li>
+                            <li><strong>Personal Documents:</strong> Birth certificates, marriage certificates, Social Security cards, passports</li>
+                            <li><strong>Digital Assets:</strong> Password inventory, cryptocurrency information, digital account access</li>
+                            <li><strong>Medical Information:</strong> Medical history, medications, allergies, doctor contacts</li>
+                            <li><strong>Business Records:</strong> Business ownership documents, partnership agreements, succession plans</li>
+                            <li><strong>Family Legacy:</strong> Family photos, videos, letters, family history, genealogy</li>
+                        </ul>
+                        <p>The goal is to have all your critical information organized in one secure location that can be accessed by your loved ones when needed.</p>
+                    </div>
+                </div>
+
+                <!-- Question 11 -->
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">What happens to my account if I pass away?</div>
+                    <div class="faq-answer">
+                        <p>Legacy Safe is designed to ensure your information is accessible to your designated contacts after your passing:</p>
+                        <ol>
+                            <li><strong>Executor Access:</strong> Your designated executor will need to submit a death certificate through the "Crisis Management" section</li>
+                            <li><strong>Verification Process:</strong> Legacy Safe verifies the death certificate and the identity of the executor</li>
+                            <li><strong>Notification:</strong> Once verified, everyone on your death notification list is informed</li>
+                            <li><strong>Access Granted:</strong> Your executor receives full access to your vault according to your instructions</li>
+                            <li><strong>Legacy Instructions:</strong> Any specific instructions or messages you've left are delivered</li>
+                            <li><strong>Beneficiary Access:</strong> Designated beneficiaries receive access to specific documents you've assigned to them</li>
+                        </ol>
+                        <p>It's important to keep your executor information and death notification list up to date. You should also periodically review your access settings to ensure the right people have access to the right information when needed.</p>
+                    </div>
+                </div>
+
+                <!-- Question 12 -->
+                <div class="faq-item" data-category="security">
+                    <div class="faq-question">How do I set up the emergency access feature?</div>
+                    <div class="faq-answer">
+                        <p>The emergency access feature allows trusted contacts to request access to your vault in case of emergency. To set it up:</p>
+                        <ol>
+                            <li>Navigate to "Access & Sharing" in the main menu</li>
+                            <li>Select the "Emergency Access" tab</li>
+                            <li>Click "Add Emergency Contact"</li>
+                            <li>Enter the contact's email address and relationship to you</li>
+                            <li>Set a waiting period (how long before they gain access after requesting it)</li>
+                            <li>Choose what level of access they should receive</li>
+                            <li>Decide if you want to require your approval or allow automatic access after the waiting period</li>
+                            <li>Click "Send Invitation"</li>
+                        </ol>
+                        <p>Your contact will receive an email invitation to connect as an emergency contact. They'll need to accept this invitation for the emergency access to be activated.</p>
+                        <p>You can also set up a "heartbeat check" system that will notify your emergency contacts if you haven't logged in for an extended period.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Support Section -->
+            <div class="support-section" style="background-color:#000;color:#fff;">
+                <h2 class="support-title">Need More Help?</h2>
+                <p class="support-text">Our support team is ready to assist you with any questions or issues you may have.</p>
+                
+                <div class="support-options">
+                    <div class="support-option">
+                        <div class="support-option-title">
+                            <i class="fas fa-comments"></i>
+                            Live Chat Support
+                        </div>
+                        <p class="support-option-text">Chat with our support team in real-time for immediate assistance.</p>
+                        <a href="#" class="support-button">Start Chat</a>
+                    </div>
+                    
+                    <div class="support-option">
+                        <div class="support-option-title">
+                            <i class="fas fa-envelope"></i>
+                            Email Support
+                        </div>
+                        <p class="support-option-text">Send us an email and we'll respond within 24 hours.</p>
+                        <a href="mailto:support@legacysafe.com" class="support-button">Email Us</a>
+                    </div>
+                    
+                    <div class="support-option">
+                        <div class="support-option-title">
+                            <i class="fas fa-phone"></i>
+                            Phone Support
+                        </div>
+                        <p class="support-option-text">Speak directly with our senior-friendly support team.</p>
+                        <a href="tel:1-800-LEGACY-SAFE" class="support-button">Call Us</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all other open questions
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Toggle the clicked question
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+
+            // FAQ Search functionality
+            const searchInput = document.getElementById('faq-search');
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                faqItems.forEach(item => {
+                    const questionText = item.querySelector('.faq-question').textContent.toLowerCase();
+                    const answerText = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    
+                    if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // If search is empty, show all items based on current category filter
+                if (searchTerm === '') {
+                    filterByCategory(document.querySelector('.faq-category.active').getAttribute('data-category'));
+                }
+            });
+
+            // FAQ Category filtering
+            const categoryButtons = document.querySelectorAll('.faq-category');
+            
+            function filterByCategory(category) {
+                faqItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter items by category
+                    const category = this.getAttribute('data-category');
+                    filterByCategory(category);
+                    
+                    // Clear search input
+                    searchInput.value = '';
+                });
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            
+            if(menuToggle && navItems) {
+                menuToggle.addEventListener('click', function() {
+                    navItems.classList.toggle('show');
+                });
+            }
+
+            // High contrast toggle
+            const contrastToggle = document.querySelector('.high-contrast-toggle');
+            if(contrastToggle) {
+                contrastToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('high-contrast');
+                });
+            }
+
+            // Navigation items click
+            const navItemElements = document.querySelectorAll('.nav-item');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
+                        const pageName = this.getAttribute('data-page');
+                        if (pageName) {
+                            console.log('Navigating to:', pageName);
+                            window.location.href = pageName;
+                        }
+                    }
+                });
+            });
+            
+            // Notification bell click
+            const notificationsBell = document.getElementById('notifications-bell');
+            if (notificationsBell) {
+                notificationsBell.addEventListener('click', function() {
+                    window.location.href = 'notifications.html';
+                });
+            }
+
+            // User profile icon click
+            const userProfileIcon = document.getElementById('user-profile-icon');
+            if (userProfileIcon) {
+                userProfileIcon.addEventListener('click', function() {
+                    window.location.href = 'user-profile.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

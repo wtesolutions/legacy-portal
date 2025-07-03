@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - Family Keepsake Uploader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container single-column-no-alert">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="assets/images/FF-Horizontal-white.svg"
+                     alt="Safekeeping Spotlight Graphic"
+                     style="width: auto; height: 2.75em; border-radius: var(--border-radius);">
+            </div>
+            <div class="header-right">
+                <div class="notifications-icon-header" id="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header" id="user-profile-icon">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+             <ul class="nav-items">
+                <li class="nav-item" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item" data-page="accounts.html">
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                    <span class="new-badge">NEW</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Legacy Messages</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html">
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Family Keepsake Uploader</h1>
+            <p class="page-subtitle">Upload your precious family memories like photos, recipes, and videos. Add a description for each group of items you upload. This section is for personal keepsakes, not official or legal documents.</p>
+
+            <div class="form-container" style="max-width: 800px;">
+                <form id="keepsake-upload-form">
+                    <div class="form-section">
+                        <h2 class="form-section-title">Upload Group Details</h2>
+                        <div class="form-group">
+                            <label for="group-title" class="form-label">Title / Description for this Upload Group*</label>
+                            <input type="text" class="form-control" id="group-title" placeholder="e.g., Kim & My Trip to National Harbor 2016, Grandma's Famous Recipes" required>
+                            <p class="form-text">Provide a meaningful title or description for the files you are about to upload together.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="group-category" class="form-label">Category (Optional)</label>
+                            <select id="group-category" class="form-control">
+                                <option value="">Select a category</option>
+                                <option value="photos_vacation">Vacation Photos</option>
+                                <option value="photos_family">Family Gatherings</option>
+                                <option value="photos_events">Special Events</option>
+                                <option value="recipes">Recipes</option>
+                                <option value="videos_family">Family Videos</option>
+                                <option value="videos_events">Event Videos</option>
+                                <option value="documents_personal">Personal Letters/Documents</option>
+                                <option value="audio_recordings">Audio Recordings</option>
+                                <option value="other_keepsakes">Other Keepsakes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="group-tags" class="form-label">Tags (Optional, comma-separated)</label>
+                            <input type="text" class="form-control" id="group-tags" placeholder="e.g., summer, beach, 2016, cooking">
+                        </div>
+                         <div class="form-group">
+                            <label for="group-detailed-description" class="form-label">Detailed Description / Story (Optional)</label>
+                            <textarea class="form-control" id="group-detailed-description" rows="5" placeholder="Share more details or a story related to these keepsakes..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="form-section-title">Upload Files</h2>
+                        <p class="form-text" style="margin-bottom: 15px;">Drag and drop photos, videos, recipes, or other keepsake files below, or click to browse. Accepted types: images, videos, PDF, DOC, TXT.</p>
+                        <div class="file-upload" id="keepsake-file-upload-area">
+                            <div class="file-upload-icon">
+                                <i class="fas fa-photo-video"></i>
+                            </div>
+                            <div class="file-upload-text">Drag & drop photos, videos, recipes, etc. here</div>
+                            <button type="button" class="btn btn-primary keepsake-browse-btn">Browse Files</button>
+                            <input type="file" id="keepsake-file-input" multiple style="display: none;" accept="image/*,video/*,.pdf,.doc,.docx,.txt,.rtf">
+                        </div>
+                        <div class="file-list" id="keepsake-file-list">
+                            <!-- Uploaded files will be listed here -->
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: right;">
+                         <button type="submit" class="btn btn-success btn-lg">
+                            <i class="fas fa-cloud-upload-alt"></i> Upload Keepsakes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            const contrastToggle = document.querySelector('.high-contrast-toggle');
+            const navItemElements = document.querySelectorAll('.nav-item');
+            const notificationsBell = document.getElementById('notifications-bell');
+            const userProfileIcon = document.getElementById('user-profile-icon');
+
+            // File Upload Elements
+            const keepsakeFileUploadArea = document.getElementById('keepsake-file-upload-area');
+            const keepsakeFileInput = document.getElementById('keepsake-file-input');
+            const keepsakeFileListContainer = document.getElementById('keepsake-file-list');
+            const keepsakeBrowseBtn = document.querySelector('.keepsake-browse-btn');
+            const keepsakeUploadForm = document.getElementById('keepsake-upload-form');
+
+            if(menuToggle && navItems) {
+                menuToggle.addEventListener('click', function() {
+                    navItems.classList.toggle('show');
+                });
+            }
+
+            if(contrastToggle) {
+                contrastToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('high-contrast');
+                });
+            }
+
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
+                        const pageName = this.getAttribute('data-page');
+                        if (pageName) {
+                            window.location.href = pageName;
+                        }
+                    }
+                });
+            });
+            
+            if (notificationsBell) {
+                notificationsBell.addEventListener('click', function() {
+                    window.location.href = 'notifications.html';
+                });
+            }
+
+            if (userProfileIcon) {
+                userProfileIcon.addEventListener('click', function() {
+                    window.location.href = 'user-profile.html';
+                });
+            }
+
+            // File Upload Logic
+            if (keepsakeBrowseBtn && keepsakeFileInput) {
+                keepsakeBrowseBtn.addEventListener('click', () => keepsakeFileInput.click());
+            }
+            if (keepsakeFileUploadArea && keepsakeFileInput) {
+                keepsakeFileUploadArea.addEventListener('click', (e) => {
+                    if(e.target !== keepsakeBrowseBtn && !keepsakeBrowseBtn.contains(e.target)) {
+                         keepsakeFileInput.click();
+                    }
+                });
+
+                keepsakeFileUploadArea.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    this.classList.add('drag-over');
+                });
+                keepsakeFileUploadArea.addEventListener('dragleave', function() {
+                    this.classList.remove('drag-over');
+                });
+                keepsakeFileUploadArea.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('drag-over');
+                    handleKeepsakeFiles(e.dataTransfer.files);
+                });
+                keepsakeFileInput.addEventListener('change', function() {
+                    handleKeepsakeFiles(this.files);
+                });
+            }
+
+            function handleKeepsakeFiles(files) {
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const fileSize = (file.size / (1024 * 1024)).toFixed(2); // Convert to MB
+                    
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    let iconClass = 'fa-file-alt';
+                    if (file.type.startsWith('image/')) iconClass = 'fa-file-image';
+                    else if (file.type.startsWith('video/')) iconClass = 'fa-file-video';
+                    else if (file.type === 'application/pdf') iconClass = 'fa-file-pdf';
+                    
+                    fileItem.innerHTML = `
+                        <div class="file-item-icon">
+                            <i class="fas ${iconClass}"></i>
+                        </div>
+                        <div class="file-item-name">${file.name}</div>
+                        <div class="file-item-size">${fileSize} MB</div>
+                        <button type="button" class="file-item-remove" aria-label="Remove file">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    
+                    if(keepsakeFileListContainer) keepsakeFileListContainer.appendChild(fileItem);
+                    
+                    const removeBtn = fileItem.querySelector('.file-item-remove');
+                    removeBtn.addEventListener('click', function() {
+                        this.parentElement.remove();
+                    });
+                }
+            }
+
+            if (keepsakeUploadForm) {
+                keepsakeUploadForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const groupTitle = document.getElementById('group-title').value;
+                    if (!groupTitle.trim()) {
+                        alert('Please provide a title or description for this upload group.');
+                        return;
+                    }
+                    const uploadedFiles = keepsakeFileListContainer.querySelectorAll('.file-item');
+                    if (uploadedFiles.length === 0) {
+                        alert('Please select at least one file to upload.');
+                        return;
+                    }
+
+                    alert(`Uploading ${uploadedFiles.length} keepsake(s) for group: "${groupTitle}"... (This is a simulation for S3 upload)`);
+                    keepsakeUploadForm.reset();
+                    if(keepsakeFileListContainer) keepsakeFileListContainer.innerHTML = ''; 
+                });
+            }
+        });
+    </script>
+</body>
+</html>

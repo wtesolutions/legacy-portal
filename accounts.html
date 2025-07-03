@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - Accounts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container single-column-no-alert"> <!-- No right sidebar, no top alert -->
+        <!-- Header -->
+        <header class="header">
+            <a href="dashboard-horizontal.html" class="logo"> <!-- Logo link -->
+                <!-- <img src="assets/images/ff.svg" alt="Legacy Safe Logo"> Removed as per instruction -->
+                <h1>Legacy Safe</h1>
+            </a>
+            <div class="header-right">
+                <div class="notifications-icon-header" id="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header" id="user-profile-icon">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item active" data-page="accounts.html">
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Legacy Messages</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html">
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Accounts</h1>
+            <p class="page-description">Organize and document your financial accounts. This section is for record-keeping and does not track live balances or financial performance.</p>
+
+            <!-- Accounts Overview -->
+            <div class="accounts-overview">
+                <div class="overview-card">
+                    <div class="overview-title">Total Accounts Listed</div>
+                    <div class="overview-value">8</div>
+                    <div class="overview-change">
+                        <span>Across 4 institutions</span>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-title">Account Types Documented</div>
+                    <div class="overview-value">5</div>
+                    <div class="overview-change">
+                        <span>Checking, CD, IRA, Brokerage, Investment</span>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-title">Last Record Update</div>
+                    <div class="overview-value">June 4, 2025</div>
+                    <div class="overview-change">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                        <span>All account records verified</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="account-search-input" placeholder="Search accounts by name, number, or institution...">
+                </div>
+                <div class="filter-dropdown">
+                    <select id="institution-filter-select">
+                        <option value="all">All Institutions</option>
+                        <option value="wells-fargo">Wells Fargo</option>
+                        <option value="bank-of-america">Bank of America</option>
+                        <option value="edward-jones">Edward Jones</option>
+                        <option value="chase">Chase</option>
+                        <option value="citibank">Citibank</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown">
+                    <select id="type-filter-select">
+                        <option value="all">All Account Types</option>
+                        <option value="checking">Checking</option>
+                        <option value="savings">Savings</option>
+                        <option value="cd">Certificate of Deposit</option>
+                        <option value="ira">Traditional IRA</option>
+                        <option value="brokerage">Brokerage</option>
+                        <option value="investment">Investment</option>
+                        <option value="cash">Cash Account</option>
+                    </select>
+                </div>
+                <button class="add-account-btn">
+                    <i class="fas fa-plus"></i>
+                    <span>Add New Account Record</span>
+                </button>
+            </div>
+
+            <!-- Account Categories -->
+            <div class="account-categories">
+                <div class="category-tab" data-filter="all">
+                    <i class="fas fa-layer-group"></i>
+                    <span>All Accounts</span>
+                </div>
+                <div class="category-tab" data-filter="banking">
+                    <i class="fas fa-landmark"></i>
+                    <span>Banking</span>
+                </div>
+                <div class="category-tab" data-filter="investments">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Investments</span>
+                </div>
+                <div class="category-tab" data-filter="retirement">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Retirement</span>
+                </div>
+                <div class="category-tab" data-filter="insurance">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Insurance</span>
+                </div>
+                <div class="category-tab" data-filter="real-estate">
+                    <i class="fas fa-home"></i>
+                    <span>Real Estate</span>
+                </div>
+                <div class="category-tab" data-filter="vehicles">
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                </div>
+                <div class="category-tab" data-filter="other-assets">
+                    <i class="fas fa-coins"></i>
+                    <span>Other Assets</span>
+                </div>
+            </div>
+            
+            <!-- Placeholder Message -->
+            <div class="accounts-placeholder" id="accounts-placeholder">
+                <div class="accounts-placeholder-icon"><i class="fas fa-filter"></i></div>
+                <p class="accounts-placeholder-text">Please select a category above to view your accounts.</p>
+            </div>
+
+            <!-- Account List -->
+            <div class="account-list hidden"> 
+                <!-- Wells Fargo Checking Account -->
+                <div class="account-card" data-category="banking,all" data-type="checking" data-institution="wells-fargo">
+                    <div class="account-status status-active">Record Active</div>
+                    <div class="account-header">
+                        <div class="account-logo wells-fargo-bg">WF</div>
+                        <div class="account-title">
+                            <div class="account-name">Wells Fargo Checking</div>
+                            <div class="account-number">****6789</div>
+                        </div>
+                    </div>
+                    <div class="account-body">
+                        <div class="account-info">
+                            <div class="info-item">
+                                <div class="info-label">Account Type</div>
+                                <div class="info-value">Checking</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Last Record Update</div>
+                                <div class="info-value">June 4, 2025</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Branch</div>
+                                <div class="info-value">Downtown</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Account Holder</div>
+                                <div class="info-value">John Smith</div>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <div class="account-action">
+                                <i class="fas fa-eye"></i>
+                                <div class="action-label">View Details</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-pencil-alt"></i>
+                                <div class="action-label">Edit Record</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-file-download"></i>
+                                <div class="action-label">Attachments</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <div class="action-label">More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank of America CD #1 -->
+                <div class="account-card" data-category="banking,all" data-type="cd" data-institution="bank-of-america">
+                    <div class="account-status status-active">Record Active</div>
+                    <div class="account-header">
+                        <div class="account-logo bank-of-america-bg">BOA</div>
+                        <div class="account-title">
+                            <div class="account-name">Bank of America CD</div>
+                            <div class="account-number">****2345</div>
+                        </div>
+                    </div>
+                    <div class="account-body">
+                        <div class="account-info">
+                            <div class="info-item">
+                                <div class="info-label">Account Type</div>
+                                <div class="info-value">Certificate of Deposit</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Last Record Update</div>
+                                <div class="info-value">June 1, 2025</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Maturity Date</div>
+                                <div class="info-value">August 22, 2025</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Account Holder</div>
+                                <div class="info-value">John Smith</div>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <div class="account-action">
+                                <i class="fas fa-eye"></i>
+                                <div class="action-label">View Details</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-pencil-alt"></i>
+                                <div class="action-label">Edit Record</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-file-download"></i>
+                                <div class="action-label">Attachments</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <div class="action-label">More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank of America CD #2 -->
+                <div class="account-card" data-category="banking,all" data-type="cd" data-institution="bank-of-america">
+                    <div class="account-status status-active">Record Active</div>
+                    <div class="account-header">
+                        <div class="account-logo bank-of-america-bg">BOA</div>
+                        <div class="account-title">
+                            <div class="account-name">Bank of America CD</div>
+                            <div class="account-number">****3456</div>
+                        </div>
+                    </div>
+                    <div class="account-body">
+                        <div class="account-info">
+                            <div class="info-item">
+                                <div class="info-label">Account Type</div>
+                                <div class="info-value">Certificate of Deposit</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Last Record Update</div>
+                                <div class="info-value">June 1, 2025</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Maturity Date</div>
+                                <div class="info-value">December 15, 2025</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Account Holder</div>
+                                <div class="info-value">John Smith</div>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <div class="account-action">
+                                <i class="fas fa-eye"></i>
+                                <div class="action-label">View Details</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-pencil-alt"></i>
+                                <div class="action-label">Edit Record</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-file-download"></i>
+                                <div class="action-label">Attachments</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <div class="action-label">More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edward Jones Cash Account -->
+                <div class="account-card" data-category="investments,all" data-type="cash" data-institution="edward-jones">
+                    <div class="account-status status-active">Record Active</div>
+                    <div class="account-header">
+                        <div class="account-logo edward-jones-bg">EJ</div>
+                        <div class="account-title">
+                            <div class="account-name">Edward Jones Cash Account</div>
+                            <div class="account-number">****7890</div>
+                        </div>
+                    </div>
+                    <div class="account-body">
+                        <div class="account-info">
+                            <div class="info-item">
+                                <div class="info-label">Account Type</div>
+                                <div class="info-value">Cash Account</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Last Record Update</div>
+                                <div class="info-value">June 3, 2025</div>
+                            </div>
+                             <div class="info-item">
+                                <div class="info-label">Account Holder</div>
+                                <div class="info-value">John Smith</div>
+                            </div>
+                        </div>
+                        <div class="account-advisor">
+                            <div class="advisor-avatar">MH</div>
+                            <div class="advisor-info">
+                                <div class="advisor-name">Mike Hughes</div>
+                                <div class="advisor-role">Financial Advisor</div>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <div class="account-action">
+                                <i class="fas fa-eye"></i>
+                                <div class="action-label">View Details</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-pencil-alt"></i>
+                                <div class="action-label">Edit Record</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-file-download"></i>
+                                <div class="action-label">Attachments</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <div class="action-label">More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edward Jones Traditional IRA -->
+                <div class="account-card" data-category="retirement,all" data-type="ira" data-institution="edward-jones">
+                    <div class="account-status status-active">Record Active</div>
+                    <div class="account-header">
+                        <div class="account-logo edward-jones-bg">EJ</div>
+                        <div class="account-title">
+                            <div class="account-name">Edward Jones Traditional IRA</div>
+                            <div class="account-number">****8901</div>
+                        </div>
+                    </div>
+                    <div class="account-body">
+                        <div class="account-info">
+                            <div class="info-item">
+                                <div class="info-label">Account Type</div>
+                                <div class="info-value">Traditional IRA</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Last Record Update</div>
+                                <div class="info-value">June 3, 2025</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Date Opened</div>
+                                <div class="info-value">March 15, 2010</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Account Holder</div>
+                                <div class="info-value">John Smith</div>
+                            </div>
+                        </div>
+                        <div class="account-advisor">
+                            <div class="advisor-avatar">MH</div>
+                            <div class="advisor-info">
+                                <div class="advisor-name">Mike Hughes</div>
+                                <div class="advisor-role">Financial Advisor</div>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <div class="account-action">
+                                <i class="fas fa-eye"></i>
+                                <div class="action-label">View Details</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-pencil-alt"></i>
+                                <div class="action-label">Edit Record</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-file-download"></i>
+                                <div class="action-label">Attachments</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <div class="action-label">More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edward Jones Joint Brokerage -->
+                <div class="account-card" data-category="investments,all" data-type="brokerage" data-institution="edward-jones">
+                    <div class="account-status status-active">Record Active</div>
+                    <div class="account-header">
+                        <div class="account-logo edward-jones-bg">EJ</div>
+                        <div class="account-title">
+                            <div class="account-name">Edward Jones Joint Brokerage</div>
+                            <div class="account-number">****9012</div>
+                        </div>
+                    </div>
+                    <div class="account-body">
+                        <div class="account-info">
+                            <div class="info-item">
+                                <div class="info-label">Account Type</div>
+                                <div class="info-value">Joint Brokerage</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Last Record Update</div>
+                                <div class="info-value">June 3, 2025</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Joint Owner</div>
+                                <div class="info-value">Sarah Johnson</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Date Opened</div>
+                                <div class="info-value">May 12, 2015</div>
+                            </div>
+                        </div>
+                        <div class="account-advisor">
+                            <div class="advisor-avatar">MH</div>
+                            <div class="advisor-info">
+                                <div class="advisor-name">Mike Hughes</div>
+                                <div class="advisor-role">Financial Advisor</div>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <div class="account-action">
+                                <i class="fas fa-eye"></i>
+                                <div class="action-label">View Details</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-pencil-alt"></i>
+                                <div class="action-label">Edit Record</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-file-download"></i>
+                                <div class="action-label">Attachments</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <div class="action-label">More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edward Jones Investment Account -->
+                <div class="account-card" data-category="investments,all" data-type="investment" data-institution="edward-jones">
+                    <div class="account-status status-attention">Needs Attention</div>
+                    <div class="account-header">
+                        <div class="account-logo edward-jones-bg">EJ</div>
+                        <div class="account-title">
+                            <div class="account-name">Edward Jones Investment Account</div>
+                            <div class="account-number">****0123</div>
+                        </div>
+                    </div>
+                    <div class="account-body">
+                        <div class="account-info">
+                            <div class="info-item">
+                                <div class="info-label">Account Type</div>
+                                <div class="info-value">Investment</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Last Record Update</div>
+                                <div class="info-value">June 3, 2025</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Alert</div>
+                                <div class="info-value">Missing Documents</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Account Holder</div>
+                                <div class="info-value">John Smith</div>
+                            </div>
+                        </div>
+                        <div class="account-advisor">
+                            <div class="advisor-avatar">MH</div>
+                            <div class="advisor-info">
+                                <div class="advisor-name">Mike Hughes</div>
+                                <div class="advisor-role">Financial Advisor</div>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <div class="account-action">
+                                <i class="fas fa-eye"></i>
+                                <div class="action-label">View Details</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-pencil-alt"></i>
+                                <div class="action-label">Edit Record</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-file-download"></i>
+                                <div class="action-label">Attachments</div>
+                            </div>
+                            <div class="account-action">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <div class="action-label">More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const accountList = document.querySelector('.account-list');
+            const accountCards = document.querySelectorAll('.account-card');
+            const accountsPlaceholder = document.getElementById('accounts-placeholder');
+            const searchInput = document.getElementById('account-search-input');
+            const institutionFilterSelect = document.getElementById('institution-filter-select');
+            const typeFilterSelect = document.getElementById('type-filter-select');
+
+            // Initial state: hide accounts, show placeholder
+            if (accountList) accountList.classList.add('hidden');
+            if (accountsPlaceholder) accountsPlaceholder.style.display = 'block';
+            categoryTabs.forEach(tab => tab.classList.remove('active'));
+            
+            function filterAccounts() {
+                const activeCategoryTab = document.querySelector('.category-tab.active');
+                const categoryFilter = activeCategoryTab ? activeCategoryTab.dataset.filter : 'none'; // 'none' if no tab is active
+                const searchTerm = searchInput.value.toLowerCase();
+                const institutionFilter = institutionFilterSelect.value;
+                const typeFilter = typeFilterSelect.value;
+                let hasVisibleAccounts = false;
+
+                if (categoryFilter === 'none' && !searchTerm && institutionFilter === 'all' && typeFilter === 'all') {
+                    if (accountList) accountList.classList.add('hidden');
+                    if (accountsPlaceholder) accountsPlaceholder.style.display = 'block';
+                    accountCards.forEach(card => card.style.display = 'none');
+                    return;
+                }
+                
+                if (accountsPlaceholder) accountsPlaceholder.style.display = 'none';
+                if (accountList) accountList.classList.remove('hidden');
+
+
+                accountCards.forEach(card => {
+                    const cardCategories = card.dataset.category ? card.dataset.category.split(',') : [];
+                    const cardType = card.dataset.type || "";
+                    const cardInstitution = card.dataset.institution || "";
+                    const cardName = card.querySelector('.account-name').textContent.toLowerCase();
+                    const cardNumber = card.querySelector('.account-number').textContent.toLowerCase();
+
+                    let categoryMatch = categoryFilter === 'all' || cardCategories.includes(categoryFilter);
+                    let searchMatch = (
+                        cardName.includes(searchTerm) || 
+                        cardNumber.includes(searchTerm) ||
+                        cardInstitution.replace('-', ' ').includes(searchTerm) // Allow searching for "wells fargo"
+                    );
+                    let institutionMatch = institutionFilter === 'all' || cardInstitution === institutionFilter;
+                    let typeMatch = typeFilter === 'all' || cardType === typeFilter;
+                    
+                    // If a category tab is active, it's the primary filter. Other filters refine this.
+                    if (activeCategoryTab) {
+                         if (categoryMatch && searchMatch && institutionMatch && typeMatch) {
+                            card.style.display = 'block'; // Or 'grid' if it's a grid item
+                            hasVisibleAccounts = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    } else { // If no category tab is active, only other filters apply
+                         if (searchMatch && institutionMatch && typeMatch) {
+                            card.style.display = 'block';
+                            hasVisibleAccounts = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+                
+                if (!hasVisibleAccounts && (activeCategoryTab || searchTerm || institutionFilter !== 'all' || typeFilter !== 'all')) {
+                    if (accountsPlaceholder) {
+                        accountsPlaceholder.innerHTML = `
+                            <div class="accounts-placeholder-icon"><i class="fas fa-search-minus"></i></div>
+                            <p class="accounts-placeholder-text">No accounts match your current filters.</p>
+                        `;
+                        accountsPlaceholder.style.display = 'block';
+                    }
+                     if (accountList) accountList.classList.add('hidden');
+                } else if (!activeCategoryTab && !searchTerm && institutionFilter === 'all' && typeFilter === 'all') {
+                     if (accountsPlaceholder) {
+                        accountsPlaceholder.innerHTML = `
+                            <div class="accounts-placeholder-icon"><i class="fas fa-filter"></i></div>
+                            <p class="accounts-placeholder-text">Please select a category or apply filters to view your accounts.</p>
+                        `;
+                        accountsPlaceholder.style.display = 'block';
+                    }
+                    if (accountList) accountList.classList.add('hidden');
+                }
+            }
+            
+            if(menuToggle && navItems) {
+                menuToggle.addEventListener('click', function() {
+                    navItems.classList.toggle('show');
+                });
+            }
+
+            const contrastToggle = document.querySelector('.high-contrast-toggle');
+            if(contrastToggle) {
+                contrastToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('high-contrast');
+                });
+            }
+
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    filterAccounts();
+                });
+            });
+            
+            searchInput.addEventListener('input', filterAccounts);
+            institutionFilterSelect.addEventListener('change', filterAccounts);
+            typeFilterSelect.addEventListener('change', filterAccounts);
+
+
+            const accountActions = document.querySelectorAll('.account-action');
+            accountActions.forEach(action => {
+                action.addEventListener('click', function() {
+                    const actionType = this.querySelector('.action-label').textContent;
+                    const accountName = this.closest('.account-card').querySelector('.account-name').textContent;
+                    console.log(`${actionType} for ${accountName}`);
+                    if (actionType === 'View Details') {
+                        window.location.href = 'account-details.html';
+                    }
+                });
+            });
+
+            const addAccountBtn = document.querySelector('.add-account-btn');
+            if(addAccountBtn) {
+                addAccountBtn.addEventListener('click', function() {
+                    window.location.href = 'add-account.html';
+                });
+            }
+            
+            const navItemElements = document.querySelectorAll('.nav-item');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
+                        const pageName = this.getAttribute('data-page');
+                        if(pageName){
+                             window.location.href = pageName;
+                        }
+                    }
+                });
+            });
+
+            const notificationsBell = document.getElementById('notifications-bell');
+            if (notificationsBell) {
+                notificationsBell.addEventListener('click', function() {
+                    window.location.href = 'notifications.html';
+                });
+            }
+
+            const userProfileIcon = document.getElementById('user-profile-icon');
+            if (userProfileIcon) {
+                userProfileIcon.addEventListener('click', function() {
+                    window.location.href = 'user-profile.html';
+                });
+            }
+             // Initial call to set placeholder if no tab is active
+            if (!document.querySelector('.category-tab.active')) {
+                filterAccounts();
+            }
+        });
+    </script>
+</body>
+</html>

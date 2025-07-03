@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit FAQs - SADMIN - Legacy Safe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        :root {
+            --admin-primary: #1a365d;
+            --admin-secondary: #2d3748;
+            --admin-accent: #3182ce;
+            --admin-success: #38a169;
+            --admin-warning: #d69e2e;
+            --admin-danger: #e53e3e;
+        }
+        .admin-header { background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary)); }
+        .admin-nav { background-color: var(--admin-secondary); }
+        .faq-edit-item { border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 15px; }
+        .faq-edit-header { background-color: var(--secondary); padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .faq-edit-content { padding: 20px; display: none; }
+        .faq-edit-content.active { display: block; }
+        .edit-form textarea { min-height: 150px; }
+    </style>
+</head>
+<body>
+    <div class="container single-column-no-alert">
+        <!-- Admin Header -->
+        <header class="header admin-header">
+            <div class="logo">
+                <h1 style="color: var(--card-bg);">Legacy Safe</h1>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px; margin-left: 10px;">SUPER ADMIN</span>
+            </div>
+            <div class="header-right">
+                <div class="user-profile-icon-header">
+                    <div class="user-avatar" style="background-color: var(--admin-accent);">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" style="color: var(--card-bg);">Admin User</div>
+                        <div class="user-role" style="color: rgba(255,255,255,0.8);">Super Administrator</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="horizontal-nav admin-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item active">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Edit FAQs</span>
+                </li>
+                <li class="nav-item" data-page="manage-banks.html">
+                    <i class="fas fa-university"></i>
+                    <span>Manage Banks</span>
+                </li>
+                <li class="nav-item" data-page="account-management.html">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Account Management</span>
+                </li>
+                <li class="nav-item" data-page="reports.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Reports & Analytics</span>
+                </li>
+                <li class="nav-item" data-page="../dashboard-horizontal.html">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to App</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header-row">
+                <h1>Edit FAQs</h1>
+                <button class="btn btn-success" id="add-new-faq">
+                    <i class="fas fa-plus"></i> Add New FAQ
+                </button>
+            </div>
+            <p class="page-description">Manage frequently asked questions that appear on the customer-facing FAQ page.</p>
+
+            <!-- FAQ Management List -->
+            <div class="faq-management-list">
+                <!-- FAQ Item 1 -->
+                <div class="faq-edit-item">
+                    <div class="faq-edit-header">
+                        <div>
+                            <h4 style="margin: 0; color: var(--primary);">How do I add family members to my account?</h4>
+                            <small style="color: var(--text-light);">Category: Account Management | Last updated: 3 days ago</small>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-secondary btn-sm toggle-edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="faq-edit-content">
+                        <form class="edit-form">
+                            <div class="form-group">
+                                <label class="form-label">Question</label>
+                                <input type="text" class="form-control" value="How do I add family members to my account?">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Answer</label>
+                                <textarea class="form-control">To add family members to your Legacy Safe account:
+
+1. Navigate to Access & Sharing from your dashboard
+2. Click on "Family Circle" tab
+3. Click "Invite Family Member" 
+4. Enter their email address and select their role (Viewer, Contributor, or Executor)
+5. Click "Send Invitation"
+
+Family members will receive an email invitation to join your Legacy Safe family circle. They can view documents and information based on the permissions you set for their role.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-control">
+                                    <option>Account Management</option>
+                                    <option>Document Management</option>
+                                    <option>Access & Sharing</option>
+                                    <option>Billing & Subscriptions</option>
+                                    <option>Technical Support</option>
+                                    <option>Security & Privacy</option>
+                                </select>
+                            </div>
+                            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                                <button type="button" class="btn btn-secondary cancel-edit">Cancel</button>
+                                <button type="submit" class="btn btn-success">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-edit-item">
+                    <div class="faq-edit-header">
+                        <div>
+                            <h4 style="margin: 0; color: var(--primary);">What types of documents can I upload?</h4>
+                            <small style="color: var(--text-light);">Category: Document Management | Last updated: 1 week ago</small>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-secondary btn-sm toggle-edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="faq-edit-content">
+                        <form class="edit-form">
+                            <div class="form-group">
+                                <label class="form-label">Question</label>
+                                <input type="text" class="form-control" value="What types of documents can I upload?">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Answer</label>
+                                <textarea class="form-control">Legacy Safe accepts a wide variety of document formats including:
+
+**Legal Documents:**
+- Wills and testaments (PDF, DOC, DOCX)
+- Power of attorney documents
+- Trust documents
+- Medical directives
+
+**Financial Documents:**
+- Bank statements (PDF, images)
+- Investment account statements
+- Insurance policies
+- Tax documents
+
+**Personal Documents:**
+- Birth certificates (PDF, JPG, PNG)
+- Social Security cards
+- Passports and ID documents
+- Marriage/divorce certificates
+
+**Supported File Types:**
+PDF, DOC, DOCX, JPG, JPEG, PNG, GIF, TXT
+
+Maximum file size: 50MB per document</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-control">
+                                    <option>Account Management</option>
+                                    <option selected>Document Management</option>
+                                    <option>Access & Sharing</option>
+                                    <option>Billing & Subscriptions</option>
+                                    <option>Technical Support</option>
+                                    <option>Security & Privacy</option>
+                                </select>
+                            </div>
+                            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                                <button type="button" class="btn btn-secondary cancel-edit">Cancel</button>
+                                <button type="submit" class="btn btn-success">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-edit-item">
+                    <div class="faq-edit-header">
+                        <div>
+                            <h4 style="margin: 0; color: var(--primary);">How secure is my data on Legacy Safe?</h4>
+                            <small style="color: var(--text-light);">Category: Security & Privacy | Last updated: 2 weeks ago</small>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-secondary btn-sm toggle-edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="faq-edit-content">
+                        <form class="edit-form">
+                            <div class="form-group">
+                                <label class="form-label">Question</label>
+                                <input type="text" class="form-control" value="How secure is my data on Legacy Safe?">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Answer</label>
+                                <textarea class="form-control">Your data security is our top priority. Legacy Safe employs multiple layers of protection:
+
+**Encryption:**
+- All data is encrypted in transit using TLS 1.3
+- Data at rest is encrypted using AES-256 encryption
+- End-to-end encryption for sensitive documents
+
+**Infrastructure:**
+- Hosted on enterprise-grade cloud infrastructure
+- Regular security audits and penetration testing
+- SOC 2 Type II compliance
+
+**Access Controls:**
+- Multi-factor authentication required
+- Role-based access permissions
+- Regular access reviews and monitoring
+
+**Privacy:**
+- We never sell or share your personal data
+- GDPR and CCPA compliant
+- You maintain full control over your data
+
+Your documents are stored in secure, geographically distributed data centers with 99.9% uptime guarantee.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-control">
+                                    <option>Account Management</option>
+                                    <option>Document Management</option>
+                                    <option>Access & Sharing</option>
+                                    <option>Billing & Subscriptions</option>
+                                    <option>Technical Support</option>
+                                    <option selected>Security & Privacy</option>
+                                </select>
+                            </div>
+                            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                                <button type="button" class="btn btn-secondary cancel-edit">Cancel</button>
+                                <button type="submit" class="btn btn-success">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation
+            const navItemElements = document.querySelectorAll('.nav-item[data-page]');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    const pageName = this.getAttribute('data-page');
+                    if (pageName) window.location.href = pageName;
+                });
+            });
+
+            // FAQ Edit Functionality
+            const toggleEditButtons = document.querySelectorAll('.toggle-edit');
+            const cancelEditButtons = document.querySelectorAll('.cancel-edit');
+            const editForms = document.querySelectorAll('.edit-form');
+
+            toggleEditButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const faqItem = this.closest('.faq-edit-item');
+                    const content = faqItem.querySelector('.faq-edit-content');
+                    const isOpen = content.classList.contains('active');
+                    
+                    // Close all other edit forms
+                    document.querySelectorAll('.faq-edit-content').forEach(c => c.classList.remove('active'));
+                    
+                    if (!isOpen) {
+                        content.classList.add('active');
+                        this.innerHTML = '<i class="fas fa-times"></i> Cancel';
+                        this.classList.remove('btn-secondary');
+                        this.classList.add('btn-warning');
+                    } else {
+                        content.classList.remove('active');
+                        this.innerHTML = '<i class="fas fa-edit"></i> Edit';
+                        this.classList.remove('btn-warning');
+                        this.classList.add('btn-secondary');
+                    }
+                });
+            });
+
+            cancelEditButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const faqItem = this.closest('.faq-edit-item');
+                    const content = faqItem.querySelector('.faq-edit-content');
+                    const toggleBtn = faqItem.querySelector('.toggle-edit');
+                    
+                    content.classList.remove('active');
+                    toggleBtn.innerHTML = '<i class="fas fa-edit"></i> Edit';
+                    toggleBtn.classList.remove('btn-warning');
+                    toggleBtn.classList.add('btn-secondary');
+                });
+            });
+
+            editForms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('FAQ updated successfully! (This is a simulation)');
+                    
+                    const faqItem = this.closest('.faq-edit-item');
+                    const content = faqItem.querySelector('.faq-edit-content');
+                    const toggleBtn = faqItem.querySelector('.toggle-edit');
+                    
+                    content.classList.remove('active');
+                    toggleBtn.innerHTML = '<i class="fas fa-edit"></i> Edit';
+                    toggleBtn.classList.remove('btn-warning');
+                    toggleBtn.classList.add('btn-secondary');
+                });
+            });
+
+            // Add new FAQ
+            document.getElementById('add-new-faq').addEventListener('click', function() {
+                alert('Add New FAQ functionality would open a modal or redirect to a new page.');
+            });
+        });
+    </script>
+</body>
+</html>

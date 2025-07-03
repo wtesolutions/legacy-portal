@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - Add New Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container single-column-no-alert"> <!-- No right sidebar, no top alert -->
+        <!-- Header -->
+        <header class="header">
+            <a href="dashboard-horizontal.html" class="logo">
+                <!-- Image removed as per instruction -->
+                <h1>Legacy Safe</h1>
+            </a>
+            <div class="header-right">
+                <div class="notifications-icon-header" id="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header" id="user-profile-icon">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item active" data-page="accounts.html"> <!-- Assuming adding account is part of "Accounts" section -->
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Legacy Messages</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html">
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Add New Account</h1>
+
+            <!-- Form Wizard -->
+            <div class="form-wizard">
+                <!-- Progress Bar -->
+                <div class="wizard-progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                    <div class="step active" data-step="1">
+                        <div class="step-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="step-label">Institution</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-icon">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <div class="step-label">Account Type</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="step-label">Account Details</div>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="step-label">Advisor</div>
+                    </div>
+                    <div class="step" data-step="5">
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="step-label">Review</div>
+                    </div>
+                </div>
+
+                <!-- Wizard Content -->
+                <div class="wizard-content">
+                    <!-- Step 1: Select Institution -->
+                    <div class="step-content active" id="step-1">
+                        <h2 class="step-title">Select Financial Institution</h2>
+                        <p class="step-description">First, select the type of institution, then choose the specific institution where your account is held.</p>
+                        
+                        <!-- Institution Type Selection -->
+                        <div class="section-title">Select Institution Type</div>
+                        <div class="institution-types">
+                            <div class="institution-type" data-type="bank">
+                                <div class="institution-icon">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <div class="institution-name">Bank</div>
+                                <div class="institution-description">Traditional banking institutions like Wells Fargo, Bank of America, Chase, etc.</div>
+                            </div>
+                            <div class="institution-type" data-type="credit-union">
+                                <div class="institution-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="institution-name">Credit Union</div>
+                                <div class="institution-description">Member-owned financial cooperatives like Navy Federal, USAA, etc.</div>
+                            </div>
+                            <div class="institution-type" data-type="brokerage">
+                                <div class="institution-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="institution-name">Brokerage</div>
+                                <div class="institution-description">Investment firms like Edward Jones, Charles Schwab, Fidelity, etc.</div>
+                            </div>
+                        </div>
+
+                        <div class="bank-search">
+                            <input type="text" placeholder="Search for your financial institution..." id="bank-search">
+                            <i class="fas fa-search"></i>
+                        </div>
+
+                        <!-- Bank Options -->
+                        <div id="bank-institutions" class="institution-options" style="display: none;">
+                            <div class="section-title">Popular Banks</div>
+                            <div class="bank-grid">
+                                <div class="bank-option" data-bank="wells-fargo">
+                                    <div class="bank-logo wells-fargo-bg">WF</div>
+                                    <div class="bank-name">Wells Fargo</div>
+                                </div>
+                                <div class="bank-option" data-bank="bank-of-america">
+                                    <div class="bank-logo bank-of-america-bg">BOA</div>
+                                    <div class="bank-name">Bank of America</div>
+                                </div>
+                                <div class="bank-option" data-bank="chase">
+                                    <div class="bank-logo chase-bg">CHASE</div>
+                                    <div class="bank-name">Chase</div>
+                                </div>
+                                <div class="bank-option" data-bank="citibank">
+                                    <div class="bank-logo citibank-bg">CITI</div>
+                                    <div class="bank-name">Citibank</div>
+                                </div>
+                                <div class="bank-option" data-bank="us-bank">
+                                    <div class="bank-logo us-bank-bg">USB</div>
+                                    <div class="bank-name">US Bank</div>
+                                </div>
+                                <div class="bank-option" data-bank="pnc">
+                                    <div class="bank-logo pnc-bg">PNC</div>
+                                    <div class="bank-name">PNC Bank</div>
+                                </div>
+                                <div class="bank-option" data-bank="other">
+                                    <div class="bank-logo other-bank-bg">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="bank-name">Other Bank</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Credit Union Options -->
+                        <div id="credit-union-institutions" class="institution-options" style="display: none;">
+                            <div class="section-title">Popular Credit Unions</div>
+                            <div class="bank-grid">
+                                <div class="bank-option" data-bank="navy-federal">
+                                    <div class="bank-logo navy-federal-bg">NFCU</div>
+                                    <div class="bank-name">Navy Federal</div>
+                                </div>
+                                <div class="bank-option" data-bank="pentagon-federal">
+                                    <div class="bank-logo other-bank-bg">PenFed</div>
+                                    <div class="bank-name">Pentagon Federal</div>
+                                </div>
+                                <div class="bank-option" data-bank="usaa">
+                                    <div class="bank-logo usaa-bg">USAA</div>
+                                    <div class="bank-name">USAA</div>
+                                </div>
+                                <div class="bank-option" data-bank="becu">
+                                    <div class="bank-logo other-bank-bg">BECU</div>
+                                    <div class="bank-name">BECU</div>
+                                </div>
+                                <div class="bank-option" data-bank="schools-first">
+                                    <div class="bank-logo other-bank-bg">SF</div>
+                                    <div class="bank-name">SchoolsFirst</div>
+                                </div>
+                                <div class="bank-option" data-bank="other">
+                                    <div class="bank-logo other-bank-bg">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="bank-name">Other Credit Union</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brokerage Options -->
+                        <div id="brokerage-institutions" class="institution-options" style="display: none;">
+                            <div class="section-title">Popular Brokerages</div>
+                            <div class="bank-grid">
+                                <div class="bank-option" data-bank="edward-jones">
+                                    <div class="bank-logo edward-jones-bg">EJ</div>
+                                    <div class="bank-name">Edward Jones</div>
+                                </div>
+                                <div class="bank-option" data-bank="charles-schwab">
+                                    <div class="bank-logo charles-schwab-bg">CS</div>
+                                    <div class="bank-name">Charles Schwab</div>
+                                </div>
+                                <div class="bank-option" data-bank="fidelity">
+                                    <div class="bank-logo fidelity-bg">FID</div>
+                                    <div class="bank-name">Fidelity</div>
+                                </div>
+                                <div class="bank-option" data-bank="vanguard">
+                                    <div class="bank-logo vanguard-bg">VG</div>
+                                    <div class="bank-name">Vanguard</div>
+                                </div>
+                                <div class="bank-option" data-bank="td-ameritrade">
+                                    <div class="bank-logo td-ameritrade-bg">TD</div>
+                                    <div class="bank-name">TD Ameritrade</div>
+                                </div>
+                                <div class="bank-option" data-bank="other">
+                                    <div class="bank-logo other-bank-bg">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="bank-name">Other Brokerage</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-buttons">
+                            <button type="button" class="btn btn-secondary" id="btn-cancel">
+                                <i class="fas fa-times"></i>
+                                <span>Cancel</span>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-disabled" id="btn-next-1" disabled>
+                                <span>Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Choose Account Type -->
+                    <div class="step-content" id="step-2">
+                        <h2 class="step-title">Select Account Type</h2>
+                        <p class="step-description">Choose the type of account you want to add. The available options may vary based on the institution you selected.</p>
+                        
+                        <div class="account-types" id="account-types">
+                            <!-- Banking Account Types -->
+                            <div class="account-type-option" data-type="checking">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-money-check-alt"></i>
+                                </div>
+                                <div class="account-type-name">Checking</div>
+                                <div class="account-type-description">Day-to-day transactions and bill payments</div>
+                            </div>
+                            <div class="account-type-option" data-type="savings">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-piggy-bank"></i>
+                                </div>
+                                <div class="account-type-name">Savings</div>
+                                <div class="account-type-description">Interest-earning deposit account</div>
+                            </div>
+                            <div class="account-type-option" data-type="cd">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="account-type-name">Certificate of Deposit</div>
+                                <div class="account-type-description">Fixed-term deposit with higher interest</div>
+                            </div>
+                            <div class="account-type-option" data-type="money-market">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <div class="account-type-name">Money Market</div>
+                                <div class="account-type-description">Higher interest with limited transactions</div>
+                            </div>
+
+                            <!-- Investment Account Types -->
+                            <div class="account-type-option" data-type="brokerage">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="account-type-name">Brokerage</div>
+                                <div class="account-type-description">Stocks, bonds, and other securities</div>
+                            </div>
+                            <div class="account-type-option" data-type="ira">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <div class="account-type-name">Traditional IRA</div>
+                                <div class="account-type-description">Tax-deferred retirement account</div>
+                            </div>
+                            <div class="account-type-option" data-type="roth-ira">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div class="account-type-name">Roth IRA</div>
+                                <div class="account-type-description">Tax-free retirement account</div>
+                            </div>
+                            <div class="account-type-option" data-type="401k">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="account-type-name">401(k)</div>
+                                <div class="account-type-description">Employer-sponsored retirement plan</div>
+                            </div>
+                            <div class="account-type-option" data-type="cash-account">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div class="account-type-name">Cash Account</div>
+                                <div class="account-type-description">Cash holdings within an investment account</div>
+                            </div>
+                            <div class="account-type-option" data-type="investment">
+                                <div class="account-type-icon">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <div class="account-type-name">Investment</div>
+                                <div class="account-type-description">General investment account</div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-buttons">
+                            <button type="button" class="btn btn-secondary" id="btn-prev-2">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Previous</span>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-disabled" id="btn-next-2" disabled>
+                                <span>Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Enter Account Details -->
+                    <div class="step-content" id="step-3">
+                        <h2 class="step-title">Enter Account Details</h2>
+                        <p class="step-description">Provide the details of your account. This information will help you track and manage your assets.</p>
+                        
+                        <form id="account-details-form">
+                            <div class="form-section">
+                                <h3 class="form-section-title">Basic Information</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="account-name" class="form-label">Account Name*</label>
+                                        <input type="text" class="form-control" id="account-name" placeholder="e.g., Wells Fargo Checking" required>
+                                        <div class="invalid-feedback">Please enter an account name.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="account-number" class="form-label">Account Number*</label>
+                                        <input type="text" class="form-control" id="account-number" placeholder="Last 4 digits only" required>
+                                        <div class="invalid-feedback">Please enter at least the last 4 digits of your account number.</div>
+                                        <small class="form-text">For security, we recommend entering only the last 4 digits.</small>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="account-opened" class="form-label">Date Opened</label>
+                                        <input type="date" class="form-control" id="account-opened">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="branch-location" class="form-label">Branch Location</label>
+                                        <input type="text" class="form-control" id="branch-location" placeholder="e.g., Downtown Branch">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Banking-specific fields -->
+                            <div class="form-section" id="banking-fields">
+                                <h3 class="form-section-title">Banking Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="account-type-detail" class="form-label">Account Type Detail</label>
+                                        <select class="form-control" id="account-type-detail">
+                                            <option value="">Select an option</option>
+                                            <option value="individual">Individual</option>
+                                            <option value="joint">Joint</option>
+                                            <option value="business">Business</option>
+                                            <option value="trust">Trust</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="routing-number" class="form-label">Routing Number</label>
+                                        <input type="text" class="form-control" id="routing-number" placeholder="e.g., 123456789">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CD-specific fields -->
+                            <div class="form-section" id="cd-fields" style="display: none;">
+                                <h3 class="form-section-title">Certificate of Deposit Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cd-term" class="form-label">Term Length</label>
+                                        <select class="form-control" id="cd-term">
+                                            <option value="">Select a term</option>
+                                            <option value="3-month">3 Months</option>
+                                            <option value="6-month">6 Months</option>
+                                            <option value="1-year">1 Year</option>
+                                            <option value="18-month">18 Months</option>
+                                            <option value="2-year">2 Years</option>
+                                            <option value="3-year">3 Years</option>
+                                            <option value="5-year">5 Years</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="maturity-date" class="form-label">Maturity Date*</label>
+                                        <input type="date" class="form-control" id="maturity-date" required>
+                                        <div class="invalid-feedback">Please enter the maturity date.</div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="renewal-option" class="form-label">Renewal Option</label>
+                                        <select class="form-control" id="renewal-option">
+                                            <option value="">Select an option</option>
+                                            <option value="auto-renew">Auto-renew</option>
+                                            <option value="transfer">Transfer to another account</option>
+                                            <option value="notify">Notify at maturity</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Investment-specific fields -->
+                            <div class="form-section" id="investment-fields" style="display: none;">
+                                <h3 class="form-section-title">Investment Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="investment-type" class="form-label">Investment Type</label>
+                                        <select class="form-control" id="investment-type">
+                                            <option value="">Select a type</option>
+                                            <option value="stocks">Stocks</option>
+                                            <option value="bonds">Bonds</option>
+                                            <option value="mutual-funds">Mutual Funds</option>
+                                            <option value="etfs">ETFs</option>
+                                            <option value="mixed">Mixed Portfolio</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tax-status" class="form-label">Tax Status</label>
+                                        <select class="form-control" id="tax-status">
+                                            <option value="">Select a status</option>
+                                            <option value="taxable">Taxable</option>
+                                            <option value="tax-deferred">Tax-Deferred</option>
+                                            <option value="tax-free">Tax-Free</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Retirement-specific fields -->
+                            <div class="form-section" id="retirement-fields" style="display: none;">
+                                <h3 class="form-section-title">Retirement Account Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="contribution-year" class="form-label">Contribution Year</label>
+                                        <select class="form-control" id="contribution-year">
+                                            <option value="">Select a year</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="employer-match" class="form-label">Employer Match (%)</label>
+                                        <input type="text" class="form-control" id="employer-match" placeholder="e.g., 4.0">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="vesting" class="form-label">Vesting Status</label>
+                                        <select class="form-control" id="vesting">
+                                            <option value="">Select a status</option>
+                                            <option value="fully-vested">Fully Vested</option>
+                                            <option value="partially-vested">Partially Vested</option>
+                                            <option value="not-vested">Not Vested</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section-title">Ownership & Beneficiaries</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ownership-type" class="form-label">Ownership Type</label>
+                                        <select class="form-control" id="ownership-type">
+                                            <option value="individual">Individual</option>
+                                            <option value="joint">Joint</option>
+                                            <option value="trust">Trust</option>
+                                            <option value="business">Business</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" id="joint-owner-group" style="display: none;">
+                                        <label for="joint-owner" class="form-label">Joint Owner</label>
+                                        <select class="form-control" id="joint-owner">
+                                            <option value="">Select a family member</option>
+                                            <option value="sarah-johnson">Sarah Johnson (Spouse)</option>
+                                            <option value="robert-smith">Robert Smith (Son)</option>
+                                            <option value="emily-brown">Emily Brown (Daughter)</option>
+                                            <option value="other">Other (Add New)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label class="form-label">Beneficiaries</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="beneficiary-1" value="sarah-johnson">
+                                            <label class="form-check-label" for="beneficiary-1">Sarah Johnson (Spouse)</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="beneficiary-2" value="robert-smith">
+                                            <label class="form-check-label" for="beneficiary-2">Robert Smith (Son)</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="beneficiary-3" value="emily-brown">
+                                            <label class="form-check-label" for="beneficiary-3">Emily Brown (Daughter)</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="beneficiary-4" value="other">
+                                            <label class="form-check-label" for="beneficiary-4">Add New Beneficiary</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section-title">Documents</h3>
+                                <div class="file-upload" id="file-upload-area">
+                                    <div class="file-upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <div class="file-upload-text">Drag & drop files here or click to browse</div>
+                                    <div class="file-upload-btn">Browse Files</div>
+                                    <input type="file" id="file-input" multiple style="display: none;">
+                                </div>
+                                <div class="file-list" id="file-list"></div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section-title">Notes</h3>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label for="account-notes" class="form-label">Additional Notes</label>
+                                        <textarea class="form-control" id="account-notes" rows="4" placeholder="Add any additional information about this account..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="wizard-buttons">
+                            <button type="button" class="btn btn-secondary" id="btn-prev-3">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Previous</span>
+                            </button>
+                            <div>
+                                <button type="button" class="btn btn-outline" id="btn-save-draft">
+                                    <i class="fas fa-save"></i>
+                                    <span>Save Draft</span>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btn-next-3">
+                                    <span>Next</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Add Financial Advisor -->
+                    <div class="step-content" id="step-4">
+                        <h2 class="step-title">Add Financial Advisor (Optional)</h2>
+                        <p class="step-description">If this account is managed by a financial advisor, you can add their information here. This step is optional.</p>
+                        
+                        <div class="form-section">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Do you have a financial advisor for this account?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="has-advisor" id="has-advisor-yes" value="yes">
+                                        <label class="form-check-label" for="has-advisor-yes">Yes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="has-advisor" id="has-advisor-no" value="no" checked>
+                                        <label class="form-check-label" for="has-advisor-no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="advisor-form" style="display: none;">
+                            <div class="form-section">
+                                <h3 class="form-section-title">Select an Existing Advisor</h3>
+                                <div class="advisor-card">
+                                    <div class="advisor-avatar">MH</div>
+                                    <div class="advisor-info">
+                                        <div class="advisor-name">Mike Hughes</div>
+                                        <div class="advisor-role">Financial Advisor, Edward Jones</div>
+                                        <div class="advisor-contact">mike.hughes@edwardjones.com | (555) 123-4567</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row" style="margin-top: 20px;">
+                                    <div class="form-group full-width">
+                                        <label class="form-label">Or add a new advisor:</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section-title">New Advisor Information</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="advisor-first-name" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="advisor-first-name" placeholder="e.g., John">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="advisor-last-name" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="advisor-last-name" placeholder="e.g., Smith">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="advisor-company" class="form-label">Company</label>
+                                        <input type="text" class="form-control" id="advisor-company" placeholder="e.g., Edward Jones">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="advisor-title" class="form-label">Title</label>
+                                        <input type="text" class="form-control" id="advisor-title" placeholder="e.g., Financial Advisor">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="advisor-email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="advisor-email" placeholder="e.g., john.smith@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="advisor-phone" class="form-label">Phone</label>
+                                        <input type="tel" class="form-control" id="advisor-phone" placeholder="e.g., (555) 123-4567">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label for="advisor-notes" class="form-label">Notes</label>
+                                        <textarea class="form-control" id="advisor-notes" rows="3" placeholder="Add any additional information about this advisor..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-buttons">
+                            <button type="button" class="btn btn-secondary" id="btn-prev-4">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Previous</span>
+                            </button>
+                            <button type="button" class="btn btn-primary" id="btn-next-4">
+                                <span>Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Review and Confirm -->
+                    <div class="step-content" id="step-5">
+                        <h2 class="step-title">Review and Confirm</h2>
+                        <p class="step-description">Please review the information you've provided before adding this account to your vault.</p>
+                        
+                        <div class="review-section">
+                            <h3 class="form-section-title">Institution & Account Type</h3>
+                            <div class="review-item">
+                                <div class="review-label">Institution Type</div>
+                                <div class="review-value" id="review-institution-type">Brokerage</div>
+                                <div class="review-edit" data-step="1">Edit</div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-label">Institution</div>
+                                <div class="review-value" id="review-institution">Edward Jones</div>
+                                <div class="review-edit" data-step="1">Edit</div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-label">Account Type</div>
+                                <div class="review-value" id="review-account-type">Traditional IRA</div>
+                                <div class="review-edit" data-step="2">Edit</div>
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <h3 class="form-section-title">Account Details</h3>
+                            <div class="review-item">
+                                <div class="review-label">Account Name</div>
+                                <div class="review-value" id="review-account-name">Edward Jones Traditional IRA</div>
+                                <div class="review-edit" data-step="3">Edit</div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-label">Account Number</div>
+                                <div class="review-value" id="review-account-number">****8901</div>
+                                <div class="review-edit" data-step="3">Edit</div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-label">Date Opened</div>
+                                <div class="review-value" id="review-date-opened">March 15, 2010</div>
+                                <div class="review-edit" data-step="3">Edit</div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-label">Ownership Type</div>
+                                <div class="review-value" id="review-ownership">Individual</div>
+                                <div class="review-edit" data-step="3">Edit</div>
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <h3 class="form-section-title">Financial Advisor</h3>
+                            <div class="review-item">
+                                <div class="review-label">Advisor</div>
+                                <div class="review-value" id="review-advisor">Mike Hughes</div>
+                                <div class="review-edit" data-step="4">Edit</div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-label">Contact</div>
+                                <div class="review-value" id="review-advisor-contact">mike.hughes@edwardjones.com | (555) 123-4567</div>
+                                <div class="review-edit" data-step="4">Edit</div>
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <h3 class="form-section-title">Documents</h3>
+                            <div class="review-item">
+                                <div class="review-label">Uploaded Files</div>
+                                <div class="review-value" id="review-documents">Statement_Q2_2025.pdf (2.3 MB)</div>
+                                <div class="review-edit" data-step="3">Edit</div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-buttons">
+                            <button type="button" class="btn btn-secondary" id="btn-prev-5">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Previous</span>
+                            </button>
+                            <button type="button" class="btn btn-success" id="btn-submit">
+                                <i class="fas fa-check"></i>
+                                <span>Add Account</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize variables
+            let currentStep = 1;
+            const totalSteps = 5;
+            let selectedInstitutionType = null;
+            let selectedBank = null;
+            let selectedAccountType = null;
+            const progressBar = document.getElementById('progress-bar');
+            
+            // Update progress bar
+            function updateProgressBar() {
+                const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+                progressBar.style.width = progress + '%';
+            }
+            
+            // Show a specific step
+            function showStep(stepNumber) {
+                // Hide all steps
+                document.querySelectorAll('.step-content').forEach(step => {
+                    step.classList.remove('active');
+                });
+                
+                // Show the requested step
+                document.getElementById('step-' + stepNumber).classList.add('active');
+                
+                // Update steps indicators
+                document.querySelectorAll('.step').forEach(step => {
+                    const stepNum = parseInt(step.getAttribute('data-step'));
+                    step.classList.remove('active', 'completed');
+                    
+                    if (stepNum === stepNumber) {
+                        step.classList.add('active');
+                    } else if (stepNum < stepNumber) {
+                        step.classList.add('completed');
+                    }
+                });
+                
+                // Update current step and progress bar
+                currentStep = stepNumber;
+                updateProgressBar();
+            }
+            
+            // Step 1: Institution Type Selection
+            const institutionTypes = document.querySelectorAll('.institution-type');
+            institutionTypes.forEach(type => {
+                type.addEventListener('click', function() {
+                    // Remove selected class from all types
+                    institutionTypes.forEach(t => t.classList.remove('selected'));
+                    
+                    // Add selected class to clicked type
+                    this.classList.add('selected');
+                    
+                    // Store selected institution type
+                    selectedInstitutionType = this.getAttribute('data-type');
+                    
+                    // Hide all institution options
+                    document.querySelectorAll('.institution-options').forEach(opt => {
+                        opt.style.display = 'none';
+                    });
+                    
+                    // Show the relevant institution options
+                    document.getElementById(selectedInstitutionType + '-institutions').style.display = 'block';
+                    
+                    // Reset selected bank
+                    selectedBank = null;
+                    document.querySelectorAll('.bank-option').forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Disable next button until a bank is selected
+                    document.getElementById('btn-next-1').setAttribute('disabled', true);
+                    document.getElementById('btn-next-1').classList.add('btn-disabled');
+                });
+            });
+            
+            // Step 1: Bank Selection
+            const bankOptions = document.querySelectorAll('.bank-option');
+            bankOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    bankOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Enable next button
+                    document.getElementById('btn-next-1').removeAttribute('disabled');
+                    document.getElementById('btn-next-1').classList.remove('btn-disabled');
+                    
+                    // Store selected bank
+                    selectedBank = this.getAttribute('data-bank');
+                });
+            });
+            
+            // Bank search functionality
+            const bankSearch = document.getElementById('bank-search');
+            bankSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                bankOptions.forEach(option => {
+                    const bankName = option.querySelector('.bank-name').textContent.    </script>
+</body>
+</html>

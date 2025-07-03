@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management - SADMIN - Legacy Safe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        :root {
+            --admin-primary: #1a365d;
+            --admin-secondary: #2d3748;
+            --admin-accent: #3182ce;
+            --admin-success: #38a169;
+            --admin-warning: #d69e2e;
+            --admin-danger: #e53e3e;
+        }
+        .admin-header { background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary)); }
+        .admin-nav { background-color: var(--admin-secondary); }
+        .account-item { border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 15px; padding: 15px; }
+        .account-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .account-info { display: flex; gap: 20px; font-size: 14px; color: var(--text-light); }
+        .subscription-badge { padding: 3px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge-single-monthly { background-color: #e3f2fd; color: #1976d2; }
+        .badge-single-yearly { background-color: #e8f5e9; color: #388e3c; }
+        .badge-joint-monthly { background-color: #fff3e0; color: #f57c00; }
+        .badge-joint-yearly { background-color: #fce4ec; color: #d81b60; }
+        .viewer-badge { background-color: var(--secondary); color: var(--text-medium); }
+        .filter-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .filter-tab { padding: 10px 20px; border: 1px solid var(--border-color); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition); }
+        .filter-tab.active { background-color: var(--admin-accent); color: white; border-color: var(--admin-accent); }
+        .payment-status { display: flex; align-items: center; gap: 5px; }
+        .status-current { color: var(--admin-success); }
+        .status-overdue { color: var(--admin-danger); }
+        .status-trial { color: var(--admin-warning); }
+        .family-members { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-color); }
+        .family-member { display: inline-block; margin-right: 15px; font-size: 12px; }
+        /* Fix for text appearing behind cards */
+        .card { position: relative; z-index: 1; background-color: white; }
+        .account-item { position: relative; z-index: 1; background-color: white; }
+        .main-content { position: relative; z-index: 0; }
+        .filter-tabs { position: relative; z-index: 2; }
+        .search-filter-bar { position: relative; z-index: 2; }    </style>
+</head>
+<body>
+    <div class="container single-column-no-alert">
+        <!-- Admin Header -->
+        <header class="header admin-header">
+            <div class="logo">
+                <h1 style="color: var(--card-bg);">Legacy Safe</h1>
+                <span style="color: rgba(255,255,255,0.8); font-size: 14px; margin-left: 10px;">SUPER ADMIN</span>
+            </div>
+            <div class="header-right">
+                <div class="user-profile-icon-header">
+                    <div class="user-avatar" style="background-color: var(--admin-accent);">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" style="color: var(--card-bg);">Admin User</div>
+                        <div class="user-role" style="color: rgba(255,255,255,0.8);">Super Administrator</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="horizontal-nav admin-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item active">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Account Management</span>
+                </li>
+                <li class="nav-item" data-page="edit-faqs.html">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Edit FAQs</span>
+                </li>
+                <li class="nav-item" data-page="manage-banks.html">
+                    <i class="fas fa-university"></i>
+                    <span>Manage Banks</span>
+                </li>
+                <li class="nav-item" data-page="reports.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Reports & Analytics</span>
+                </li>
+                <li class="nav-item" data-page="../dashboard-horizontal.html">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to App</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header-row">
+                <h1>Account Management</h1>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-secondary" id="export-accounts">
+                        <i class="fas fa-download"></i> Export Data
+                    </button>
+                    <button class="btn btn-primary" id="stripe-dashboard">
+                        <i class="fab fa-stripe"></i> Stripe Dashboard
+                    </button>
+                </div>
+            </div>
+            <p class="page-description">Comprehensive view of all subscriptions, billing, and user accounts. Integrated with Stripe for payment management.</p>
+
+            <!-- Summary Stats -->
+            <div class="dashboard-grid" style="margin-bottom: 30px;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Active Subscriptions</h3>
+                        <i class="fas fa-users card-icon"></i>
+                    </div>
+                    <div class="admin-metric" style="font-size: 2rem;">1,247</div>
+                    <div style="color: var(--text-light);">+28 this month</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">MRR</h3>
+                        <i class="fas fa-dollar-sign card-icon"></i>
+                    </div>
+                    <div class="admin-metric" style="font-size: 2rem;">$47,832</div>
+                    <div style="color: var(--admin-success);">+12.3% growth</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Total Users</h3>
+                        <i class="fas fa-user-friends card-icon"></i>
+                    </div>
+                    <div class="admin-metric" style="font-size: 2rem;">3,842</div>
+                    <div style="color: var(--text-light);">Including viewers</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Churn Rate</h3>
+                        <i class="fas fa-chart-line card-icon"></i>
+                    </div>
+                    <div class="admin-metric" style="font-size: 2rem;">2.1%</div>
+                    <div style="color: var(--admin-success);">-0.3% vs last month</div>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <div class="filter-tab active" data-filter="all">All Accounts (1,247)</div>
+                <div class="filter-tab" data-filter="single-monthly">Single Monthly (487)</div>
+                <div class="filter-tab" data-filter="single-yearly">Single Yearly (312)</div>
+                <div class="filter-tab" data-filter="joint-monthly">Joint Monthly (298)</div>
+                <div class="filter-tab" data-filter="joint-yearly">Joint Yearly (150)</div>
+                <div class="filter-tab" data-filter="overdue">Payment Issues (23)</div>
+                <div class="filter-tab" data-filter="trial">Trial Accounts (47)</div>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search by name, email, or account ID..." id="account-search">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-dropdown">
+                    <select id="status-filter">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="trial">Trial</option>
+                        <option value="overdue">Payment Overdue</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Account List -->
+            <div class="account-list">
+                <!-- Primary Account Example 1 -->
+                <div class="account-item" data-plan="single-yearly">
+                    <div class="account-header">
+                        <div>
+                            <h4 style="margin: 0; color: var(--primary);">Sarah Johnson</h4>
+                            <div class="account-info">
+                                <span>sarah.johnson@email.com</span>
+                                <span>ID: LS-4821</span>
+                                <span>Joined: Mar 15, 2024</span>
+                                <span class="subscription-badge badge-single-yearly">Single Yearly</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="payment-status status-current">
+                                <i class="fas fa-check-circle"></i> Current
+                            </div>
+                            <div style="font-weight: 600; color: var(--admin-success);">$89.99/year</div>
+                            <div style="font-size: 12px; color: var(--text-light);">Renews: Mar 15, 2025</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="flex-grow: 1;">
+                            <strong>Stripe Customer:</strong> cus_Ob2mXvKjc8QpTg<br>
+                            <strong>Payment Method:</strong> •••• 4242 (Visa) - Valid
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-user"></i> View Profile
+                            </button>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-credit-card"></i> Billing
+                            </button>
+                            <button class="btn btn-warning btn-sm">
+                                <i class="fas fa-pause"></i> Suspend
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Joint Account Example -->
+                <div class="account-item" data-plan="joint-monthly">
+                    <div class="account-header">
+                        <div>
+                            <h4 style="margin: 0; color: var(--primary);">Michael & Linda Thompson</h4>
+                            <div class="account-info">
+                                <span>michael.thompson@email.com</span>
+                                <span>ID: LS-4789</span>
+                                <span>Joined: Jan 8, 2024</span>
+                                <span class="subscription-badge badge-joint-monthly">Joint Monthly</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="payment-status status-current">
+                                <i class="fas fa-check-circle"></i> Current
+                            </div>
+                            <div style="font-weight: 600; color: var(--admin-success);">$19.99/month</div>
+                            <div style="font-size: 12px; color: var(--text-light);">Next billing: Dec 8, 2024</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="flex-grow: 1;">
+                            <strong>Stripe Customer:</strong> cus_Pb3nYwLkd9RqUh<br>
+                            <strong>Payment Method:</strong> •••• 1234 (Mastercard) - Valid
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-user"></i> View Profile
+                            </button>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-credit-card"></i> Billing
+                            </button>
+                            <button class="btn btn-warning btn-sm">
+                                <i class="fas fa-pause"></i> Suspend
+                            </button>
+                        </div>
+                    </div>
+                    <div class="family-members">
+                        <strong>Family Circle:</strong>
+                        <span class="family-member"><i class="fas fa-user"></i> Linda Thompson (Co-Owner)</span>
+                        <span class="family-member"><i class="fas fa-eye"></i> Alex Thompson (Viewer)</span>
+                        <span class="family-member"><i class="fas fa-eye"></i> Emma Thompson (Viewer)</span>
+                    </div>
+                </div>
+
+                <!-- Problem Account Example -->
+                <div class="account-item" data-plan="single-monthly" style="border-left: 4px solid var(--admin-danger);">
+                    <div class="account-header">
+                        <div>
+                            <h4 style="margin: 0; color: var(--primary);">Robert Davis</h4>
+                            <div class="account-info">
+                                <span>robert.davis@email.com</span>
+                                <span>ID: LS-4623</span>
+                                <span>Joined: Aug 22, 2024</span>
+                                <span class="subscription-badge badge-single-monthly">Single Monthly</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="payment-status status-overdue">
+                                <i class="fas fa-exclamation-triangle"></i> Payment Failed
+                            </div>
+                            <div style="font-weight: 600; color: var(--admin-danger);">$9.99/month</div>
+                            <div style="font-size: 12px; color: var(--admin-danger);">Failed: Nov 22, 2024</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="flex-grow: 1;">
+                            <strong>Stripe Customer:</strong> cus_Qc4oZxMle0SrVi<br>
+                            <strong>Payment Method:</strong> •••• 5678 (Visa) - <span style="color: var(--admin-danger);">Expired</span>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-user"></i> View Profile
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-credit-card"></i> Update Payment
+                            </button>
+                            <button class="btn btn-warning btn-sm">
+                                <i class="fas fa-envelope"></i> Send Notice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trial Account Example -->
+                <div class="account-item" data-plan="trial" style="border-left: 4px solid var(--admin-warning);">
+                    <div class="account-header">
+                        <div>
+                            <h4 style="margin: 0; color: var(--primary);">Jennifer Martinez</h4>
+                            <div class="account-info">
+                                <span>jennifer.martinez@email.com</span>
+                                <span>ID: LS-4892</span>
+                                <span>Joined: Nov 20, 2024</span>
+                                <span class="subscription-badge" style="background-color: var(--admin-warning); color: white;">14-Day Trial</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="payment-status status-trial">
+                                <i class="fas fa-clock"></i> Trial Active
+                            </div>
+                            <div style="font-weight: 600; color: var(--admin-warning);">$0.00/trial</div>
+                            <div style="font-size: 12px; color: var(--admin-warning);">Expires: Dec 4, 2024</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="flex-grow: 1;">
+                            <strong>Stripe Customer:</strong> <em>Not yet created</em><br>
+                            <strong>Payment Method:</strong> <em>None on file</em>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-user"></i> View Profile
+                            </button>
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-credit-card"></i> Convert Trial
+                            </button>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-envelope"></i> Follow Up
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Viewer-Only Account Example -->
+                <div class="account-item" data-plan="viewer" style="border-left: 4px solid var(--secondary);">
+                    <div class="account-header">
+                        <div>
+                            <h4 style="margin: 0; color: var(--primary);">Alex Thompson</h4>
+                            <div class="account-info">
+                                <span>alex.thompson@email.com</span>
+                                <span>ID: LS-V894</span>
+                                <span>Added: Feb 14, 2024</span>
+                                <span class="subscription-badge viewer-badge">Viewer Only</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="payment-status" style="color: var(--text-medium);">
+                                <i class="fas fa-eye"></i> No Billing
+                            </div>
+                            <div style="font-weight: 600; color: var(--text-medium);">$0.00</div>
+                            <div style="font-size: 12px; color: var(--text-light);">Under: Thompson Family</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="flex-grow: 1;">
+                            <strong>Primary Account:</strong> Michael & Linda Thompson (LS-4789)<br>
+                            <strong>Access Level:</strong> Viewer - Can view documents only
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-user"></i> View Profile
+                            </button>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-users"></i> Manage Access
+                            </button>
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-upgrade"></i> Upgrade to Paid
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation
+            const navItemElements = document.querySelectorAll('.nav-item[data-page]');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    const pageName = this.getAttribute('data-page');
+                    if (pageName) window.location.href = pageName;
+                });
+            });
+
+            // Filter Tabs
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    const accountItems = document.querySelectorAll('.account-item');
+                    
+                    accountItems.forEach(item => {
+                        const plan = item.dataset.plan;
+                        if (filter === 'all') {
+                            item.style.display = 'block';
+                        } else if (filter === plan) {
+                            item.style.display = 'block';
+                        } else if (filter === 'overdue' && item.style.borderLeft.includes('rgb(229, 62, 62)')) {
+                            item.style.display = 'block';
+                        } else if (filter === 'trial' && plan === 'trial') {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search functionality
+            document.getElementById('account-search').addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const accountItems = document.querySelectorAll('.account-item');
+                
+                accountItems.forEach(item => {
+                    const accountName = item.querySelector('h4').textContent.toLowerCase();
+                    const email = item.querySelector('.account-info span').textContent.toLowerCase();
+                    
+                    if (accountName.includes(searchTerm) || email.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            // Action buttons
+            document.getElementById('stripe-dashboard').addEventListener('click', function() {
+                window.open('https://dashboard.stripe.com/dashboard', '_blank');
+            });
+
+            document.getElementById('export-accounts').addEventListener('click', function() {
+                alert('This would export account data to CSV for analysis.');
+            });
+
+            // Account actions
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.btn')) {
+                    const button = e.target.closest('.btn');
+                    const accountName = button.closest('.account-item').querySelector('h4').textContent;
+                    
+                    if (button.textContent.includes('View Profile')) {
+                        alert(`View detailed profile for: ${accountName}`);
+                    } else if (button.textContent.includes('Billing')) {
+                        alert(`Access billing details for: ${accountName}`);
+                    } else if (button.textContent.includes('Suspend')) {
+                        alert(`Suspend account: ${accountName}`);
+                    } else if (button.textContent.includes('Update Payment')) {
+                        alert(`Update payment method for: ${accountName}`);
+                    } else if (button.textContent.includes('Convert Trial')) {
+                        alert(`Convert trial to paid subscription: ${accountName}`);
+                    } else if (button.textContent.includes('Upgrade to Paid')) {
+                        alert(`Upgrade viewer to paid account: ${accountName}`);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
