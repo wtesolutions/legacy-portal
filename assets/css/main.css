@@ -231,7 +231,7 @@ img {
 .notifications-icon-header i,
 .user-profile-icon-header i {
     font-size: 20px;
-    color: var(--text-light);
+    color: var(--card-bg);
 }
 
 .notification-badge {
@@ -652,10 +652,33 @@ img {
 .add-account-btn { background-color: var(--accent); color: var(--card-bg); } /* Uses .btn base */
 .add-account-btn:hover { background-color: #0056b3; }
 .account-categories { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-.category-tab { padding: 10px 20px; background-color: var(--card-bg); border-radius: var(--border-radius); font-weight: 600; cursor: pointer; transition: var(--transition); white-space: nowrap; box-shadow: var(--shadow); display: flex; align-items: center; color: var(--primary); border: 1px solid var(--border-color); }
+.category-tab {
+    padding: 5px 12px;
+    background-color: var(--secondary);
+    border-radius: 15px;          /* pill/tag shape */
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    box-shadow: none;             /* remove card-like shadow */
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    margin-right: 5px;
+}
 .category-tab i { margin-right: 8px; }
-.category-tab.active { background-color: var(--primary); color: var(--card-bg); border-color: var(--primary); }
-.category-tab:hover:not(.active) { background-color: var(--secondary); border-color: var(--primary-light); }
+.category-tab.active {
+    background-color: var(--primary);
+    color: var(--card-bg);
+    border-color: var(--primary);
+}
+.category-tab:hover:not(.active) {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+    color: var(--card-bg);
+}
 .account-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; margin-bottom: 20px; }
 .account-list.hidden { display: none !important; }
 .account-card {
@@ -735,10 +758,10 @@ img {
 .vault-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
 .vault-actions .search-bar { flex-grow: 1; max-width: 500px; } /* Vault search bar can be wider */
 .action-buttons { display: flex; gap: 10px; }
-.upload-zone { background-color: var(--card-bg); border: 2px dashed var(--primary); border-radius: var(--border-radius); padding: 40px; text-align: center; margin-bottom: 30px; transition: var(--transition); cursor: pointer; }
-.upload-zone:hover { border-color: var(--accent); background-color: rgba(0, 123, 255, 0.05); }
+.upload-zone { background-color: var(--card-bg); border: 2px dashed var(--text-light); border-radius: var(--border-radius); padding: 40px; text-align: center; margin-bottom: 30px; transition: var(--transition); cursor: pointer; }
+.upload-zone:hover { border-color: var(--card-bg); background-color: rgba(147, 214, 233, 0.55); }
 .upload-zone.drag-over { border-color: var(--accent); background-color: rgba(0, 123, 255, 0.1); }
-.upload-icon { font-size: 48px; color: var(--primary); margin-bottom: 15px; }
+.upload-icon { font-size: 48px; color: var(--medium-bg); margin-bottom: 15px; }
 .upload-title { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: var(--primary); }
 .upload-text { font-size: 16px; color: var(--text-medium); margin-bottom: 20px; }
 .file-input { display: none; }
@@ -763,7 +786,10 @@ img {
 .document-preview .fa-file-archive { color: #795548; } /* Archive Brown */
 .document-preview .fa-file-audio { color: #9C27B0; } /* Audio Purple */
 .document-preview .fa-file-video { color: #F44336; } /* Video Red */
-.document-type-badge { position: absolute; top: 40px; right: 10px; padding: 3px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; background-color: var(--primary); color: var(--card-bg); }
+.document-type-badge {
+    /* Hide document-type badge globally (requested) */
+    display: none;
+}
 .document-status { position: absolute; top: 10px; left: 10px; width: 12px; height: 12px; border-radius: 50%; }
 .status-complete { background-color: var(--success); }
 .status-incomplete { background-color: var(--warning); }
@@ -789,14 +815,138 @@ img {
 .category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .category-title { font-size: 18px; font-weight: 600; color: var(--primary); }
 .category-description { font-size: 14px; color: var(--text-medium); margin-bottom: 20px; background-color: var(--card-bg); padding: 15px; border-radius: var(--border-radius); box-shadow: var(--shadow); border: 1px solid var(--border-color); }
-.document-preview-container { background-color: var(--secondary); border-radius: var(--border-radius); padding: 20px; margin-bottom: 20px; height: 400px; display: flex; justify-content: center; align-items: center; }
-.document-preview-placeholder { font-size: 72px; color: var(--primary); }
+.document-preview-container {
+    background-color: var(--secondary);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    /* removed bottom margin – handled by outer layout */
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   Document Preview Modal – Two-Column Layout
+   -------------------------------------------------------------------------- */
+.document-modal-layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.document-preview-column {
+    flex: 1;
+}
+
+.document-info-column {
+    flex: 1;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Buttons row under description in the document info column */
+/* --------------------------------------------------------------------------
+   Modal Container & Header/Footer Styling
+   -------------------------------------------------------------------------- */
+/* Main modal box */
+.modal {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styled like Quick-Access card */
+.modal-header {
+    background-color: var(--text-light);
+    color: var(--card-bg);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.modal-title {
+    margin: 0;
+    color: var(--card-bg);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Circular close button */
+.modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: var(--transition);
+}
+.modal-close:hover {
+    background-color: var(--primary-light);
+    color: var(--card-bg);
+}
+
+/* Footer with right-justified, smaller buttons */
+/* --------------------------------------------------------------------------
+   Modal Footer – Icon Grid Actions
+   -------------------------------------------------------------------------- */
+/* --- Modal Footer ------------------------------------------------------- */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--light-bg);
+    border-top: 1px solid var(--border-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Icon-only buttons are now action-icon divs, so the btn-sm overrides are no
+   longer needed and have been removed */
+
+/* Small button utility */
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .document-modal-layout {
+        flex-direction: column;
+    }
+}
+.document-preview-placeholder { font-size: 72px; }
 .document-details { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; }
 .detail-item { display: flex; flex-direction: column; }
 .detail-label { font-size: 14px; color: var(--text-light); margin-bottom: 5px; }
 .detail-value { font-size: 16px; font-weight: 600; color: var(--text-dark); }
 .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-.tag { background-color: var(--secondary); color: var(--primary); padding: 5px 10px; border-radius: 15px; font-size: 12px; display: flex; align-items: center; }
+.tag { background-color: var(--primary-light); color: var(--primary); padding: 5px 10px; border-radius: 15px; font-size: 12px; display: flex; align-items: center; }
 .tag i { margin-left: 5px; cursor: pointer; }
 .add-tag { background-color: var(--border-color); color: var(--text-light); padding: 5px 10px; border-radius: 15px; font-size: 12px; cursor: pointer; display: flex; align-items: center; }
 .add-tag i { margin-right: 5px; }

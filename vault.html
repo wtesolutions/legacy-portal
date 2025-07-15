@@ -323,42 +323,64 @@
                 <div class="modal">
                     <div class="modal-header">
                         <h3 class="modal-title" id="modal-doc-name">Document Name</h3>
-                        <button class="modal-close" id="modal-doc-close">&times;</button>
+                        <!-- Circular close button with Font Awesome X icon -->
+                        <button class="modal-close" id="modal-doc-close">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
-                    <div class="modal-body">
-                        <div class="document-preview-container">
-                            <!-- Actual preview would go here (e.g., iframe for PDF, img for image) -->
-                            <i class="fas fa-file-alt document-preview-placeholder" id="modal-doc-icon"></i>
-                            <img src="" alt="Document Preview" id="modal-doc-image-preview" style="display:none; max-width:100%; max-height:380px; object-fit:contain;">
-                        </div>
-                        <div class="document-details">
-                            <div class="detail-item"><div class="detail-label">File Type</div><div class="detail-value" id="modal-doc-type">N/A</div></div>
-                            <div class="detail-item"><div class="detail-label">Size</div><div class="detail-value" id="modal-doc-size">N/A</div></div>
-                            <div class="detail-item"><div class="detail-label">Uploaded On</div><div class="detail-value" id="modal-doc-uploaded">N/A</div></div>
-                            <div class="detail-item"><div class="detail-label">Last Modified</div><div class="detail-value" id="modal-doc-modified">N/A</div></div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-label">Tags</div>
-                            <div class="tag-container" id="modal-doc-tags">
-                                <!-- Tags will be populated by JS -->
-                                <div class="add-tag"><i class="fas fa-plus"></i> Add Tag</div>
+                    <div class="modal-body document-modal-layout">
+                        <!-- Left column : preview -->
+                        <div class="document-preview-column">
+                            <div class="document-preview-container">
+                                <!-- Actual preview would go here (e.g., iframe for PDF, img for image) -->
+                                <i class="fas fa-file-alt document-preview-placeholder" id="modal-doc-icon"></i>
+                                <img src="" alt="Document Preview" id="modal-doc-image-preview" style="display:none; max-width:100%; max-height:380px; object-fit:contain;">
                             </div>
                         </div>
-                        <div class="detail-item">
-                            <label for="modal-doc-description" class="detail-label">Description</label>
-                            <textarea id="modal-doc-description" class="form-control" rows="3" placeholder="Add a description..."></textarea>
-                        </div>
-                    </div>
+
+                        <!-- Right column : information -->
+                        <div class="document-info-column">
+                            <div class="document-details">
+                                <div class="detail-item"><div class="detail-label">File Type</div><div class="detail-value" id="modal-doc-type">N/A</div></div>
+                                <div class="detail-item"><div class="detail-label">Size</div><div class="detail-value" id="modal-doc-size">N/A</div></div>
+                                <div class="detail-item"><div class="detail-label">Uploaded On</div><div class="detail-value" id="modal-doc-uploaded">N/A</div></div>
+                                <div class="detail-item"><div class="detail-label">Last Modified</div><div class="detail-value" id="modal-doc-modified">N/A</div></div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Tags</div>
+                                <div class="tag-container" id="modal-doc-tags">
+                                    <!-- Tags will be populated by JS -->
+                                    <div class="add-tag"><i class="fas fa-plus"></i> Add Tag</div>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <label for="modal-doc-description" class="detail-label">Description</label>
+                                <textarea id="modal-doc-description" class="form-control" rows="3" placeholder="Add a description..."></textarea>
+                            </div>
+
+                            <!-- (Buttons removed – they will live in the modal footer) -->
+                        </div> <!-- /document-info-column -->
+                    </div> <!-- /modal-body -->
+
+                    <!-- Modal footer with smaller, right-aligned buttons -->
                     <div class="modal-footer">
                         <div>
-                            <button type="button" class="btn btn-outline" id="modal-edit-details"><i class="fas fa-pencil-alt"></i> Edit Details</button>
+                            <div class="action-icon" id="modal-edit-details" title="Edit Details">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
                         </div>
                         <div class="modal-actions">
-                            <button type="button" class="btn btn-outline" id="modal-download"><i class="fas fa-download"></i> Download</button>
-                            <button type="button" class="btn btn-outline" id="modal-share"><i class="fas fa-share-alt"></i> Share</button>
-                            <button type="button" class="btn btn-danger" id="modal-delete"><i class="fas fa-trash"></i> Delete</button>
+                            <div class="action-icon" id="modal-download" title="Download">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="action-icon" id="modal-share" title="Share">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="action-icon" id="modal-delete" title="Delete">
+                                <i class="fas fa-trash"></i>
+                            </div>
                         </div>
-                    </div>
+                    </div> <!-- /modal-footer -->
                 </div>
             </div>
 
