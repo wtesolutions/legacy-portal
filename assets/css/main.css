@@ -573,7 +573,20 @@ img {
 .activity-content { flex-grow: 1; }
 .activity-text { font-size: 14px; color: var(--text-dark); }
 .activity-time { font-size: 12px; color: var(--text-light); }
-.crisis-management { background-color: var(--accent); padding: 30px; border-radius: var(--border-radius); margin-top: 20px; margin-bottom: 20px; }
+.crisis-management {
+    background-color: var(--accent);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);                 /* match card shadow */
+    transition: var(--transition);             /* smooth hover animation */
+    border: 1px solid var(--border-color);     /* consistent border */
+}
+.crisis-management:hover {
+    transform: translateY(-5px);               /* lift on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* deeper hover shadow */
+}
 .crisis-title { color: var(--card-bg); font-weight: 600; margin-bottom: 10px; font-size: 18px; }
 .crisis-text { font-size: 14px; margin-bottom: 15px; color: var(--text-dark); }
 .crisis-button { display: inline-block; padding: 10px 15px; background-color: var(--primary); color: var(--card-bg); border-radius: var(--border-radius-btn); font-weight: 600; cursor: pointer; transition: var(--transition); border: none; font-size: 14px; }
@@ -870,7 +883,7 @@ img {
 
 /* Header styled like Quick-Access card */
 .modal-header {
-    background-color: var(--text-light);
+    background-color: var(--primary);
     color: var(--card-bg);
     padding: 15px 20px;
     display: flex;
@@ -892,7 +905,7 @@ img {
     height: 32px;
     border-radius: 50%;
     background-color: var(--card-bg);
-    color: var(--text-light);
+    color: var(--primary);
     border: none;
     display: flex;
     justify-content: center;
