@@ -562,9 +562,34 @@ img {
 .document-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
 .category-item { background-color: var(--card-bg); border-radius: var(--border-radius); padding: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); cursor: pointer; transition: var(--transition); border: 1px solid var(--medium-bg); }
 .category-item:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-.category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.category-title { font-weight: 600; color: var(--primary); }
-.category-status { width: 24px; height: 24px; border-radius: 50%; font-size: 12px; padding: 0; display: flex; justify-content: center; align-items: center; background-color: var(--success); color: var(--card-bg); }
+.category-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 10px; 
+    gap: 10px;                 /* ensure space between title and icon */
+}
+.category-title { 
+    font-weight: 600; 
+    color: var(--primary); 
+    flex: 1;                   /* allow title to take remaining space */
+    min-width: 0;              /* enable text-overflow handling if needed */
+}
+.category-status { 
+    width: 24px; 
+    height: 24px; 
+    min-width: 24px;           /* lock circle size */
+    min-height: 24px;          /* lock circle size */
+    border-radius: 50%; 
+    font-size: 12px; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: var(--success); 
+    color: var(--card-bg); 
+    flex-shrink: 0;            /* prevent shrinking when title is long */
+}
 .category-status.incomplete { background-color: var(--warning); }
 .activity-feed { max-height: 300px; overflow-y: auto; }
 .activity-item { display: flex; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
@@ -704,6 +729,7 @@ img {
     border: 1px solid var(--border-color);
     display: flex;              /* make inner layout vertical */
     flex-direction: column;
+    padding: 15px;
 }
 .account-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); }
 .account-header {
@@ -755,13 +781,27 @@ img {
 .advisor-role { font-size: 12px; color: var(--text-light); }
 .account-actions {
     display: flex;
+    /* spread icons evenly across the full width of the card footer */
+    justify-content: space-between;
     padding: 15px;              /* consistent padding */
     margin-top: auto;           /* stick to card bottom */
+    border-top: 1px solid var(--border-color);
 }
-.account-action { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 5px; cursor: pointer; transition: var(--transition); border-radius: var(--border-radius); }
-.account-action:hover { background-color: var(--secondary); }
-.account-action i { font-size: 18px; color: var(--primary); margin-bottom: 5px; }
-.action-label { font-size: 12px; color: var(--text-light); }
+.account-action { 
+    width: 30px; 
+    height: 30px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    transition: var(--transition); 
+    color: var(--text-light);
+}
+.account-action:hover { 
+    background-color: var(--secondary); 
+    color: var(--primary); 
+}
 .empty-state { text-align: center; padding: 40px; background-color: var(--card-bg); border-radius: var(--border-radius); box-shadow: var(--shadow); margin: 20px 0; border: 1px solid var(--border-color); }
 .empty-icon { font-size: 64px; color: var(--border-color); margin-bottom: 20px; }
 .empty-title { font-size: 24px; font-weight: 600; color: var(--primary); margin-bottom: 10px; }

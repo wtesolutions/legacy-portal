@@ -84,7 +84,6 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <h1 class="page-title">Document Vault</h1>
 
             <!-- Vault Actions -->
             <div class="vault-actions">
@@ -520,8 +519,13 @@
                 const typeBadge = docElement.querySelector('.document-type-badge');
                 const type = typeBadge ? typeBadge.textContent : 'File';
                 const meta = docElement.querySelector('.document-meta').textContent.split('•');
-                const size = meta[0] ? meta[0].trim() : 'N/A';
-                const date = meta[1] ? meta[1].trim() : 'N/A';
+                /* 
+                 * meta[0] contains the uploaded date
+                 * meta[1] contains the file size
+                 * Swap assignments so each value is displayed in the correct field
+                 */
+                const date = meta[0] ? meta[0].trim() : 'N/A';
+                const size = meta[1] ? meta[1].trim() : 'N/A';
                 const iconClass = docElement.querySelector('.document-icon') ? docElement.querySelector('.document-icon').className : 'fas fa-file-alt document-icon';
 
                 modalDocName.textContent = name;
@@ -534,8 +538,7 @@
                 modalDocImagePreview.style.display = 'none';
                 modalDocIcon.style.display = 'flex';
 
-                if (type.toLowerCase() === 'jpg' || type.toLowerCase() === 'png' || type.toLowerCase() === 'svg') {
-                    // In a real app, you'd set the src to the actual image
+                if (['jpg','jpeg','png','svg','gif','bmp','webp'].includes(type.toLowerCase())) {
                     modalDocImagePreview.src = docElement.querySelector('.document-preview img') ? docElement.querySelector('.document-preview img').src : '/api/placeholder/400/300';
                     modalDocImagePreview.style.display = 'block';
                     modalDocIcon.style.display = 'none';
@@ -545,13 +548,18 @@
                 modalDocTags.innerHTML = '<div class="tag">Sample Tag <i class="fas fa-times"></i></div><div class="add-tag"><i class="fas fa-plus"></i> Add Tag</div>';
                 modalDocDescription.value = "This is a sample description for " + name + ".";
 
-                if(documentModal) documentModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+                // Activate popup
+                if (documentModal) {
+                    documentModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
             }
 
             function closeModal() {
-                if(documentModal) documentModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                if (documentModal) {
+                    documentModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
             }
             
             const viewIcons = document.querySelectorAll('.action-icon[title="View"]');
@@ -562,7 +570,7 @@
             });
 
             if(modalClose) modalClose.addEventListener('click', closeModal);
-            if(documentModal) {
+            if (documentModal) {
                 documentModal.addEventListener('click', function(e) {
                     if (e.target === documentModal) {
                         closeModal();
