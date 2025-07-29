@@ -782,7 +782,7 @@ img {
 .account-actions {
     display: flex;
     /* spread icons evenly across the full width of the card footer */
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 15px;              /* consistent padding */
     margin-top: auto;           /* stick to card bottom */
     border-top: 1px solid var(--border-color);
@@ -849,7 +849,24 @@ img {
 .status-expired { background-color: var(--danger); }
 .document-info { padding: 15px; }
 .document-name { font-size: 16px; font-weight: 600; margin-bottom: 5px; color: var(--primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.document-meta { font-size: 12px; color: var(--text-light); margin-bottom: 10px; display: flex; justify-content: space-between; }
+.document-meta { 
+    font-size: 12px; 
+    color: var(--text-light); 
+    margin-bottom: 10px; 
+    display: grid;                     /* three even columns */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+/* Size – add “ MB” suffix */
+.document-meta span:nth-child(1)::after {
+    content: " MB";
+}
+
+/* Last-modified date – prepend label */
+.document-meta span:nth-child(3)::before {
+    content: "Modified: ";
+}
 .document-actions { display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 10px; }
 .action-icon { width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; border-radius: 50%; cursor: pointer; transition: var(--transition); color: var(--text-light); }
 .action-icon:hover { background-color: var(--secondary); color: var(--primary); }
@@ -911,7 +928,9 @@ img {
 .modal {
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
-    width: 100%;
+    /* Centered, constrained width instead of spanning full page */
+    width: 90%;
+    max-width: 900px;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
@@ -957,6 +976,44 @@ img {
 .modal-close:hover {
     background-color: var(--primary-light);
     color: var(--card-bg);
+}
+
+/* --------------------------------------------------------------------------
+   Modal Overlay (for popup background dim)
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+    display: none;               /* toggled via JS by adding .active */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Fade / scale-in animation for modal */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Apply animation when overlay becomes active */
+.modal-overlay.active .modal {
+    animation: modalFadeIn 0.3s ease-out;
 }
 
 /* Footer with right-justified, smaller buttons */
