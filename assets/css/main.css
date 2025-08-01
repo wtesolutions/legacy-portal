@@ -1250,4 +1250,176 @@ input:checked + .toggle-slider:before { transform: translateX(26px); }
 .support-title { font-size: 24px; font-weight: 600; margin-bottom: 15px; }
 .support-text { font-size: 16px; margin-bottom: 20px; }
 .support-options { display: flex; flex-wrap: wrap; gap: 20px; }
-.support-option { flex: 1; min-width: 250px; background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: var(--border-radius); transition: var
+.support-option { flex: 1; min-width: 250px; background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: var(--border-radius); transition: var(--transition); }
+.support-option:hover { background-color: rgba(255, 255, 255, 0.2); transform: translateY(-5px); }
+.support-option-title { font-size: 18px; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; }
+.support-option-title i { margin-right: 10px; font-size: 20px; }
+.support-option-text { font-size: 14px; margin-bottom: 15px; }
+/* --------------------------------------------------------------------------
+   Support Call-to-Action Button (continue & close truncation)
+   -------------------------------------------------------------------------- */
+.support-button { display: inline-block; padding: 10px 20px; background-color: var(--card-bg); color: var(--primary); border-radius: var(--border-radius-btn); font-weight: 600; transition: var(--transition); }
+.support-button:hover { background-color: var(--secondary); color: var(--primary); transform: translateY(-2px); }
+
+/* --------------------------------------------------------------------------
+   Mobile Menu Toggle (Hidden on Desktop)
+   -------------------------------------------------------------------------- */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--card-bg);
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* ==========================================================================
+   14. Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: 1fr 250px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px 60px auto 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "alert"
+            "main";
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+
+    .dashboard-grid-two-column,
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .accounts-overview,
+    .resources-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .account-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-rows: 70px auto auto 1fr;
+    }
+
+    .horizontal-nav {
+        padding: 0;
+        position: relative;
+    }
+
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+    }
+
+    .nav-items.show {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .header {
+        padding: 0 15px;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .dashboard-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-header-row img {
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        margin: 0 0 20px 0;
+    }
+
+    .form-group {
+        margin: 0 0 15px 0;
+    }
+
+    .accounts-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .search-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-dropdown {
+        width: 100%;
+    }
+
+    .account-list {
+        grid-template-columns: 1fr;
+    }
+
+    .document-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    /* Stack To-Do List sections on tablet/mobile */
+    .todo-sections-container {
+        flex-direction: column;
+    }
+
+    .todo-section {
+        width: 100%;
+    }
+}
