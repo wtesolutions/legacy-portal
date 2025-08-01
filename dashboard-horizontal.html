@@ -54,7 +54,7 @@
                 </li>
                 <li class="nav-item" data-page="legacy-messages.html"> 
                     <i class="fas fa-heart"></i>
-                    <span>Legacy Messages</span>
+                    <span>Keepsakes</span>
                 </li>
                 <li class="nav-item" data-page="crisis-management.html"> 
                     <i class="fas fa-first-aid"></i>
@@ -94,10 +94,6 @@
                         </p>
                     </div>
                 </div>
-                <div class="alert-footer">
-                    <span class="footer-label">System Alert</span>
-                    <span class="footer-timestamp">Today, 9:30 AM</span>
-                </div>
             </div>
         </div>
 
@@ -105,30 +101,25 @@
         <!-- Main Content -->
         <main class="main-content">
             
-            <!-- Quick Access Card -->
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Quick Access</h2>
-                    <div class="card-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                </div>
+            <!-- Quick Access Section -->
+            <div class="quick-access-section">
                 <div class="quick-access-grid">
+                    <!-- Upload first with special styling -->
+                    <div class="quick-access-item upload-highlight" data-link="vault.html#upload-zone">
+                        <i class="fas fa-upload"></i>
+                        <div>Upload Documents</div>
+                    </div>
                     <div class="quick-access-item" data-link="vault.html">
-                        <i class="fas fa-file-alt"></i>
-                        <div>My Documents</div>
+                        <i class="fas fa-vault"></i>
+                        <div>My Vault</div>
                     </div>
                     <div class="quick-access-item" data-link="access-sharing.html#family-circle-tab">
                         <i class="fas fa-users"></i>
                         <div>My Family Circle</div>
                     </div>
-                    <div class="quick-access-item" data-link="accounts.html">
-                        <i class="fas fa-sitemap"></i>
-                        <div>Other Family Accounts</div>
-                    </div>
-                    <div class="quick-access-item" data-link="vault.html#upload-zone">
-                        <i class="fas fa-upload"></i>
-                        <div>Upload Documents</div>
+                    <div class="quick-access-item" data-link="access-sharing.html">
+                        <i class="fas fa-share-alt"></i>
+                        <div>Access &amp; Sharing</div>
                     </div>
                     <div class="quick-access-item" data-link="password-vault.html"> 
                         <i class="fas fa-lock"></i>
@@ -172,54 +163,64 @@
                         </div>
                     </div>
                     
-                    <h4 class="card-subtitle">Required</h4>
-                    <ul class="todo-list">
-                        <li class="todo-item">
-                            <div class="todo-checkbox"></div>
-                            <div class="todo-content">
-                                <div class="todo-text">Upload Documents</div> 
-                                <div class="todo-meta">High Priority</div>
-                            </div>
-                        </li>
-                        <li class="todo-item">
-                            <div class="todo-checkbox"></div>
-                            <div class="todo-content">
-                                <div class="todo-text">Assign Executor</div>
-                                <div class="todo-meta">Medium Priority</div>
-                            </div>
-                        </li>
-                        <li class="todo-item">
-                            <div class="todo-checkbox"></div>
-                            <div class="todo-content">
-                                <div class="todo-text">Add Death Notification List</div>
-                                <div class="todo-meta">Medium Priority</div>
-                            </div>
-                        </li>
-                    </ul>
-                    <h4 class="card-subtitle">Recommended</h4>
-                    <ul class="todo-list">
-                        <li class="todo-item">
-                            <div class="todo-checkbox"></div>
-                            <div class="todo-content">
-                                <div class="todo-text">Write Letters</div>
-                                <div class="todo-meta">Low Priority</div>
-                            </div>
-                        </li>
-                        <li class="todo-item">
-                            <div class="todo-checkbox"></div>
-                            <div class="todo-content">
-                                <div class="todo-text">Invite Family Members</div>
-                                <div class="todo-meta">Low Priority</div>
-                            </div>
-                        </li>
-                        <li class="todo-item">
-                            <div class="todo-checkbox"></div>
-                            <div class="todo-content">
-                                <div class="todo-text">Refer Family/Friend</div>
-                                <div class="todo-meta">Low Priority</div>
-                            </div>
-                        </li>
-                    </ul>
+                    <!-- Responsive two-column wrapper -->
+                    <div class="todo-sections-container">
+                        <!-- Required Section -->
+                        <div class="todo-section">
+                            <h4 class="card-subtitle">Required</h4>
+                            <ul class="todo-list">
+                                <li class="todo-item">
+                                    <div class="todo-checkbox"></div>
+                                    <div class="todo-content">
+                                        <div class="todo-text">Upload Documents</div> 
+                                        <div class="todo-meta">High Priority</div>
+                                    </div>
+                                </li>
+                                <li class="todo-item">
+                                    <div class="todo-checkbox"></div>
+                                    <div class="todo-content">
+                                        <div class="todo-text">Assign Executor</div>
+                                        <div class="todo-meta">Medium Priority</div>
+                                    </div>
+                                </li>
+                                <li class="todo-item">
+                                    <div class="todo-checkbox"></div>
+                                    <div class="todo-content">
+                                        <div class="todo-text">Add Death Notification List</div>
+                                        <div class="todo-meta">Medium Priority</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Recommended Section -->
+                        <div class="todo-section">
+                            <h4 class="card-subtitle">Recommended</h4>
+                            <ul class="todo-list">
+                                <li class="todo-item">
+                                    <div class="todo-checkbox"></div>
+                                    <div class="todo-content">
+                                        <div class="todo-text">Write Letters</div>
+                                        <div class="todo-meta">Low Priority</div>
+                                    </div>
+                                </li>
+                                <li class="todo-item">
+                                    <div class="todo-checkbox"></div>
+                                    <div class="todo-content">
+                                        <div class="todo-text">Invite Family Members</div>
+                                        <div class="todo-meta">Low Priority</div>
+                                    </div>
+                                </li>
+                                <li class="todo-item">
+                                    <div class="todo-checkbox"></div>
+                                    <div class="todo-content">
+                                        <div class="todo-text">Refer Family/Friend</div>
+                                        <div class="todo-meta">Low Priority</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- /.todo-sections-container -->
                 </div>
 
                 <!-- Vault Completion Card -->
@@ -241,67 +242,32 @@
                     </div>
                     <div class="document-categories">
                         <div class="category-item" data-link="vault.html#legal-content">
-                            <div class="category-header">
-                                <div class="category-title">Immediate Priority Legal Documents</div>
-                                <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 100%;"></div>
-                            </div>
+                            <div class="category-title">Immediate Priority Legal Documents</div>
+                            <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
                         </div>
                         <div class="category-item" data-link="vault.html#financial-content">
-                            <div class="category-header">
-                                <div class="category-title">Financial, Property & Asset Documentation</div>
-                                <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 100%;"></div>
-                            </div>
+                            <div class="category-title">Financial, Property & Asset Documentation</div>
+                            <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
                         </div>
                         <div class="category-item" data-link="vault.html#business-content">
-                            <div class="category-header">
-                                <div class="category-title">Business & Employment Records</div>
-                                <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 100%;"></div>
-                            </div>
+                            <div class="category-title">Business & Employment Records</div>
+                            <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
                         </div>
                         <div class="category-item" data-link="vault.html#personal-content">
-                            <div class="category-header">
-                                <div class="category-title">Personal & Administrative Documents</div>
-                                <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 100%;"></div>
-                            </div>
+                            <div class="category-title">Personal & Administrative Documents</div>
+                            <div class="category-status"><i class="fas fa-solid fa-check"></i></div>
                         </div>
                         <div class="category-item" data-link="vault.html#digital-content">
-                            <div class="category-header">
-                                <div class="category-title">Digital & Modern Assets</div>
-                                <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill incomplete" style="width: 30%;"></div>
-                            </div>
+                            <div class="category-title">Digital & Modern Assets</div>
+                            <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
                         </div>
                         <div class="category-item" data-link="vault.html#custom1-content">
-                            <div class="category-header">
-                                <div class="category-title">Custom Folder 1</div>
-                                <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill incomplete" style="width: 50%;"></div>
-                            </div>
+                            <div class="category-title">Custom Folder 1</div>
+                            <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
                         </div>
                         <div class="category-item" data-link="vault.html#custom2-content">
-                            <div class="category-header">
-                                <div class="category-title">Custom Folder 2</div>
-                                <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill incomplete" style="width: 20%;"></div>
-                            </div>
+                            <div class="category-title">Custom Folder 2</div>
+                            <div class="category-status incomplete"><i class="fas fa-solid fa-exclamation"></i></div>
                         </div>
                     </div>
                 </div>

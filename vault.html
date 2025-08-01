@@ -56,7 +56,7 @@
                 </li>
                 <li class="nav-item" data-page="legacy-messages.html">
                     <i class="fas fa-heart"></i>
-                    <span>Legacy Messages</span>
+                    <span>Keepsakes</span>
                 </li>
                 <li class="nav-item" data-page="crisis-management.html"> 
                     <i class="fas fa-first-aid"></i>
@@ -114,7 +114,12 @@
                 <div class="category-tab" data-category="business"><i class="fas fa-briefcase"></i>Business & Employment</div>
                 <div class="category-tab" data-category="personal"><i class="fas fa-id-card"></i>Personal & Administrative</div>
                 <div class="category-tab" data-category="digital"><i class="fas fa-laptop-code"></i>Digital & Modern Assets</div>
+                <div class="category-tab" data-category="keepsakes"><i class="fas fa-laptop-code"></i>Keepsakes</div>
                 <div class="category-tab" data-category="custom"><i class="fas fa-folder-plus"></i>Custom Folders</div>
+                <!-- Add New Folder button -->
+                <div class="category-tab add-folder-tab" id="btn-organize">
+                    <i class="fas fa-plus"></i>Add New Folder
+                </div>
             </div>
 
             <!-- Filter Bar -->
@@ -162,7 +167,7 @@
                         <div class="document-info">
                             <div class="document-name">Will and Testament</div>
                             <div class="document-meta">
-                                <span>2.4</span>
+                                <span>2.4&nbsp;MB</span>
                                 <span>Jun 1, 2025</span>
                                 <span>Jun 3, 2025</span>
                             </div>
@@ -184,7 +189,7 @@
                         <div class="document-info">
                             <div class="document-name">Investment Portfolio Q2</div>
                             <div class="document-meta">
-                                <span>1.1</span>
+                                <span>1.1&nbsp;MB</span>
                                 <span>Jun 5, 2025</span>
                                 <span>Jun 8, 2025</span>
                             </div>
@@ -196,19 +201,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="document-card" data-category="personal" data-status="complete">
+                    <div class="document-card"
+                         data-category="personal"
+                         data-status="complete"
+                         data-file-type="N/A"
+                         data-file-size="26 KB"
+                         data-upload-date="April 20, 2025"
+                         data-modified-date="July 17, 2025">
                         <div class="selection-checkbox"></div>
                         <div class="document-preview">
                             <i class="fas fa-file-image document-icon"></i>
-                            <div class="document-type-badge">JPG</div>
+                            <div class="document-type-badge">N/A</div>
                             <div class="document-status status-complete"></div>
                         </div>
                         <div class="document-info">
                             <div class="document-name">Passport Scan</div>
                             <div class="document-meta">
-                                <span>3.5</span>
+                                <span>26&nbsp;KB</span>
                                 <span>Apr 20, 2025</span>
-                                <span>Apr 22, 2025</span>
+                                <span>Jul 17, 2025</span>
                             </div>
                             <div class="document-actions">
                                 <div class="action-icon" title="View"><i class="fas fa-eye"></i></div>
@@ -228,7 +239,7 @@
                         <div class="document-info">
                             <div class="document-name">Old Lease Agreement</div>
                             <div class="document-meta">
-                                <span>0.8</span>
+                                <span>0.8&nbsp;MB</span>
                                 <span>Jan 10, 2022</span>
                                 <span>Jan 12, 2022</span>
                             </div>
@@ -336,10 +347,22 @@
                         <!-- Right column : information -->
                         <div class="document-info-column">
                             <div class="document-details">
-                                <div class="detail-item"><div class="detail-label">File Type</div><div class="detail-value" id="modal-doc-type">N/A</div></div>
-                                <div class="detail-item"><div class="detail-label">Size</div><div class="detail-value" id="modal-doc-size">N/A</div></div>
-                                <div class="detail-item"><div class="detail-label">Uploaded On</div><div class="detail-value" id="modal-doc-uploaded">N/A</div></div>
-                                <div class="detail-item"><div class="detail-label">Last Modified</div><div class="detail-value" id="modal-doc-modified">N/A</div></div>
+                                <div class="detail-item">
+                                    <div class="detail-label">File Type</div>
+                                    <div class="detail-value" id="modal-doc-type">N/A</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">File Size</div>
+                                    <div class="detail-value" id="modal-doc-size">26 KB</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Uploaded On</div>
+                                    <div class="detail-value" id="modal-doc-uploaded">April&nbsp;20,&nbsp;2025</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Last Modified</div>
+                                    <div class="detail-value" id="modal-doc-modified">July&nbsp;17,&nbsp;2025</div>
+                                </div>
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">Tags</div>
@@ -514,21 +537,22 @@
                 const name = docElement.querySelector('.document-name').textContent;
                 const typeBadge = docElement.querySelector('.document-type-badge');
                 const type = typeBadge ? typeBadge.textContent : 'File';
-                const meta = docElement.querySelector('.document-meta').textContent.split('•');
-                /* 
-                 * meta[0] contains the uploaded date
-                 * meta[1] contains the file size
-                 * Swap assignments so each value is displayed in the correct field
-                 */
-                const date = meta[0] ? meta[0].trim() : 'N/A';
-                const size = meta[1] ? meta[1].trim() : 'N/A';
+                /* Prefer data attributes for accuracy; fall back to meta text if absent */
+                const metaSpans = docElement.querySelectorAll('.document-meta span');
+                const sizeFromMeta      = metaSpans[0] ? metaSpans[0].textContent.trim() : 'N/A';
+                const uploadedFromMeta  = metaSpans[1] ? metaSpans[1].textContent.trim() : 'N/A';
+                const modifiedFromMeta  = metaSpans[2] ? metaSpans[2].textContent.trim() : 'N/A';
+
+                const size     = docElement.dataset.fileSize     || sizeFromMeta;
+                const uploaded = docElement.dataset.uploadDate   || uploadedFromMeta;
+                const modified = docElement.dataset.modifiedDate || modifiedFromMeta;
                 const iconClass = docElement.querySelector('.document-icon') ? docElement.querySelector('.document-icon').className : 'fas fa-file-alt document-icon';
 
                 modalDocName.textContent = name;
                 modalDocType.textContent = type;
-                modalDocSize.textContent = size;
-                modalDocUploaded.textContent = date;
-                modalDocModified.textContent = date; // Placeholder
+                modalDocSize.textContent      = size;
+                modalDocUploaded.textContent  = uploaded;
+                modalDocModified.textContent  = modified;
                 
                 modalDocIcon.className = iconClass + ' document-preview-placeholder';
                 modalDocImagePreview.style.display = 'none';
