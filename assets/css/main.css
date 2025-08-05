@@ -630,6 +630,12 @@ img {
 .quick-access-item div {
     text-align: left;
 }
+.upload-category-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; 
+    margin-bottom: 20px; 
+}
 
 /* Upload button – distinct treatment ------------------------------------ */
 .quick-access-item.upload-highlight {
@@ -929,7 +935,7 @@ img {
 .vault-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
 .vault-actions .search-bar { flex-grow: 1; max-width: 500px; } /* Vault search bar can be wider */
 .action-buttons { display: flex; gap: 10px; }
-.upload-zone { background-color: var(--card-bg); border: 2px dashed var(--text-light); border-radius: var(--border-radius); padding: 40px; text-align: center; margin-bottom: 30px; transition: var(--transition); cursor: pointer; }
+.upload-zone { background-color: var(--card-bg); border: 2px dashed var(--text-light); border-radius: var(--border-radius); padding: 40px; text-align: center; margin-bottom:; transition: var(--transition); cursor: pointer; }
 .upload-zone:hover { border-color: var(--card-bg); background-color: rgba(147, 214, 233, 0.55); }
 .upload-zone.drag-over { border-color: var(--accent); background-color: rgba(0, 123, 255, 0.1); }
 .upload-icon { font-size: 48px; color: var(--medium-bg); margin-bottom: 15px; }
