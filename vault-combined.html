@@ -84,7 +84,7 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            
+
             <!-- Vault Actions -->
             <!-- Search Documents Section -->
             <div class="search-filter-bar">
@@ -94,9 +94,20 @@
                 </div>
             </div>
             
-            <div class="upload-category-container">            
+            <div class="upload-category-container">
+
+            <!-- Upload Zone -->
+            <div class="upload-zone" id="upload-zone">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <h2 class="upload-title">Drag & Drop Files Here</h2>
+                <p class="upload-text">or click to browse your computer</p>
+                <div class="btn btn-primary">
+                    <i class="fas fa-file"></i>
+                    <span>Upload</span>
+                </div>
+                <input type="file" class="file-input" id="file-input" multiple>
             </div>
-            
+
             <!-- Folder Structure Section -->
             <div class="folder-structure-section">
                 <div class="folder-section-header">
@@ -122,14 +133,15 @@
             
                 <!-- Folder Grid View -->
                 <div class="folder-grid" id="folder-grid-view">
-                    <!-- Legal Documents Folder -->
-                    <div class="folder-card" data-type="legal">
+                    
+                    <!-- Folder Cards -->
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Legal Documents</div>
+                            <div class="folder-name">Immediate Priority Legal</div>
                             <div class="folder-meta">Folder • 12 items</div>
                         </div>
                         <div class="folder-actions">
@@ -137,64 +149,75 @@
                             <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
-            
-                    <!-- Financial Records Folder -->
-                    <div class="folder-card" data-type="financial">
+                    
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Financial Records</div>
-                            <div class="folder-meta">Folder • 8 items</div>
+                            <div class="folder-name">Financial & Property</div>
+                            <div class="folder-meta">Folder • 12 items</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
                             <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
-            
-                    <!-- Personal Documents Folder -->
-                    <div class="folder-card" data-type="personal">
+                    
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Personal Documents</div>
-                            <div class="folder-meta">Folder • 6 items</div>
+                            <div class="folder-name">Business & Employment</div>
+                            <div class="folder-meta">Folder • 12 items</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
                             <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
-            
-                    <!-- Business Records Folder -->
-                    <div class="folder-card" data-type="business">
+                    
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Business Records</div>
-                            <div class="folder-meta">Folder • 4 items</div>
+                            <div class="folder-name">Personal & Administrative</div>
+                            <div class="folder-meta">Folder • 12 items</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
                             <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
-            
-                    <!-- Digital Assets Folder -->
-                    <div class="folder-card" data-type="digital">
+                    
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Digital Assets</div>
-                            <div class="folder-meta">Folder • 3 items</div>
+                            <div class="folder-name">Digital & Modern Assets</div>
+                            <div class="folder-meta">Folder • 12 items</div>
+                        </div>
+                        <div class="folder-actions">
+                            <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
+                            <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
+                        </div>
+                    </div>
+                    
+                    <div class="folder-card" data-type="">
+                        <div class="selection-checkbox"></div>
+                        <div class="folder-preview">
+                            <i class="fas fa-folder folder-icon"></i>
+                        </div>
+                        <div class="folder-info">
+                            <div class="folder-name">Keepsakes</div>
+                            <div class="folder-meta">Folder • 12 items</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
@@ -229,7 +252,7 @@
                         <div>Date Modified</div>
                     </div>
             
-                    <div class="folder-row" data-type="legal">
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
@@ -238,45 +261,55 @@
                         <div class="folder-row-items">12 items</div>
                         <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
-            
-                    <div class="folder-row" data-type="financial">
+                    
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div class="folder-row-name">Financial Records</div>
+                        <div class="folder-row-name">Financial & Property</div>
                         <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">8 items</div>
-                        <div class="folder-row-modified">Yesterday, 4:15 PM</div>
+                        <div class="folder-row-items">12 items</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
-            
-                    <div class="folder-row" data-type="personal">
+                    
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div class="folder-row-name">Personal Documents</div>
+                        <div class="folder-row-name">Business & Employment</div>
                         <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">6 items</div>
-                        <div class="folder-row-modified">Jan 15, 10:20 AM</div>
+                        <div class="folder-row-items">12 items</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
-            
-                    <div class="folder-row" data-type="business">
+                    
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div class="folder-row-name">Business Records</div>
+                        <div class="folder-row-name">Personal & Administrative</div>
                         <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">4 items</div>
-                        <div class="folder-row-modified">Jan 12, 3:45 PM</div>
+                        <div class="folder-row-items">12 items</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
-            
-                    <div class="folder-row" data-type="digital">
+                    
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div class="folder-row-name">Digital Assets</div>
+                        <div class="folder-row-name">Digital & Modern Assets</div>
                         <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">3 items</div>
-                        <div class="folder-row-modified">Jan 10, 9:00 AM</div>
+                        <div class="folder-row-items">12 items</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
+                    </div>
+                    
+                    <div class="folder-row" data-type="">
+                        <div class="folder-row-icon">
+                            <i class="fas fa-folder"></i>
+                        </div>
+                        <div class="folder-row-name">Keepsakes</div>
+                        <div class="folder-row-type">Folder</div>
+                        <div class="folder-row-items">12 items</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
             
                     <div class="folder-row" data-type="custom" data-shared="true">
@@ -296,6 +329,8 @@
                     <h3>No Folders Yet</h3>
                     <p>Create your first folder to organize your documents.</p>
                 </div>
+            </div>
+            
             </div>
 
             <!-- Filter Bar -->
