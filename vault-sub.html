@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - My Vault</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container single-column-no-alert"> <!-- No right sidebar, no top alert -->
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="assets/images/FF-Horizontal-white.svg"
+                     alt="Safekeeping Spotlight Graphic"
+                     style="width: auto; height: 2.75em; border-radius: var(--border-radius);">
+            </div>
+            <div class="header-right">
+                <div class="notifications-icon-header" id="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header" id="user-profile-icon">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item active" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item" data-page="accounts.html">
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                    <span class="new-badge">NEW</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Keepsakes</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html">
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Vault Actions -->
+            <!-- Search Documents Section -->
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="document-search" placeholder="Search documents by name, type, or content...">
+                </div>
+            </div>
+            
+            <div class="upload-category-container">
+
+            <!-- Upload Zone -->
+            <div class="upload-zone" id="upload-zone">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <h2 class="upload-title">Drag & Drop Files Here</h2>
+                <p class="upload-text">or click to browse your computer</p>
+                <div class="btn btn-primary">
+                    <i class="fas fa-file"></i>
+                    <span>Upload</span>
+                </div>
+                <input type="file" class="file-input" id="file-input" multiple>
+            </div>
+
+            <!-- Category Tabs -->
+            <div>
+            <div class="category-tabs">
+                <div class="category-tab active" data-category="all"><i class="fas fa-layer-group"></i>All Documents</div>
+                <div class="category-tab" data-category="legal"><i class="fas fa-gavel"></i>Immediate Priority Legal</div>
+                <div class="category-tab" data-category="financial"><i class="fas fa-file-invoice-dollar"></i>Financial & Property</div>
+                <div class="category-tab" data-category="business"><i class="fas fa-briefcase"></i>Business & Employment</div>
+                <div class="category-tab" data-category="personal"><i class="fas fa-id-card"></i>Personal & Administrative</div>
+                <div class="category-tab" data-category="digital"><i class="fas fa-laptop-code"></i>Digital & Modern Assets</div>
+                <div class="category-tab" data-category="keepsakes"><i class="fas fa-laptop-code"></i>Keepsakes</div>
+                <div class="category-tab" data-category="custom"><i class="fas fa-folder-plus"></i>Custom Folders</div>
+                <!-- Add New Folder button -->
+                <div class="category-tab add-folder-tab" id="btn-organize">
+                    <i class="fas fa-plus"></i>Add New Folder
+                </div>
+            </div></div>
+            
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-options">
+                    <span class="filter-label">Sort by:</span>
+                    <select class="filter-select" id="sort-by">
+                        <option value="date-desc">Date (Newest First)</option>
+                        <option value="date-asc">Date (Oldest First)</option>
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="type">Document Type</option>
+                    </select>
+
+                    <span class="filter-label">Status:</span>
+                    <select class="filter-select" id="filter-status">
+                        <option value="all">All</option>
+                        <option value="complete">Complete</option>
+                        <option value="incomplete">Incomplete</option>
+                        <option value="expired">Expired/Outdated</option>
+                    </select>
+                </div>
+                <div class="view-options">
+                    <div class="view-option active" id="grid-view-btn">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <div class="view-option" id="list-view-btn">
+                        <i class="fas fa-list"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Content - All Documents (Default View) -->
+            <div class="category-content active" id="all-content">
+                <!-- Document Grid View -->
+                <div class="document-grid" id="document-grid-view">
+                    <!-- Sample Documents -->
+                    <div class="document-card" data-category="legal" data-status="complete">
+                        <div class="selection-checkbox"></div>
+                        <div class="document-preview">
+                            <i class="fas fa-file-pdf document-icon"></i>
+                            <div class="document-type-badge">PDF</div>
+                            <div class="document-status status-complete"></div>
+                        </div>
+                        <div class="document-info">
+                            <div class="document-name">Will and Testament</div>
+                            <div class="document-meta">
+                                <span>2.4&nbsp;MB</span>
+                                <span>Jun 1, 2025</span>
+                                <span>Jun 3, 2025</span>
+                            </div>
+                            <div class="document-actions">
+                                <div class="action-icon" title="View"><i class="fas fa-eye"></i></div>
+                                <div class="action-icon" title="Download"><i class="fas fa-download"></i></div>
+                                <div class="action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
+                                <div class="action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="document-card" data-category="financial" data-status="incomplete">
+                        <div class="selection-checkbox"></div>
+                        <div class="document-preview">
+                            <i class="fas fa-file-excel document-icon"></i>
+                            <div class="document-type-badge">XLSX</div>
+                            <div class="document-status status-incomplete"></div>
+                        </div>
+                        <div class="document-info">
+                            <div class="document-name">Investment Portfolio Q2</div>
+                            <div class="document-meta">
+                                <span>1.1&nbsp;MB</span>
+                                <span>Jun 5, 2025</span>
+                                <span>Jun 8, 2025</span>
+                            </div>
+                            <div class="document-actions">
+                                <div class="action-icon" title="View"><i class="fas fa-eye"></i></div>
+                                <div class="action-icon" title="Download"><i class="fas fa-download"></i></div>
+                                <div class="action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
+                                <div class="action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="document-card"
+                         data-category="personal"
+                         data-status="complete"
+                         data-file-type="N/A"
+                         data-file-size="26 KB"
+                         data-upload-date="April 20, 2025"
+                         data-modified-date="July 17, 2025">
+                        <div class="selection-checkbox"></div>
+                        <div class="document-preview">
+                            <i class="fas fa-file-image document-icon"></i>
+                            <div class="document-type-badge">N/A</div>
+                            <div class="document-status status-complete"></div>
+                        </div>
+                        <div class="document-info">
+                            <div class="document-name">Passport Scan</div>
+                            <div class="document-meta">
+                                <span>26&nbsp;KB</span>
+                                <span>Apr 20, 2025</span>
+                                <span>Jul 17, 2025</span>
+                            </div>
+                            <div class="document-actions">
+                                <div class="action-icon" title="View"><i class="fas fa-eye"></i></div>
+                                <div class="action-icon" title="Download"><i class="fas fa-download"></i></div>
+                                <div class="action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
+                                <div class="action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="document-card" data-category="legal" data-status="expired">
+                        <div class="selection-checkbox"></div>
+                        <div class="document-preview">
+                            <i class="fas fa-file-word document-icon"></i>
+                            <div class="document-type-badge">DOCX</div>
+                            <div class="document-status status-expired"></div>
+                        </div>
+                        <div class="document-info">
+                            <div class="document-name">Old Lease Agreement</div>
+                            <div class="document-meta">
+                                <span>0.8&nbsp;MB</span>
+                                <span>Jan 10, 2022</span>
+                                <span>Jan 12, 2022</span>
+                            </div>
+                            <div class="document-actions">
+                                <div class="action-icon" title="View"><i class="fas fa-eye"></i></div>
+                                <div class="action-icon" title="Download"><i class="fas fa-download"></i></div>
+                                <div class="action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
+                                <div class="action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more sample documents -->
+                </div>
+
+                <!-- Document List View -->
+                <div class="document-list" id="document-list-view">
+                    <!-- Sample Document Row -->
+                    <div class="document-row" data-category="legal" data-status="complete">
+                        <div class="selection-checkbox"></div>
+                        <div class="row-icon"><i class="fas fa-file-pdf"></i></div>
+                        <div class="row-info">
+                            <div class="row-name">Will and Testament</div>
+                            <div class="row-meta"><span>PDF</span><span>2.4 MB</span><span>Jun 1, 2025</span></div>
+                        </div>
+                        <div class="row-status"><div class="status-dot status-complete"></div><span>Complete</span></div>
+                        <div class="row-actions">
+                            <div class="action-icon" title="View"><i class="fas fa-eye"></i></div>
+                            <div class="action-icon" title="Download"><i class="fas fa-download"></i></div>
+                            <div class="action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
+                            <div class="action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
+                        </div>
+                    </div>
+                    <!-- Add more sample document rows -->
+                </div>
+                 <!-- Empty State (Initially hidden) -->
+                <div class="empty-state" id="empty-state-vault" style="display: none;">
+                    <div class="empty-icon"><i class="fas fa-folder-open"></i></div>
+                    <h2 class="empty-title">Your Vault is Empty</h2>
+                    <p class="empty-text">Start by uploading your important documents. Drag and drop files or click the "Upload" button.</p>
+                    <div class="btn btn-primary" id="empty-upload-btn"><i class="fas fa-upload"></i> Upload First Document</div>
+                </div>
+            </div>
+
+            <!-- Category Content - Legal Documents -->
+            <div class="category-content" id="legal-content">
+                <div class="category-header">
+                    <h2 class="category-title">Immediate Priority Legal Documents</h2>
+                </div>
+                <div class="category-description">
+                    <p>These are critical legal documents that should be accessible to your executor and loved ones in case of emergency. They form the foundation of your estate planning and end-of-life wishes.</p>
+                </div>
+                <div class="document-grid">
+                    <!-- Populate with legal documents or show empty state -->
+                </div>
+            </div>
+            <!-- Other category contents would be defined similarly -->
+             <div class="category-content" id="financial-content">
+                <div class="category-header"><h2 class="category-title">Financial, Property & Asset Documentation</h2></div>
+                <div class="category-description"><p>Bank statements, investment records, property deeds, insurance policies, etc.</p></div>
+                <div class="document-grid"></div>
+            </div>
+            <div class="category-content" id="business-content">
+                <div class="category-header"><h2 class="category-title">Business & Employment Records</h2></div>
+                <div class="category-description"><p>Partnership agreements, corporate bylaws, employment contracts, pension information.</p></div>
+                <div class="document-grid"></div>
+            </div>
+            <div class="category-content" id="personal-content">
+                <div class="category-header"><h2 class="category-title">Personal & Administrative Documents</h2></div>
+                <div class="category-description"><p>Birth certificates, marriage/divorce papers, social security cards, passports, driver's licenses.</p></div>
+                <div class="document-grid"></div>
+            </div>
+            <div class="category-content" id="digital-content">
+                <div class="category-header"><h2 class="category-title">Digital & Modern Assets</h2></div>
+                <div class="category-description"><p>Online account credentials, cryptocurrency wallets, digital asset inventory, social media instructions.</p></div>
+                <div class="document-grid"></div>
+            </div>
+            <div class="category-content" id="custom-content">
+                <div class="category-header"><h2 class="category-title">Custom Folders</h2></div>
+                <div class="category-description"><p>Your personalized folders for any other important documents.</p></div>
+                <div class="document-grid"></div>
+            </div>
+
+
+            <!-- Document Preview Modal -->
+            <div class="modal-overlay" id="document-modal">
+                <!-- inline width constraints keep modal nicely centred and not full-width -->
+                <div class="modal" style="width:90%;max-width:900px;">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="modal-doc-name">Document Name</h3>
+                        <!-- Circular close button with Font Awesome X icon -->
+                        <button class="modal-close" id="modal-doc-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body document-modal-layout">
+                        <!-- Left column : preview -->
+                        <div class="document-preview-column">
+                            <div class="document-preview-container">
+                                <!-- Actual preview would go here (e.g., iframe for PDF, img for image) -->
+                                <i class="fas fa-file-alt document-preview-placeholder" id="modal-doc-icon"></i>
+                                <img src="" alt="Document Preview" id="modal-doc-image-preview" style="display:none; max-width:100%; max-height:380px; object-fit:contain;">
+                            </div>
+                        </div>
+
+                        <!-- Right column : information -->
+                        <div class="document-info-column">
+                            <div class="document-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">File Type</div>
+                                    <div class="detail-value" id="modal-doc-type">N/A</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">File Size</div>
+                                    <div class="detail-value" id="modal-doc-size">26 KB</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Uploaded On</div>
+                                    <div class="detail-value" id="modal-doc-uploaded">April&nbsp;20,&nbsp;2025</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Last Modified</div>
+                                    <div class="detail-value" id="modal-doc-modified">July&nbsp;17,&nbsp;2025</div>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Tags</div>
+                                <div class="tag-container" id="modal-doc-tags">
+                                    <!-- Tags will be populated by JS -->
+                                    <div class="add-tag"><i class="fas fa-plus"></i> Add Tag</div>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <label for="modal-doc-description" class="detail-label">Description</label>
+                                <textarea id="modal-doc-description" class="form-control" rows="3" placeholder="Add a description..."></textarea>
+                            </div>
+
+                            <!-- (Buttons removed – they will live in the modal footer) -->
+                        </div> <!-- /document-info-column -->
+                    </div> <!-- /modal-body -->
+
+                    <!-- Modal footer with smaller, right-aligned buttons -->
+                    <div class="modal-footer">
+                        <div>
+                            <div class="action-icon" id="modal-edit-details" title="Edit Details">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                        </div>
+                        <div class="modal-actions">
+                            <div class="action-icon" id="modal-download" title="Download">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="action-icon" id="modal-share" title="Share">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="action-icon" id="modal-delete" title="Delete">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                        </div>
+                    </div> <!-- /modal-footer -->
+                </div>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-indicator" id="progress-indicator">
+                <div class="progress-header">
+                    <div class="progress-title" id="progress-title">Uploading Files...</div>
+                    <button class="progress-close" id="progress-close">&times;</button>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill-bar"></div>
+                </div>
+                <div class="progress-text" id="progress-status-text">0% Complete</div>
+            </div>
+
+            <!-- Bulk Actions Bar -->
+            <div class="bulk-actions" id="bulk-actions-bar">
+                <div class="bulk-info">0 Items Selected</div>
+                <div class="bulk-buttons">
+                    <button type="button" class="bulk-btn bulk-btn-white"><i class="fas fa-folder"></i> Move</button>
+                    <button type="button" class="bulk-btn bulk-btn-white"><i class="fas fa-share-alt"></i> Share</button>
+                    <button type="button" class="bulk-btn bulk-btn-white"><i class="fas fa-download"></i> Download</button>
+                    <button type="button" class="bulk-btn bulk-btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gridViewBtn = document.getElementById('grid-view-btn');
+            const listViewBtn = document.getElementById('list-view-btn');
+            const documentGridView = document.getElementById('document-grid-view');
+            const documentListView = document.getElementById('document-list-view');
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const categoryContents = document.querySelectorAll('.category-content');
+            const documentSearch = document.getElementById('document-search');
+            const sortBySelect = document.getElementById('sort-by');
+            const filterStatusSelect = document.getElementById('filter-status');
+            const emptyStateVault = document.getElementById('empty-state-vault');
+            const emptyUploadBtn = document.getElementById('empty-upload-btn');
+
+            // View switching
+            if (gridViewBtn && listViewBtn && documentGridView && documentListView) {
+                gridViewBtn.addEventListener('click', function() {
+                    gridViewBtn.classList.add('active');
+                    listViewBtn.classList.remove('active');
+                    documentGridView.style.display = 'grid';
+                    documentListView.style.display = 'none';
+                });
+
+                listViewBtn.addEventListener('click', function() {
+                    listViewBtn.classList.add('active');
+                    gridViewBtn.classList.remove('active');
+                    documentListView.style.display = 'flex';
+                    documentGridView.style.display = 'none';
+                });
+            }
+            
+            // Function to check and display empty state
+            function checkEmptyState(container) {
+                const items = container.querySelectorAll('.document-card:not([style*="display: none"]), .document-row:not([style*="display: none"])');
+                if (items.length === 0 && emptyStateVault) {
+                    emptyStateVault.style.display = 'block';
+                } else if (emptyStateVault) {
+                    emptyStateVault.style.display = 'none';
+                }
+            }
+
+            // Category tabs
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    categoryContents.forEach(content => content.classList.remove('active'));
+                    
+                    let activeContentContainer = documentGridView.style.display === 'grid' ? documentGridView : documentListView;
+                    
+                    if (category === 'all') {
+                        document.getElementById('all-content').classList.add('active');
+                        // Show all documents
+                        document.querySelectorAll('.document-card, .document-row').forEach(doc => doc.style.display = (doc.matches('.document-card') ? 'block' : 'flex'));
+                        activeContentContainer = document.getElementById('all-content').querySelector(documentGridView.style.display === 'grid' ? '.document-grid' : '.document-list');
+
+                    } else {
+                         const targetContent = document.getElementById(category + '-content');
+                         if(targetContent) {
+                            targetContent.classList.add('active');
+                            activeContentContainer = targetContent.querySelector('.document-grid'); // Assuming grid for categories for now
+                         }
+                        // Filter documents by category
+                        document.querySelectorAll('.document-card, .document-row').forEach(doc => {
+                            if (doc.getAttribute('data-category') === category) {
+                                doc.style.display = (doc.matches('.document-card') ? 'block' : 'flex');
+                            } else {
+                                doc.style.display = 'none';
+                            }
+                        });
+                    }
+                    checkEmptyState(activeContentContainer);
+                });
+            });
+            
+            // Initial check for empty state
+            checkEmptyState(documentGridView.style.display === 'grid' ? documentGridView : documentListView);
+            if(emptyUploadBtn) {
+                emptyUploadBtn.addEventListener('click', () => document.getElementById('upload-zone').scrollIntoView({ behavior: 'smooth' }) );
+            }
+
+
+            // Document modal
+            const documentCards = document.querySelectorAll('.document-card');
+            const documentRows = document.querySelectorAll('.document-row');
+            const documentModal = document.getElementById('document-modal');
+            const modalClose = document.getElementById('modal-doc-close');
+            const modalDocName = document.getElementById('modal-doc-name');
+            const modalDocIcon = document.getElementById('modal-doc-icon');
+            const modalDocImagePreview = document.getElementById('modal-doc-image-preview');
+            const modalDocType = document.getElementById('modal-doc-type');
+            const modalDocSize = document.getElementById('modal-doc-size');
+            const modalDocUploaded = document.getElementById('modal-doc-uploaded');
+            const modalDocModified = document.getElementById('modal-doc-modified'); // Assuming you'll have this data
+            const modalDocTags = document.getElementById('modal-doc-tags');
+            const modalDocDescription = document.getElementById('modal-doc-description');
+
+
+            function openModal(docElement) {
+                const name = docElement.querySelector('.document-name').textContent;
+                const typeBadge = docElement.querySelector('.document-type-badge');
+                const type = typeBadge ? typeBadge.textContent : 'File';
+                /* Prefer data attributes for accuracy; fall back to meta text if absent */
+                const metaSpans = docElement.querySelectorAll('.document-meta span');
+                const sizeFromMeta      = metaSpans[0] ? metaSpans[0].textContent.trim() : 'N/A';
+                const uploadedFromMeta  = metaSpans[1] ? metaSpans[1].textContent.trim() : 'N/A';
+                const modifiedFromMeta  = metaSpans[2] ? metaSpans[2].textContent.trim() : 'N/A';
+
+                const size     = docElement.dataset.fileSize     || sizeFromMeta;
+                const uploaded = docElement.dataset.uploadDate   || uploadedFromMeta;
+                const modified = docElement.dataset.modifiedDate || modifiedFromMeta;
+                const iconClass = docElement.querySelector('.document-icon') ? docElement.querySelector('.document-icon').className : 'fas fa-file-alt document-icon';
+
+                modalDocName.textContent = name;
+                modalDocType.textContent = type;
+                modalDocSize.textContent      = size;
+                modalDocUploaded.textContent  = uploaded;
+                modalDocModified.textContent  = modified;
+                
+                modalDocIcon.className = iconClass + ' document-preview-placeholder';
+                modalDocImagePreview.style.display = 'none';
+                modalDocIcon.style.display = 'flex';
+
+                if (['jpg','jpeg','png','svg','gif','bmp','webp'].includes(type.toLowerCase())) {
+                    modalDocImagePreview.src = docElement.querySelector('.document-preview img') ? docElement.querySelector('.document-preview img').src : '/api/placeholder/400/300';
+                    modalDocImagePreview.style.display = 'block';
+                    modalDocIcon.style.display = 'none';
+                }
+                
+                // Placeholder for tags and description
+                modalDocTags.innerHTML = '<div class="tag">Sample Tag <i class="fas fa-times"></i></div><div class="add-tag"><i class="fas fa-plus"></i> Add Tag</div>';
+                modalDocDescription.value = "This is a sample description for " + name + ".";
+
+                // Activate popup
+                if (documentModal) {
+                    documentModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeModal() {
+                if (documentModal) {
+                    documentModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+            
+            const viewIcons = document.querySelectorAll('.action-icon[title="View"]');
+            viewIcons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    openModal(this.closest('.document-card') || this.closest('.document-row'));
+                });
+            });
+
+            if(modalClose) modalClose.addEventListener('click', closeModal);
+            if (documentModal) {
+                documentModal.addEventListener('click', function(e) {
+                    if (e.target === documentModal) {
+                        closeModal();
+                    }
+                });
+            }
+
+            // Upload zone functionality (Simplified)
+            const uploadZone = document.getElementById('upload-zone');
+            const fileInput = document.getElementById('file-input');
+            const uploadBtnMain = document.getElementById('btn-upload-main');
+            const progressIndicator = document.getElementById('progress-indicator');
+            const progressTitle = document.getElementById('progress-title');
+            const progressFillBar = document.getElementById('progress-fill-bar');
+            const progressStatusText = document.getElementById('progress-status-text');
+            const progressCloseBtn = document.getElementById('progress-close');
+
+
+            function triggerFileUpload() {
+                if(fileInput) fileInput.click();
+            }
+            if(uploadZone) uploadZone.addEventListener('click', triggerFileUpload);
+            if(uploadBtnMain) uploadBtnMain.addEventListener('click', triggerFileUpload);
+            if(uploadZone) { // Drag and drop events
+                uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+                uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+                uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.classList.remove('drag-over'); handleFiles(e.dataTransfer.files); });
+            }
+            if(fileInput) fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+            if(progressCloseBtn) progressCloseBtn.addEventListener('click', () => progressIndicator.style.display = 'none');
+
+            function handleFiles(files) {
+                if (!files.length || !progressIndicator) return;
+                progressTitle.textContent = `Uploading ${files.length} File(s)...`;
+                progressIndicator.style.display = 'block';
+                let progress = 0;
+                progressFillBar.style.width = '0%';
+                progressStatusText.textContent = '0% Complete';
+
+                const interval = setInterval(() => {
+                    progress += 10;
+                    if (progress <= 100) {
+                        progressFillBar.style.width = progress + '%';
+                        progressStatusText.textContent = progress + '% Complete';
+                    } else {
+                        clearInterval(interval);
+                        progressStatusText.textContent = 'Upload Complete!';
+                        setTimeout(() => { progressIndicator.style.display = 'none'; /* Add to vault logic here */ }, 2000);
+                    }
+                }, 200);
+            }
+
+            // Selection checkboxes and Bulk Actions
+            const selectionCheckboxes = document.querySelectorAll('.selection-checkbox');
+            const bulkActionsBar = document.getElementById('bulk-actions-bar');
+            const bulkInfo = document.querySelector('.bulk-info');
+            
+            function updateBulkActions() {
+                if (!bulkActionsBar || !bulkInfo) return;
+                const selectedCount = document.querySelectorAll('.document-card.selected, .document-row.selected').length;
+                if (selectedCount > 0) {
+                    bulkActionsBar.style.display = 'flex';
+                    bulkInfo.textContent = `${selectedCount} Item${selectedCount > 1 ? 's' : ''} Selected`;
+                } else {
+                    bulkActionsBar.style.display = 'none';
+                }
+            }
+
+            selectionCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function(e) {
+                    e.stopPropagation(); 
+                    this.classList.toggle('checked');
+                    const parentItem = this.closest('.document-card') || this.closest('.document-row');
+                    if(parentItem) parentItem.classList.toggle('selected');
+                    updateBulkActions();
+                });
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            if(menuToggle && navItems) {
+                menuToggle.addEventListener('click', function() {
+                    navItems.classList.toggle('show');
+                });
+            }
+
+            // High contrast toggle
+            const contrastToggle = document.querySelector('.high-contrast-toggle');
+            if(contrastToggle) {
+                contrastToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('high-contrast');
+                });
+            }
+
+            // Navigation items click
+            const navItemElements = document.querySelectorAll('.nav-item');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
+                        const pageName = this.getAttribute('data-page');
+                        if (pageName) {
+                            window.location.href = pageName;
+                        }
+                    }
+                });
+            });
+            
+            // Notification bell click
+            const notificationsBell = document.getElementById('notifications-bell');
+            if (notificationsBell) {
+                notificationsBell.addEventListener('click', function() {
+                    window.location.href = 'notifications.html';
+                });
+            }
+
+            // User profile icon click
+            const userProfileIcon = document.getElementById('user-profile-icon');
+            if (userProfileIcon) {
+                userProfileIcon.addEventListener('click', function() {
+                    window.location.href = 'user-profile.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
