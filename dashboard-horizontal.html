@@ -542,13 +542,38 @@
                 document.body.classList.toggle('high-contrast');
             });
 
-            // Mobile menu toggle
+            // Mobile menu toggle - UPDATED FUNCTIONALITY
             const menuToggle = document.querySelector('.mobile-menu-toggle');
             const navItems = document.querySelector('.nav-items');
             
             if(menuToggle && navItems){
                 menuToggle.addEventListener('click', function() {
                     navItems.classList.toggle('show');
+                });
+            
+                // Close mobile menu when clicking on navigation links
+                const navItemElements = document.querySelectorAll('.nav-item');
+                navItemElements.forEach(item => {
+                    item.addEventListener('click', function() {
+                        // Close the menu
+                        navItems.classList.remove('show');
+                        
+                        // Navigate to page if not active and not dropdown
+                        if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
+                            const pageName = this.getAttribute('data-page');
+                            if (pageName) {
+                                console.log('Navigating to:', pageName);
+                                window.location.href = pageName;
+                            }
+                        }
+                    });
+                });
+            
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!menuToggle.contains(event.target) && !navItems.contains(event.target)) {
+                        navItems.classList.remove('show');
+                    }
                 });
             }
 

@@ -84,7 +84,7 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            
+
             <!-- Vault Actions -->
             <!-- Search Documents Section -->
             <div class="search-filter-bar">
@@ -94,21 +94,74 @@
                 </div>
             </div>
             
-            <div class="upload-category-container">            
+            <div class="upload-category-container">
+
+            <!-- Upload Zone -->
+            <div class="upload-zone" id="upload-zone">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <h2 class="upload-title">Drag & Drop Files Here</h2>
+                <p class="upload-text">or click to browse your computer</p>
+                <div class="btn btn-primary">
+                    <i class="fas fa-file"></i>
+                    <span>Upload</span>
+                </div>
+                <input type="file" class="file-input" id="file-input" multiple>
             </div>
-            
+
             <!-- Folder Structure Section -->
             <div class="folder-structure-section">
                 <div class="folder-section-header">
-                    <h2 class="folder-section-title">
-                        <i class="fas fa-folder-open"></i>
-                        My Folders
-                    </h2>
+                    <!-- Folder Dropdown -->
+                    <div class="folder-dropdown-container">
+                        <div class="folder-dropdown-trigger" id="folder-dropdown-trigger">
+                            <i class="fas fa-folder-open"></i>
+                            <span id="current-folder-name">My Folders</span>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <div class="folder-dropdown-menu" id="folder-dropdown-menu">
+                            <div class="folder-dropdown-item selected" data-folder="all">
+                                <i class="fas fa-folder-open"></i>
+                                <span class="folder-item-text">All Folders</span>
+                                <span class="folder-item-count"></span>
+                            </div>
+                            <div class="folder-dropdown-item" data-folder="legal">
+                                <i class="fas fa-gavel folder-item-icon"></i>
+                                <span class="folder-item-text">Immediate Priority Legal</span>
+                                <span class="folder-item-count">3 files</span>
+                            </div>
+                            <div class="folder-dropdown-item" data-folder="financial">
+                                <i class="fas fa-file-invoice-dollar folder-item-icon"></i>
+                                <span class="folder-item-text">Financial & Property</span>
+                                <span class="folder-item-count">5 files</span>
+                            </div>
+                            <div class="folder-dropdown-item" data-folder="business">
+                                <i class="fas fa-briefcase folder-item-icon"></i>
+                                <span class="folder-item-text">Business & Employment</span>
+                                <span class="folder-item-count">2 files</span>
+                            </div>
+                            <div class="folder-dropdown-item" data-folder="personal">
+                                <i class="fas fa-id-card folder-item-icon"></i>
+                                <span class="folder-item-text">Personal & Administrative</span>
+                                <span class="folder-item-count">8 files</span>
+                            </div>
+                            <div class="folder-dropdown-item" data-folder="digital">
+                                <i class="fas fa-laptop-code folder-item-icon"></i>
+                                <span class="folder-item-text">Digital & Modern Assets</span>
+                                <span class="folder-item-count">4 files</span>
+                            </div>
+                            <div class="folder-dropdown-item" data-folder="keepsakes">
+                                <i class="fas fa-heart folder-item-icon"></i>
+                                <span class="folder-item-text">Keepsakes</span>
+                                <span class="folder-item-count">12 files</span>
+                            </div>
+                            <div class="folder-dropdown-item" data-folder="custom">
+                                <i class="fas fa-folder-plus folder-item-icon"></i>
+                                <span class="folder-item-text">Custom Folders</span>
+                                <span class="folder-item-count">2 folders</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="folder-controls">
-                        <button class="add-button" id="create-folder-btn">
-                            <i class="fas fa-plus"></i>
-                            Create Folder
-                        </button>
                         <div class="view-options">
                             <div class="view-option active" id="folder-grid-view-btn" title="Grid View">
                                 <i class="fas fa-th"></i>
@@ -117,84 +170,100 @@
                                 <i class="fas fa-list"></i>
                             </div>
                         </div>
+                        <button class="add-button" id="create-folder-btn">
+                            <i class="fas fa-plus"></i>
+                            Add New Folder
+                        </button>
                     </div>
                 </div>
             
                 <!-- Folder Grid View -->
                 <div class="folder-grid" id="folder-grid-view">
-                    <!-- Legal Documents Folder -->
-                    <div class="folder-card" data-type="legal">
+                    
+                    <!-- Folder Cards -->
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Legal Documents</div>
-                            <div class="folder-meta">Folder • 12 items</div>
+                            <div class="folder-name">Immediate Priority Legal</div>
+                            <div class="folder-meta">3 files</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
                             <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
-            
-                    <!-- Financial Records Folder -->
-                    <div class="folder-card" data-type="financial">
+                    
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Financial Records</div>
-                            <div class="folder-meta">Folder • 8 items</div>
+                            <div class="folder-name">Financial & Property</div>
+                            <div class="folder-meta">5 files</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
                             <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
-            
-                    <!-- Personal Documents Folder -->
-                    <div class="folder-card" data-type="personal">
+                    
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Personal Documents</div>
-                            <div class="folder-meta">Folder • 6 items</div>
+                            <div class="folder-name">Business & Employment</div>
+                            <div class="folder-meta">2 files</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
                             <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
-            
-                    <!-- Business Records Folder -->
-                    <div class="folder-card" data-type="business">
+                    
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Business Records</div>
-                            <div class="folder-meta">Folder • 4 items</div>
+                            <div class="folder-name">Personal & Administrative</div>
+                            <div class="folder-meta">8 files</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
                             <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
                         </div>
                     </div>
-            
-                    <!-- Digital Assets Folder -->
-                    <div class="folder-card" data-type="digital">
+                    
+                    <div class="folder-card" data-type="">
                         <div class="selection-checkbox"></div>
                         <div class="folder-preview">
                             <i class="fas fa-folder folder-icon"></i>
                         </div>
                         <div class="folder-info">
-                            <div class="folder-name">Digital Assets</div>
-                            <div class="folder-meta">Folder • 3 items</div>
+                            <div class="folder-name">Digital & Modern Assets</div>
+                            <div class="folder-meta">4 files</div>
+                        </div>
+                        <div class="folder-actions">
+                            <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
+                            <div class="folder-action-icon" title="More"><i class="fas fa-ellipsis-v"></i></div>
+                        </div>
+                    </div>
+                    
+                    <div class="folder-card" data-type="">
+                        <div class="selection-checkbox"></div>
+                        <div class="folder-preview">
+                            <i class="fas fa-folder folder-icon"></i>
+                        </div>
+                        <div class="folder-info">
+                            <div class="folder-name">Keepsakes</div>
+                            <div class="folder-meta">12 files</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
@@ -210,7 +279,7 @@
                         </div>
                         <div class="folder-info">
                             <div class="folder-name">Custom Folders</div>
-                            <div class="folder-meta">Shared folder • 0 items</div>
+                            <div class="folder-meta">2 Folders</div>
                         </div>
                         <div class="folder-actions">
                             <div class="folder-action-icon" title="Share"><i class="fas fa-share-alt"></i></div>
@@ -224,59 +293,62 @@
                     <div class="folder-list-header">
                         <div></div>
                         <div>Name</div>
-                        <div>Type</div>
                         <div>Items</div>
                         <div>Date Modified</div>
                     </div>
             
-                    <div class="folder-row" data-type="legal">
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
                         <div class="folder-row-name">Legal Documents</div>
-                        <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">12 items</div>
+                        <div class="folder-row-items">3 files</div>
                         <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
-            
-                    <div class="folder-row" data-type="financial">
+                    
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div class="folder-row-name">Financial Records</div>
-                        <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">8 items</div>
-                        <div class="folder-row-modified">Yesterday, 4:15 PM</div>
+                        <div class="folder-row-name">Financial & Property</div>
+                        <div class="folder-row-items">5 files</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
-            
-                    <div class="folder-row" data-type="personal">
+                    
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div class="folder-row-name">Personal Documents</div>
-                        <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">6 items</div>
-                        <div class="folder-row-modified">Jan 15, 10:20 AM</div>
+                        <div class="folder-row-name">Business & Employment</div>
+                        <div class="folder-row-items">2 files</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
-            
-                    <div class="folder-row" data-type="business">
+                    
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div class="folder-row-name">Business Records</div>
-                        <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">4 items</div>
-                        <div class="folder-row-modified">Jan 12, 3:45 PM</div>
+                        <div class="folder-row-name">Personal & Administrative</div>
+                        <div class="folder-row-items">8 files</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
-            
-                    <div class="folder-row" data-type="digital">
+                    
+                    <div class="folder-row" data-type="">
                         <div class="folder-row-icon">
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div class="folder-row-name">Digital Assets</div>
-                        <div class="folder-row-type">Folder</div>
-                        <div class="folder-row-items">3 items</div>
-                        <div class="folder-row-modified">Jan 10, 9:00 AM</div>
+                        <div class="folder-row-name">Digital & Modern Assets</div>
+                        <div class="folder-row-items">4 files</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
+                    </div>
+                    
+                    <div class="folder-row" data-type="">
+                        <div class="folder-row-icon">
+                            <i class="fas fa-folder"></i>
+                        </div>
+                        <div class="folder-row-name">Keepsakes</div>
+                        <div class="folder-row-items">12 files</div>
+                        <div class="folder-row-modified">Today, 2:30 PM</div>
                     </div>
             
                     <div class="folder-row" data-type="custom" data-shared="true">
@@ -284,8 +356,7 @@
                             <i class="fas fa-folder"></i>
                         </div>
                         <div class="folder-row-name">Custom Folders</div>
-                        <div class="folder-row-type">Shared</div>
-                        <div class="folder-row-items">0 items</div>
+                        <div class="folder-row-items">2 folders</div>
                         <div class="folder-row-modified">Jan 8, 11:30 AM</div>
                     </div>
                 </div>
@@ -296,6 +367,8 @@
                     <h3>No Folders Yet</h3>
                     <p>Create your first folder to organize your documents.</p>
                 </div>
+            </div>
+            
             </div>
 
             <!-- Filter Bar -->
@@ -893,103 +966,210 @@
         });
     </script>
     
-    <!-- Folder Structure Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Folder view toggle functionality
-            const folderGridViewBtn = document.getElementById('folder-grid-view-btn');
-            const folderListViewBtn = document.getElementById('folder-list-view-btn');
-            const folderGridView = document.getElementById('folder-grid-view');
-            const folderListView = document.getElementById('folder-list-view');
-            const createFolderBtn = document.getElementById('create-folder-btn');
-    
-            // Switch to grid view
-            folderGridViewBtn.addEventListener('click', function() {
-                folderGridViewBtn.classList.add('active');
-                folderListViewBtn.classList.remove('active');
-                folderGridView.style.display = 'grid';
-                folderListView.classList.remove('active');
-            });
-    
-            // Switch to list view
-            folderListViewBtn.addEventListener('click', function() {
-                folderListViewBtn.classList.add('active');
-                folderGridViewBtn.classList.remove('active');
-                folderGridView.style.display = 'none';
-                folderListView.classList.add('active');
-            });
-    
-            // Create folder functionality
-            createFolderBtn.addEventListener('click', function() {
-                const folderName = prompt('Enter folder name:');
-                if (folderName && folderName.trim()) {
-                    createNewFolder(folderName.trim());
-                }
-            });
-    
-            // Folder card/row click handlers
-            document.querySelectorAll('.folder-card, .folder-row').forEach(folder => {
-                folder.addEventListener('click', function(e) {
-                    // Don't trigger if clicking on action buttons or checkboxes
-                    if (!e.target.closest('.folder-actions, .selection-checkbox')) {
-                        const folderName = folder.querySelector('.folder-name, .folder-row-name').textContent;
-                        openFolder(folderName);
-                    }
-                });
-            });
-    
-            // Action button handlers (prevent event bubbling)
-            document.querySelectorAll('.folder-action-icon').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const action = btn.getAttribute('title');
-                    const folderCard = btn.closest('.folder-card, .folder-row');
-                    const folderName = folderCard.querySelector('.folder-name, .folder-row-name').textContent;
-                    handleFolderAction(action, folderName);
-                });
-            });
-    
-            // Selection checkbox handlers
-            document.querySelectorAll('.selection-checkbox').forEach(checkbox => {
-                checkbox.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    this.classList.toggle('checked');
-                    updateBulkActions();
-                });
-            });
-    
-            function createNewFolder(name) {
-                console.log('Creating folder:', name);
-                alert(`Folder "${name}" created successfully!`);
-            }
-    
-            function openFolder(name) {
-                console.log('Opening folder:', name);
-                alert(`Opening "${name}" folder...`);
-            }
-    
-            function handleFolderAction(action, folderName) {
-                console.log(`${action} action on folder:`, folderName);
-                
-                switch(action.toLowerCase()) {
-                    case 'share':
-                        alert(`Sharing "${folderName}" folder...`);
-                        break;
-                    case 'more':
-                        alert(`More options for "${folderName}" folder...`);
-                        break;
-                    default:
-                        alert(`${action} action for "${folderName}" folder...`);
-                }
-            }
-    
-            function updateBulkActions() {
-                const selectedFolders = document.querySelectorAll('.selection-checkbox.checked').length;
-                if (selectedFolders > 0) {
-                    console.log(`${selectedFolders} folders selected`);
-                }
-            }
-        });
-    </script>
+   <!-- Folder Structure Script -->
+   <script>
+       document.addEventListener('DOMContentLoaded', function() {
+           // Folder dropdown functionality
+           const folderDropdownTrigger = document.getElementById('folder-dropdown-trigger');
+           const folderDropdownMenu = document.getElementById('folder-dropdown-menu');
+           const currentFolderName = document.getElementById('current-folder-name');
+           const folderStructureSection = document.getElementById('folder-structure-section');
+           const documentGridView = document.getElementById('document-grid-view');
+           const documentListView = document.getElementById('document-list-view');
+           
+           // Toggle dropdown
+           folderDropdownTrigger.addEventListener('click', function(e) {
+               e.stopPropagation();
+               const isActive = folderDropdownMenu.classList.contains('active');
+               
+               if (isActive) {
+                   closeDropdown();
+               } else {
+                   openDropdown();
+               }
+           });
+           
+           // Dropdown item selection
+           document.querySelectorAll('.folder-dropdown-item').forEach(item => {
+               item.addEventListener('click', function(e) {
+                   e.stopPropagation();
+                   
+                   // Remove selected from all items
+                   document.querySelectorAll('.folder-dropdown-item').forEach(i => i.classList.remove('selected'));
+                   
+                   // Add selected to current item
+                   this.classList.add('selected');
+                   
+                   // Update current folder name and icon
+                   const folderText = this.querySelector('.folder-item-text').textContent;
+                   const folderIcon = this.querySelector('.folder-item-icon').innerHTML;
+                   const folderType = this.dataset.folder;
+                   
+                   currentFolderName.textContent = folderText;
+                   folderDropdownTrigger.querySelector('i').outerHTML = folderIcon;
+                   
+                   // Handle folder view logic
+                   if (folderType === 'all') {
+                       // Show folder structure, hide document filtering
+                       folderStructureSection.classList.remove('viewing-folder-files');
+                       showAllDocuments();
+                   } else {
+                       // Hide folder structure, show filtered documents
+                       folderStructureSection.classList.add('viewing-folder-files');
+                       filterDocumentsByFolder(folderType);
+                   }
+                   
+                   closeDropdown();
+               });
+           });
+           
+           // Close dropdown when clicking outside
+           document.addEventListener('click', function(e) {
+               if (!folderDropdownTrigger.contains(e.target) && !folderDropdownMenu.contains(e.target)) {
+                   closeDropdown();
+               }
+           });
+           
+           function openDropdown() {
+               folderDropdownMenu.classList.add('active');
+               folderDropdownTrigger.classList.add('active');
+           }
+           
+           function closeDropdown() {
+               folderDropdownMenu.classList.remove('active');
+               folderDropdownTrigger.classList.remove('active');
+           }
+           
+           function showAllDocuments() {
+               // Show all documents in grid/list view
+               document.querySelectorAll('.document-card, .document-row').forEach(doc => {
+                   doc.style.display = '';
+               });
+               updateEmptyState();
+           }
+           
+           function filterDocumentsByFolder(folderType) {
+               // Filter documents by category/folder type
+               document.querySelectorAll('.document-card, .document-row').forEach(doc => {
+                   const docCategory = doc.getAttribute('data-category');
+                   if (docCategory === folderType) {
+                       doc.style.display = '';
+                   } else {
+                       doc.style.display = 'none';
+                   }
+               });
+               updateEmptyState();
+           }
+           
+           function updateEmptyState() {
+               const visibleDocs = document.querySelectorAll('.document-card:not([style*="display: none"]), .document-row:not([style*="display: none"])');
+               const emptyState = document.getElementById('empty-state-vault');
+               
+               if (visibleDocs.length === 0 && emptyState) {
+                   emptyState.style.display = 'block';
+               } else if (emptyState) {
+                   emptyState.style.display = 'none';
+               }
+           }
+           
+           // Folder view toggle functionality
+           const folderGridViewBtn = document.getElementById('folder-grid-view-btn');
+           const folderListViewBtn = document.getElementById('folder-list-view-btn');
+           const folderGridView = document.getElementById('folder-grid-view');
+           const folderListView = document.getElementById('folder-list-view');
+           const createFolderBtn = document.getElementById('create-folder-btn');
+   
+           // Switch to grid view
+           if (folderGridViewBtn && folderListViewBtn && folderGridView && folderListView) {
+               folderGridViewBtn.addEventListener('click', function() {
+                   folderGridViewBtn.classList.add('active');
+                   folderListViewBtn.classList.remove('active');
+                   folderGridView.style.display = 'grid';
+                   folderListView.classList.remove('active');
+               });
+       
+               // Switch to list view
+               folderListViewBtn.addEventListener('click', function() {
+                   folderListViewBtn.classList.add('active');
+                   folderGridViewBtn.classList.remove('active');
+                   folderGridView.style.display = 'none';
+                   folderListView.classList.add('active');
+               });
+           }
+       
+           // Create folder functionality
+           if (createFolderBtn) {
+               createFolderBtn.addEventListener('click', function() {
+                   const folderName = prompt('Enter folder name:');
+                   if (folderName && folderName.trim()) {
+                       createNewFolder(folderName.trim());
+                   }
+               });
+           }
+   
+           // Folder card/row click handlers
+           document.querySelectorAll('.folder-card, .folder-row').forEach(folder => {
+               folder.addEventListener('click', function(e) {
+                   // Don't trigger if clicking on action buttons or checkboxes
+                   if (!e.target.closest('.folder-actions, .selection-checkbox')) {
+                       const folderName = folder.querySelector('.folder-name, .folder-row-name').textContent;
+                       openFolder(folderName);
+                   }
+               });
+           });
+   
+           // Action button handlers (prevent event bubbling)
+           document.querySelectorAll('.folder-action-icon').forEach(btn => {
+               btn.addEventListener('click', function(e) {
+                   e.stopPropagation();
+                   const action = btn.getAttribute('title');
+                   const folderCard = btn.closest('.folder-card, .folder-row');
+                   const folderName = folderCard.querySelector('.folder-name, .folder-row-name').textContent;
+                   handleFolderAction(action, folderName);
+               });
+           });
+   
+           // Selection checkbox handlers
+           document.querySelectorAll('.selection-checkbox').forEach(checkbox => {
+               checkbox.addEventListener('click', function(e) {
+                   e.stopPropagation();
+                   this.classList.toggle('checked');
+                   updateBulkActions();
+               });
+           });
+   
+           function createNewFolder(name) {
+               console.log('Creating folder:', name);
+               alert(`Folder "${name}" created successfully!`);
+           }
+   
+           function openFolder(name) {
+               console.log('Opening folder:', name);
+               alert(`Opening "${name}" folder...`);
+           }
+   
+           function handleFolderAction(action, folderName) {
+               console.log(`${action} action on folder:`, folderName);
+               
+               switch(action.toLowerCase()) {
+                   case 'share':
+                       alert(`Sharing "${folderName}" folder...`);
+                       break;
+                   case 'more':
+                       alert(`More options for "${folderName}" folder...`);
+                       break;
+                   default:
+                       alert(`${action} action for "${folderName}" folder...`);
+               }
+           }
+   
+           function updateBulkActions() {
+               const selectedFolders = document.querySelectorAll('.selection-checkbox.checked').length;
+               if (selectedFolders > 0) {
+                   console.log(`${selectedFolders} folders selected`);
+               }
+           }
+       });
+   </script>
 </body>
 </html>
