@@ -322,8 +322,17 @@ img {
 }
 
    .nav-item.active {
-      background-color: var(--primary-light);
+      background-color: var(--card-bg);
       box-shadow: inset 0 -3px 0 var(--accent);
+      color: var(--primary);
+   }
+   
+   .nav-item.active a {
+      color: var(--primary);
+   }
+   
+   .nav-item.active:hover a {
+      color: var(--primary);
    }
 
    .nav-item:hover:not(.active):not(.dropdown) {
@@ -336,10 +345,22 @@ img {
       margin-right: 8px;
       font-size: 16px;
    }
+   
+   /* Add down caret after nav items with submenus */
+   .nav-item:has(.submenu)::after,
+   .nav-item:has(.dropdown-menu)::after,
+   .nav-item:has(ul)::after {
+       content: "\f0d7"; /* FontAwesome down caret unicode */
+       font-family: "Font Awesome 5 Free", "Font Awesome 6 Free"; /* Adjust based on your FA version */
+       font-weight: 900;
+       margin-left: 5px;
+       font-size: 1em;
+       padding-left:5px;
+   }
 
    .nav-item .fa-caret-down {
       margin-left: 5px;
-      font-size: 0.8em;
+      font-size: 1em;
    }
 
 /* --- 5.2 Dropdown Content --- */
@@ -399,6 +420,10 @@ img {
    .submenu li {
       padding: 10px 20px;
       white-space: nowrap;
+   }
+   
+   .submenu li:last-child {
+      border-radius: 0 0 6px 6px;
    }
 
       .submenu li a {
