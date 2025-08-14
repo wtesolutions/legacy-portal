@@ -6,7 +6,7 @@
     <title>Legacy Safe - Your Secure Digital Vault</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main-merged.css">
 </head>
 <body>
     <div class="container">
@@ -35,29 +35,30 @@
         <!-- Horizontal Navigation -->
         <nav class="horizontal-nav">
             <ul class="nav-items">
-               <li class="nav-item ">
+               <li class="nav-item active">
                   <i class="fas fa-home"></i>
-                  <a href="/Secure/Dashboard" class=" nav-item">
+                  <a href="/Secure/Dashboard" class="current ">
                      Dashboard
                   </a>
                </li>
-               <li class="nav-item active">
+               <li class="nav-item ">
                   <i class="fas fa-vault"></i>
-                  <a href="/Secure/Document-Vault" class="current ">
+                  <a href="/Secure/Document-Vault" class="">
                      My Vault
                   </a>
                </li>
                <li class="nav-item ">
                   <i class="fas fa-university"></i>
-                  <a href="/Secure/Accounts" class=" nav-item">
+                  <a href="/Secure/Accounts" class="">
                      Accounts
                   </a>
                </li>
                <li class="nav-item ">
                   <i class="fas fa-share-alt"></i>
-                  <a href="/Secure/Access-Sharing" class=" ">
-                     Access & Sharing
+                  <a href="/Secure/Access-Sharing" class="">
+                     Access &amp; Sharing
                   </a>
+                  <i class="fas fa-caret-down"></i>
                   <ul class="submenu">
                      <li class="">
                         <a href="/Secure/Access-Sharing/Family-Circle" class=" ">
@@ -73,44 +74,45 @@
                </li>
                <li class="nav-item ">
                   <i class="fas fa-heart"></i>
-                  <a href="/Secure/Legacy-Letters" class=" ">
+                  <a href="/Secure/Legacy-Letters" class="">
                      Legacy Letters
                   </a>
                </li>
                <li class="nav-item ">
                   <i class="fas fa-first-aid"></i>
-                  <a href="/Secure/Crisis-Management" class=" ">
+                  <a href="/Secure/Crisis-Management" class="">
                      Crisis Management
                   </a>
                </li>
                <li class="nav-item ">
                   <i class="fas fa-book-open"></i>
-                  <a href="/Secure/Resources" class=" ">
+                  <a href="/Secure/Resources" class="">
                      Resources
                   </a>
+                  <i class="fas fa-caret-down"></i>
                   <ul class="submenu">
                      <li class="">
-                        <a href="/Secure/Resources/FAQs" class=" ">
+                        <a href="/Secure/Resources/FAQs" class="">
                            FAQs
                         </a>
                      </li>
                      <li class="">
-                        <a href="/Secure/Resources/Articles-Guides" class=" ">
+                        <a href="/Secure/Resources/Articles-Guides" class="">
                            Articles &amp; Guides
                         </a>
                      </li>
                      <li class="">
-                        <a href="/Secure/Resources/Guidance-System" class=" ">
+                        <a href="/Secure/Resources/Guidance-System" class="">
                            Guidance System
                         </a>
                      </li>
                      <li class="">
-                        <a href="/Secure/Resources/Vendor-Directories" class=" ">
+                        <a href="/Secure/Resources/Vendor-Directories" class="">
                            Vendor Directories
                         </a>
                      </li>
                      <li class="">
-                        <a href="/Secure/Resources/Contact-Support" class=" ">
+                        <a href="/Secure/Resources/Contact-Support" class="">
                            Contact Support
                         </a>
                      </li>
@@ -118,9 +120,10 @@
                </li>
                <li class="nav-item ">
                   <i class="fas fa-cog"></i>
-                  <a href="/Secure/User-Profile" class=" ">
+                  <a href="/Secure/User-Profile" class="">
                      User Profile
                   </a>
+                  <i class="fas fa-caret-down"></i>
                   <ul class="submenu">
                      <li class="">
                         <a href="/Secure/User-Profile/Account-Settings" class=" ">
@@ -573,114 +576,73 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Set progress bar widths
-            const progressFills = document.querySelectorAll('.progress-fill');
-            progressFills.forEach(fill => {
-                const width = fill.style.width;
-                fill.style.width = '0';
-                setTimeout(() => {
-                    fill.style.width = width;
-                }, 300);
-            });
-
-            // Toggle todo items
-            const todoCheckboxes = document.querySelectorAll('.todo-checkbox');
-            todoCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('click', function() {
-                    this.classList.toggle('checked');
-                    const todoText = this.nextElementSibling.querySelector('.todo-text');
-                    if (this.classList.contains('checked')) {
-                        todoText.style.textDecoration = 'line-through';
-                        todoText.style.color = 'var(--text-light)';
-                    } else {
-                        todoText.style.textDecoration = 'none';
-                        todoText.style.color = 'var(--text-dark)';
-                    }
+            // Tab switching
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+    
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+    
+                    const targetTab = this.getAttribute('data-tab');
+                    tabContents.forEach(content => {
+                        if (content.id === targetTab + '-tab') {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
                 });
-                
-                // Initialize checked items
-                if (checkbox.classList.contains('checked')) {
-                    const todoText = checkbox.nextElementSibling.querySelector('.todo-text');
-                    todoText.style.textDecoration = 'line-through';
-                    todoText.style.color = 'var(--text-light)';
-                }
             });
-
+    
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            
+            menuToggle.addEventListener('click', function() {
+                navItems.classList.toggle('show');
+            });
+    
             // High contrast toggle
             const contrastToggle = document.querySelector('.high-contrast-toggle');
             contrastToggle.addEventListener('click', function() {
                 document.body.classList.toggle('high-contrast');
             });
-
-            // Mobile menu toggle - UPDATED FUNCTIONALITY
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const navItems = document.querySelector('.nav-items');
-            
-            if(menuToggle && navItems){
-                menuToggle.addEventListener('click', function() {
-                    navItems.classList.toggle('show');
-                });
-            
-                // Close mobile menu when clicking on navigation links
-                const navItemElements = document.querySelectorAll('.nav-item');
-                navItemElements.forEach(item => {
-                    item.addEventListener('click', function() {
-                        // Close the menu
-                        navItems.classList.remove('show');
-                        
-                        // Navigate to page if not active and not dropdown
-                        if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
-                            const pageName = this.getAttribute('data-page');
-                            if (pageName) {
-                                console.log('Navigating to:', pageName);
-                                window.location.href = pageName;
-                            }
-                        }
-                    });
-                });
-            
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!menuToggle.contains(event.target) && !navItems.contains(event.target)) {
-                        navItems.classList.remove('show');
-                    }
+    
+            // Modal functionality
+            const addMemberBtn = document.getElementById('add-family-member-btn');
+            const addMemberModal = document.getElementById('add-member-modal');
+            const modalCloseBtn = document.getElementById('add-member-modal-close');
+            const modalCancelBtn = document.getElementById('add-member-modal-cancel');
+    
+            if (addMemberBtn) {
+                addMemberBtn.addEventListener('click', () => {
+                    addMemberModal.style.display = 'flex';
                 });
             }
-
-            // Category items click
-            const categoryItems = document.querySelectorAll('.category-item');
-            categoryItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const link = this.getAttribute('data-link');
-                    if (link) window.location.href = link;
-                    else console.log('Navigating to category: ' + this.querySelector('.category-title').textContent);
-                });
-            });
-
-            // Quick access items click
-            const quickAccessItems = document.querySelectorAll('.quick-access-item');
-            quickAccessItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const link = this.getAttribute('data-link');
-                    if (link) window.location.href = link;
-                    else console.log('Quick access: ' + this.querySelector('div').textContent);
-                });
-            });
-
-            // Crisis button click
-            const crisisButton = document.querySelector('.crisis-button');
-            if(crisisButton) {
-                crisisButton.addEventListener('click', function() {
-                    console.log('Navigating to crisis management');
-                    window.location.href = 'crisis-management.html'; // Link to crisis page
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', () => {
+                    addMemberModal.style.display = 'none';
                 });
             }
-
+            if (modalCancelBtn) {
+                modalCancelBtn.addEventListener('click', () => {
+                    addMemberModal.style.display = 'none';
+                });
+            }
+            // Close modal if clicked outside
+            window.addEventListener('click', (event) => {
+                if (event.target === addMemberModal) {
+                    addMemberModal.style.display = 'none';
+                }
+            });
+            
             // Navigation items click
             const navItemElements = document.querySelectorAll('.nav-item');
             navItemElements.forEach(item => {
                 item.addEventListener('click', function() {
-                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) { 
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
                         const pageName = this.getAttribute('data-page');
                         if (pageName) {
                             console.log('Navigating to:', pageName);
@@ -689,7 +651,7 @@
                     }
                 });
             });
-            
+    
             // Notification bell click
             const notificationsBell = document.getElementById('notifications-bell');
             if (notificationsBell) {
@@ -697,7 +659,7 @@
                     window.location.href = 'notifications.html';
                 });
             }
-
+    
             // User profile icon click
             const userProfileIcon = document.getElementById('user-profile-icon');
             if (userProfileIcon) {

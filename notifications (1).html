@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - Notifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container single-column-no-alert"> <!-- No right sidebar, no top alert -->
+        <!-- Header -->
+        <header class="header">
+            <a href="dashboard-horizontal.html" class="logo">
+                <h1>Legacy Safe</h1>
+            </a>
+            <div class="header-right">
+                <div class="notifications-icon-header active" id="notifications-bell"> <!-- Added active class for current page -->
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header" id="user-profile-icon">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item" data-page="accounts.html">
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Legacy Messages</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html">
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Notifications</h1>
+
+            <div class="notifications-container">
+                <div class="notification-filters">
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="unread">Unread</button>
+                        <button class="filter-btn" data-filter="system">System</button>
+                        <button class="filter-btn" data-filter="activity">Activity</button>
+                    </div>
+                    <button class="filter-btn mark-all-read-btn">
+                        <i class="fas fa-check-double"></i> Mark All as Read
+                    </button>
+                </div>
+
+                <ul class="notification-list">
+                    <li class="notification-item unread">
+                        <div class="notification-icon system-alert">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">System Maintenance Scheduled</div>
+                            <p class="notification-message">Legacy Safe will undergo scheduled maintenance on June 15, 2025, from 2:00 AM to 4:00 AM EST. The platform may be temporarily unavailable.</p>
+                            <div class="notification-meta">
+                                <span>System Alert</span>
+                                <span>Today, 9:30 AM</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="notification-item unread">
+                        <div class="notification-icon document-reminder">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">Document Expiry Reminder</div>
+                            <p class="notification-message">Your Term Life Insurance policy is set to expire on December 15, 2025. Please review and update if necessary.</p>
+                            <div class="notification-meta">
+                                <span>Document Reminder</span>
+                                <span>Yesterday, 3:00 PM</span>
+                                <div class="notification-actions">
+                                    <a href="vault.html">View Document</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="notification-item">
+                        <div class="notification-icon activity">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">Family Member Joined</div>
+                            <p class="notification-message">Robert Smith has accepted your invitation to join your Family Circle.</p>
+                            <div class="notification-meta">
+                                <span>Activity Notification</span>
+                                <span>June 2, 2025, 10:15 AM</span>
+                                 <div class="notification-actions">
+                                    <a href="access-sharing.html">Manage Permissions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                     <li class="notification-item">
+                        <div class="notification-icon activity">
+                            <i class="fas fa-file-upload"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">New Document Uploaded</div>
+                            <p class="notification-message">You uploaded "Will and Testament.pdf" to your vault.</p>
+                            <div class="notification-meta">
+                                <span>Activity Notification</span>
+                                <span>June 1, 2025, 4:30 PM</span>
+                                 <div class="notification-actions">
+                                    <a href="vault.html">View in Vault</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="notification-item">
+                        <div class="notification-icon checkin-reminder">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">Heartbeat Check-in Successful</div>
+                            <p class="notification-message">Thank you for checking in. Your Legacy Safe account is active and secure. Your next check-in is due by August 3, 2025.</p>
+                            <div class="notification-meta">
+                                <span>Check-in Reminder</span>
+                                <span>June 4, 2025, 11:00 AM</span>
+                            </div>
+                        </div>
+                    </li>
+                     <li class="notification-item">
+                        <div class="notification-icon system-alert">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">Security Update: New Login Detected</div>
+                            <p class="notification-message">A new login to your account was detected from a new device (Chrome on Windows, Springfield, IL). If this was not you, please secure your account immediately.</p>
+                            <div class="notification-meta">
+                                <span>Security Alert</span>
+                                <span>May 28, 2025, 8:12 PM</span>
+                                 <div class="notification-actions">
+                                    <a href="user-profile.html#security-tab">Review Activity</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Add more notification items as needed -->
+                </ul>
+
+                <!-- Empty state for notifications -->
+                <!-- 
+                <div class="empty-notifications">
+                    <div class="empty-icon"><i class="fas fa-bell-slash"></i></div>
+                    <p class="empty-text">You have no new notifications at this time.</p>
+                </div>
+                -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            
+            if(menuToggle && navItems) {
+                menuToggle.addEventListener('click', function() {
+                    navItems.classList.toggle('show');
+                });
+            }
+
+            // High contrast toggle
+            const contrastToggle = document.querySelector('.high-contrast-toggle');
+            if(contrastToggle) {
+                contrastToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('high-contrast');
+                });
+            }
+
+            // Navigation items click
+            const navItemElements = document.querySelectorAll('.nav-item');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
+                        const pageName = this.getAttribute('data-page');
+                        if (pageName) {
+                            console.log('Navigating to:', pageName);
+                            window.location.href = pageName;
+                        }
+                    }
+                });
+            });
+            
+            // Notification filter buttons
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const notificationListItems = document.querySelectorAll('.notification-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+
+                    notificationListItems.forEach(item => {
+                        if (filter === 'all') {
+                            item.style.display = 'flex';
+                        } else if (filter === 'unread' && item.classList.contains('unread')) {
+                            item.style.display = 'flex';
+                        } else if (filter === 'system' && item.querySelector('.system-alert')) {
+                            item.style.display = 'flex';
+                        } else if (filter === 'activity' && item.querySelector('.activity')) { // Assuming .activity class on relevant icons or parent
+                             item.style.display = 'flex';
+                        } else if (this.classList.contains('mark-all-read-btn')) {
+                            // Handle "Mark all as read"
+                            notificationListItems.forEach(li => li.classList.remove('unread'));
+                            // Potentially make an API call here
+                            item.style.display = 'flex'; // Ensure all items are visible after marking as read
+                        }
+                        else {
+                            item.style.display = 'none';
+                        }
+                    });
+                     if (this.classList.contains('mark-all-read-btn')) { // After marking all as read, reset filter to "All"
+                         filterButtons.forEach(btn => btn.classList.remove('active'));
+                         document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                     }
+                });
+            });
+            
+            // Notification bell click
+            const notificationsBell = document.getElementById('notifications-bell');
+            if (notificationsBell) {
+                notificationsBell.addEventListener('click', function() {
+                    window.location.href = 'notifications.html';
+                });
+            }
+
+            // User profile icon click
+            const userProfileIcon = document.getElementById('user-profile-icon');
+            if (userProfileIcon) {
+                userProfileIcon.addEventListener('click', function() {
+                    window.location.href = 'user-profile.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

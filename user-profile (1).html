@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Safe - User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a2dcd68816.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container single-column-no-alert"> <!-- No right sidebar, no top alert -->
+        <!-- Header -->
+        <header class="header">
+            <a href="dashboard-horizontal.html" class="logo">
+                <h1>Legacy Safe</h1>
+            </a>
+            <div class="header-right">
+                <div class="notifications-icon-header" id="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile-icon-header active" id="user-profile-icon"> <!-- Added active class for current page -->
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">John Smith</div>
+                        <div class="user-role">Primary Account</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Horizontal Navigation -->
+        <nav class="horizontal-nav">
+            <ul class="nav-items">
+                <li class="nav-item" data-page="dashboard-horizontal.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="vault.html">
+                    <i class="fas fa-vault"></i>
+                    <span>My Vault</span>
+                </li>
+                <li class="nav-item" data-page="accounts.html">
+                    <i class="fas fa-university"></i>
+                    <span>Accounts</span>
+                </li>
+                <li class="nav-item" data-page="access-sharing.html">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Access & Sharing</span>
+                </li>
+                <li class="nav-item" data-page="legacy-messages.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Legacy Messages</span>
+                </li>
+                <li class="nav-item" data-page="crisis-management.html"> 
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                </li>
+                <li class="nav-item" data-page="resources.html">
+                    <i class="fas fa-book-open"></i>
+                    <span>Resources</span>
+                </li>
+                <li class="nav-item dropdown"> 
+                    <i class="fas fa-cog"></i>
+                    <span>Help & Settings <i class="fas fa-caret-down" style="margin-left: 5px;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="faq-support.html">FAQ & Support</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="communication-preferences.html">Communication Preferences</a>
+                        <a href="account-security.html">Account Security</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">User Profile & Settings</h1>
+
+            <div class="profile-container">
+                <div class="profile-tabs">
+                    <div class="profile-tab active" data-tab="profile-info">Profile Information</div>
+                    <div class="profile-tab" data-tab="account-settings">Account Settings</div>
+                    <div class="profile-tab" data-tab="security">Security</div>
+                    <div class="profile-tab" data-tab="notifications">Notifications</div>
+                    <div class="profile-tab" data-tab="billing">Billing & Subscription</div>
+                </div>
+
+                <!-- Profile Information Tab -->
+                <div class="tab-content active" id="profile-info-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Personal Information</h2>
+                        </div>
+                        <form id="profile-info-form">
+                            <div class="profile-picture-section">
+                                <div class="profile-avatar" id="profile-avatar-preview">
+                                    <i class="fas fa-user"></i>
+                                    <!-- <img src="assets/images/user-avatar.jpg" alt="Profile Picture"> -->
+                                </div>
+                                <div>
+                                    <input type="file" id="profile-picture-upload" accept="image/*" style="display: none;">
+                                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('profile-picture-upload').click();">
+                                        <i class="fas fa-camera"></i> Change Picture
+                                    </button>
+                                    <p class="form-text">Recommended: Square image, JPG or PNG, max 2MB.</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="full-name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="full-name" value="John Smith">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" value="john.smith@example.com" readonly>
+                                <small class="form-text">To change your email, please contact support.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" value="(555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="form-label">Mailing Address</label>
+                                <input type="text" class="form-control" id="address" value="123 Main St, Springfield, IL 62704">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Account Settings Tab -->
+                <div class="tab-content" id="account-settings-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Account Preferences</h2>
+                        </div>
+                        <form id="account-settings-form">
+                            <div class="form-group">
+                                <label for="language" class="form-label">Language</label>
+                                <select class="form-control" id="language">
+                                    <option value="en-US" selected>English (United States)</option>
+                                    <option value="es-ES">Español (España)</option>
+                                    <option value="fr-FR">Français (France)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timezone" class="form-label">Timezone</label>
+                                <select class="form-control" id="timezone">
+                                    <option value="America/New_York">(GMT-05:00) Eastern Time</option>
+                                    <option value="America/Chicago" selected>(GMT-06:00) Central Time</option>
+                                    <option value="America/Denver">(GMT-07:00) Mountain Time</option>
+                                    <option value="America/Los_Angeles">(GMT-08:00) Pacific Time</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date-format" class="form-label">Date Format</label>
+                                <select class="form-control" id="date-format">
+                                    <option value="MM/DD/YYYY" selected>MM/DD/YYYY (e.g., 06/05/2025)</option>
+                                    <option value="DD/MM/YYYY">DD/MM/YYYY (e.g., 05/06/2025)</option>
+                                    <option value="YYYY-MM-DD">YYYY-MM-DD (e.g., 2025-06-05)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Preferences
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Security Tab -->
+                <div class="tab-content" id="security-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Security Settings</h2>
+                        </div>
+                        <form id="security-settings-form">
+                            <div class="form-group">
+                                <label for="current-password" class="form-label">Current Password</label>
+                                <input type="password" class="form-control" id="current-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password" class="form-label">New Password</label>
+                                <input type="password" class="form-control" id="new-password">
+                                <small class="form-text">Must be at least 8 characters, include uppercase, lowercase, number, and symbol.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password" class="form-label">Confirm New Password</label>
+                                <input type="password" class="form-control" id="confirm-password">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-bottom: 20px;">
+                                <i class="fas fa-key"></i> Change Password
+                            </button>
+                        </form>
+                        
+                        <div class="notification-preference" style="padding-top: 20px; border-top: 1px solid var(--border-color);">
+                            <div>
+                                <div class="form-label" style="margin-bottom:0;">Two-Factor Authentication (2FA)</div>
+                                <small class="form-text">Enhance your account security by requiring a second form of verification.</small>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="enable-2fa" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div id="2fa-setup" style="margin-top:10px;">
+                             <button type="button" class="btn btn-secondary">
+                                <i class="fas fa-cog"></i> Configure 2FA
+                            </button>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Login Activity</h2>
+                        </div>
+                        <table class="login-activity-table">
+                            <thead>
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Device / Browser</th>
+                                    <th>Location (IP Address)</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>June 5, 2025, 10:30 AM</td>
+                                    <td>Chrome on Windows</td>
+                                    <td>Springfield, IL (192.168.1.100)</td>
+                                    <td><span style="color: var(--success);">Successful</span></td>
+                                </tr>
+                                 <tr>
+                                    <td>June 3, 2025, 08:15 PM</td>
+                                    <td>Safari on macOS</td>
+                                    <td>Chicago, IL (10.0.0.5)</td>
+                                    <td><span style="color: var(--success);">Successful</span></td>
+                                </tr>
+                                <tr>
+                                    <td>May 28, 2025, 08:12 PM</td>
+                                    <td>Chrome on Windows</td>
+                                    <td>Springfield, IL (78.13.45.102)</td>
+                                    <td><span style="color: var(--danger);">Failed Attempt</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                         <button type="button" class="btn btn-secondary" style="margin-top:15px;">
+                                <i class="fas fa-history"></i> View Full Login History
+                            </button>
+                    </div>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div class="tab-content" id="notifications-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Notification Preferences</h2>
+                        </div>
+                        <p class="form-text" style="margin-bottom:15px;">Choose how you want to be notified about important account activity.</p>
+                        <div class="notification-preference">
+                            <span>Document Upload/Update Alerts</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-preference">
+                            <span>Family Circle Activity (New Member, Access Change)</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-preference">
+                            <span>Security Alerts (New Login, Password Change)</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-preference">
+                            <span>Document Expiry Reminders</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-preference">
+                            <span>Heartbeat Check-in Reminders</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-preference">
+                            <span>Promotional Emails & Newsletters</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                         <button type="button" class="btn btn-primary" style="margin-top:20px;">
+                                <i class="fas fa-save"></i> Save Notification Settings
+                            </button>
+                    </div>
+                </div>
+
+                <!-- Billing Tab -->
+                <div class="tab-content" id="billing-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Billing & Subscription</h2>
+                        </div>
+                        <div class="billing-info-item">
+                            <span class="billing-label">Current Plan:</span>
+                            <span class="billing-value">LegacySafe Premium</span>
+                        </div>
+                        <div class="billing-info-item">
+                            <span class="billing-label">Status:</span>
+                            <span class="billing-value" style="color: var(--success);">Active</span>
+                        </div>
+                        <div class="billing-info-item">
+                            <span class="billing-label">Next Billing Date:</span>
+                            <span class="billing-value">July 1, 2025</span>
+                        </div>
+                        <div class="billing-info-item">
+                            <span class="billing-label">Price:</span>
+                            <span class="billing-value">$19.99 / month</span>
+                        </div>
+                        <div class="billing-info-item">
+                            <span class="billing-label">Payment Method:</span>
+                            <span class="billing-value">Visa ending in **** 1234</span>
+                        </div>
+                         <div style="margin-top: 20px; display:flex; gap:10px; flex-wrap:wrap;">
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-credit-card"></i> Update Payment Method
+                            </button>
+                             <button type="button" class="btn btn-secondary">
+                                <i class="fas fa-file-invoice-dollar"></i> View Billing History
+                            </button>
+                            <button type="button" class="btn btn-secondary">
+                                <i class="fas fa-arrow-up"></i> Upgrade Plan
+                            </button>
+                             <button type="button" class="btn btn-danger">
+                                <i class="fas fa-times-circle"></i> Cancel Subscription
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Accessibility Toggle -->
+    <div class="high-contrast-toggle" title="Toggle High Contrast Mode">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabs = document.querySelectorAll('.profile-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show the corresponding tab content
+                    const tabId = this.getAttribute('data-tab') + '-tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navItems = document.querySelector('.nav-items');
+            
+            if(menuToggle && navItems){
+                menuToggle.addEventListener('click', function() {
+                    navItems.classList.toggle('show');
+                });
+            }
+
+            // High contrast toggle
+            const contrastToggle = document.querySelector('.high-contrast-toggle');
+            if(contrastToggle) {
+                contrastToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('high-contrast');
+                });
+            }
+
+            // Navigation items click
+            const navItemElements = document.querySelectorAll('.nav-item');
+            navItemElements.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.classList.contains('dropdown')) {
+                        const pageName = this.getAttribute('data-page');
+                        if (pageName) {
+                            console.log('Navigating to:', pageName);
+                            window.location.href = pageName;
+                        }
+                    }
+                });
+            });
+            
+            // Notification bell click
+            const notificationsBell = document.getElementById('notifications-bell');
+            if (notificationsBell) {
+                notificationsBell.addEventListener('click', function() {
+                    window.location.href = 'notifications.html';
+                });
+            }
+
+            // User profile icon click
+            const userProfileIcon = document.getElementById('user-profile-icon');
+            if (userProfileIcon) {
+                userProfileIcon.addEventListener('click', function() {
+                    window.location.href = 'user-profile.html';
+                });
+            }
+            
+            // Profile picture preview
+            const profilePicUpload = document.getElementById('profile-picture-upload');
+            const profileAvatarPreview = document.getElementById('profile-avatar-preview');
+            if (profilePicUpload && profileAvatarPreview) {
+                profilePicUpload.addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            profileAvatarPreview.innerHTML = `<img src="${e.target.result}" alt="Profile Picture">`;
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
