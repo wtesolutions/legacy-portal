@@ -196,7 +196,7 @@
                 <!-- Wizard Content -->
                 <div class="wizard-content">
                     <!-- Step 1: Select Institution -->
-                    <div class="step-content" id="step-1">
+                    <div class="step-content active" id="step-1">
                         <h2 class="step-title">Select Financial Institution</h2>
                         <p class="step-description">First, select the type of institution, then choose the specific institution where your account is held.</p>
                         
@@ -692,9 +692,11 @@
                         <p class="step-description">If this account is managed by a financial advisor, you can add their information here. This step is optional.</p>
                         
                         <div class="bank-search">
-                            <input type="text" placeholder="Select your advisor..." id="bank-search">
-                            <i class="fas fa-angle-down"></i>
+                            <input type="text" placeholder="Search for your financial advisor..." id="bank-search">
+                            <i class="fas fa-search"></i>
                         </div>
+                        
+                        <p class="step-description">Don't see your financial advisor? <a href="">Click here to add.</a></p>
                         
                         <!--div class="form-section">
                             <div class="form-row">
@@ -785,7 +787,7 @@
                     </div>
 
                     <!-- Step 5: Review and Confirm -->
-                    <div class="step-content active" id="step-5">
+                    <div class="step-content" id="step-5">
                         <h2 class="step-title">Review and Confirm</h2>
                         <p class="step-description">Please review the information you've provided before adding this account to your vault.</p>
                         
